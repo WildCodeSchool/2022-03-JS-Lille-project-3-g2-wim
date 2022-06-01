@@ -1,56 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Poppins&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+:root {
+  --colorBluePrincipal: #29abe2;
+  --colorTopicBlue: #00c3e3;
+  --colorTopicBleuGreen: #00d8cf;
+  --colorTopicGreen: #55e9ae;
+  --colorTextlight: white;
+  --colorTextBlue: #29abe2;
+  --colorTextDarkBlue: #515c6f;
+  --colorTextDarkGrey: #767676;
+  --colorBackgroundPrincipal: white;
+  --colorBackgroundLightBlue: #e6fcf3;
+  --colorBackgroundLightGrey: #f3f3f3;
+  --colorBackgroundMediumGrey: #d8dadb;
+  --colorBackgroundCancel: #f05151;
 
-.App {
-  text-align: center;
-}
+  --fontPrincipal: 'Poppins', sans-serif 1.5rem;
+  --fontSecondaire: 'Poppins', sans-serif 1rem;
+  --fontTitleBold: 'Poppins', sans-serif 1.75rem bold;
+  --fontTitleTopic: 'Poppins', sans-serif 1.25rem bold;
+  --fontTitleXL: 'Poppins', sans-serif 2.5rem;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  --radiusButton: 8px;
+  --radusTopic: 22px;
+  --shadowButton: 0px 1px 5px #00000030;
+  --shadowImg: 0px 3px 20px #00000020;
+  --borderButton : 2px solid #29abe2;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+  --widthButton100p : 80vw;
+  --widthButton50p : 40vw;
+  --widthButton33p : 26vw;
+  --widthButton25p : 20vw;
+  --heightButton : 6vh;
+  --heightButtonTopic : 13vh: 
 }
