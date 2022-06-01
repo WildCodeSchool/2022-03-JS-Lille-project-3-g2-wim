@@ -1,13 +1,13 @@
 import Style from "./style";
 
-function LogIn() {
+function Home() {
   return (
     <Style>
       <div>
-        <p>Login</p>
+        <p>Home</p>
       </div>
     </Style>
   );
 }
 
-export default LogIn;
+export default Home;
