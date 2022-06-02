@@ -1,12 +1,12 @@
-import Style from "./style";
+import SHome from "./style";
 
 function Home() {
   return (
-    <Style>
+    <SHome>
       <div>
         <p>Home</p>
       </div>
-    </Style>
+    </SHome>
   );
 }
 
