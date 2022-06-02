@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74.836" height="76.222" viewBox="0 0 74.836 76.222">
+  <defs>
+    <filter id="Tracé_2223" x="0" y="0" width="74.836" height="76.222" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#e7eaf0" flood-opacity="0.631"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Groupe_2668" data-name="Groupe 2668" transform="translate(9 6)">
+    <g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Tracé_2223)">
+      <path id="Tracé_2223-2" data-name="Tracé 2223" d="M28.418,0C44.113,0,56.836,13.033,56.836,29.111S44.113,58.222,28.418,58.222,0,45.189,0,29.111,12.723,0,28.418,0Z" transform="translate(9 6)" fill="#29abe2"/>
+    </g>
+    <g id="icon" transform="translate(17.758 19.448)">
+      <path id="home_1_" data-name="home (1)" d="M21.242,22.332l-9.859-7.713a1.015,1.015,0,0,0-1.222,0L.3,22.332a.658.658,0,0,0-.27.751.658.658,0,0,0,.675.425H2.67v9.5a.893.893,0,0,0,.892.892H8.179a.893.893,0,0,0,.892-.892V28.757h3.4v4.252a.893.893,0,0,0,.892.892h4.617a.893.893,0,0,0,.892-.892v-9.5h1.962a.637.637,0,0,0,.406-1.177Z" transform="translate(0 -14.415)" fill="#fff" stroke="#fff" stroke-width="0.3"/>
+    </g>
+  </g>
+</svg>
