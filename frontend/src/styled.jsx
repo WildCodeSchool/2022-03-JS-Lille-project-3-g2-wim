@@ -31,10 +31,10 @@ export default styled.main`
   --shadowImg: 0px 3px 20px #00000020;
   --borderButton : 2px solid #29abe2;
   
-  --widthButton100p : 80vw;
-  --widthButton50p : 40vw;
-  --widthButton33p : 26vw;
-  --widthButton25p : 20vw;
+  --widthButtonXL : 80vw;
+  --widthButtonL : 40vw;
+  --widthButtonM : 26vw;
+  --widthButtonS : 20vw;
   --heightButton : 6vh;
   --heightButtonTopic : 13vh: 
 }
