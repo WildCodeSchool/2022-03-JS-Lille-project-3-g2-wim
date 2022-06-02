@@ -1,12 +1,12 @@
-import Style from "./style";
+import SStream from "./style";
 
 function Stream() {
   return (
-    <Style>
+    <SStream>
       <div>
         <p>Stream</p>
       </div>
-    </Style>
+    </SStream>
   );
 }
 
