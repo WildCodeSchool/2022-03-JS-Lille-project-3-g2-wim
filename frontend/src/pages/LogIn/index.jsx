@@ -1,12 +1,12 @@
-import Style from "./style";
+import SLogIn from "./style";
 
 function LogIn() {
   return (
-    <Style>
+    <SLogIn>
       <div>
         <p>Login</p>
       </div>
-    </Style>
+    </SLogIn>
   );
 }
 
