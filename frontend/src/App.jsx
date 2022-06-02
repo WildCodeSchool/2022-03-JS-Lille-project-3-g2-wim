@@ -1,10 +1,10 @@
-import "./App.css";
+import SGlobal from "./styled";
 
 function App() {
   return (
-    <div className="App">
+    <SGlobal className="App">
       <p>coucou</p>
-    </div>
+    </SGlobal>
   );
 }
 
