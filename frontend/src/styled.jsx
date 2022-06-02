@@ -7,7 +7,7 @@ export default styled.main`
 :root {
   --colorBluePrincipal: #29abe2;
   --colorTopicBlue: #00c3e3;
-  --colorTopicBleuGreen: #00d8cf;
+  --colorTopicBlueGreen: #00d8cf;
   --colorTopicGreen: #55e9ae;
   --colorTextlight: white;
   --colorTextBlue: #29abe2;
