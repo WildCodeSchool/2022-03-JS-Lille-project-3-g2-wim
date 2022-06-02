@@ -1,5 +1,3 @@
-import Styled from "styled-components";
+import styled from "styled-components";
 
-export default Styled.div`
-
-`;
+export default styled.div``;
