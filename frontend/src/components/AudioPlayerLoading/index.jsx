@@ -17,15 +17,6 @@ export default function AudioPlayer() {
     if (listen) setTimer(timer + 1);
   }, 1000);
 
-  // useEffect(() => {
-  //   useInterval(() => {
-  //     setDuration(duration - 1);
-  //   }, 1000);
-  //   useInterval(() => {
-  //     setTimer(timer + 1);
-  //   }, 1000);
-  // }, [timer]);
-
   return (
     <SAudioPlayerLoading>
       <section className="positionnement">
