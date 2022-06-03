@@ -27,9 +27,8 @@ export default function AudioPlayerControll() {
   };
 
   return (
-    <SAudioPlayerControll>
+    <SAudioPlayerControll img={playOrPauseImg}>
       <button
-        img={playOrPauseImg}
         alt="Lancer ou mettre pause sur le cours"
         type="button"
         onClick={startOrPause}
