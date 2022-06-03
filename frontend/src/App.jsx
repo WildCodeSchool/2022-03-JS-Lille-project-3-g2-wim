@@ -1,9 +1,10 @@
+import Stream from "@pages/Stream";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <p>coucou</p>
+      <Stream />
     </div>
   );
 }
