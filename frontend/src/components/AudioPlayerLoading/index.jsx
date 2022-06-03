@@ -4,12 +4,12 @@ import useInterval from "./useInterval";
 
 export default function AudioPlayer() {
   const [timer, setTimer] = useState(0);
-  const [duration, setDuration] = useState(10);
+  const [duration, setDuration] = useState(60);
   const [listen, setListen] = useState(false);
-  const [maxDuration] = useState(10);
+  const [maxDuration] = useState(60);
 
   useInterval(() => {
-    if (timer === maxDuration - 1) setListen(false);
+    if (timer >= maxDuration - 1) setListen(false);
     if (listen) setDuration(duration - 1);
   }, 1000);
 
