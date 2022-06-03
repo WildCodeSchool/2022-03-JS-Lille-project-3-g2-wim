@@ -1,6 +1,7 @@
 import playImg from "@assets/play-solid.svg";
 import pauseImg from "@assets/pause-icon.svg";
 import { useEffect, useState } from "react";
+import AudioButton from "@components/AudioButton";
 import SAudioPlayerControll from "./style";
 
 export default function AudioPlayerControll() {
@@ -27,11 +28,11 @@ export default function AudioPlayerControll() {
   };
 
   return (
-    <SAudioPlayerControll img={playOrPauseImg}>
-      <button
-        alt="Lancer ou mettre pause sur le cours"
-        type="button"
-        onClick={startOrPause}
+    <SAudioPlayerControll>
+      <AudioButton
+        img={playOrPauseImg}
+        alt="Cliquez pour lancer la chanson"
+        funcAudio={startOrPause}
       />
     </SAudioPlayerControll>
   );
