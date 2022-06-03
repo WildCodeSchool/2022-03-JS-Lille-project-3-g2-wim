@@ -1,8 +1,8 @@
 import { useState } from "react";
 import SAudioPlayerLoading from "./style";
-import useInterval from "./useInterval";
+import useInterval from "../../services/useInterval";
 
-export default function AudioPlayer() {
+export default function AudioPlayerLoading() {
   const [timer, setTimer] = useState(0);
   const [duration, setDuration] = useState(60);
   const [listen, setListen] = useState(false);
@@ -23,16 +23,17 @@ export default function AudioPlayer() {
         <div>{timer}</div>
         <div>{duration}</div>
       </section>
-      <input
-        onInput="rangevalue.value=value"
-        className="range"
-        type="range"
-        min="0"
-        max={maxDuration}
-        step="1"
-        value={timer}
-        onChange={(evt) => evt.target.value}
-      />
+      <section className="containInput">
+        <input
+          className="range"
+          type="range"
+          min="0"
+          max={maxDuration}
+          step="1"
+          value={timer}
+          onChange={(evt) => evt.target.value}
+        />
+      </section>
 
       <button
         type="button"

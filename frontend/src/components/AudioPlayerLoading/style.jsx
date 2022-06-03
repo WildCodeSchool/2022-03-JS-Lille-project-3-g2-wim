@@ -10,6 +10,10 @@ export default styled.div`
   button {
     margin: 0 40vw;
   }
+  .containInput {
+    display: flex;
+    justify-content: center;
+  }
   input[type="range"] {
     overflow: hidden;
     width: 70vw;
