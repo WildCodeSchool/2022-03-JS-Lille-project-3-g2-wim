@@ -19,7 +19,7 @@ export default function AudioPlayer() {
 
   return (
     <SAudioPlayerLoading>
-      <section className="positionnement">
+      <section className="containe">
         <div>{timer}</div>
         <div>{duration}</div>
       </section>

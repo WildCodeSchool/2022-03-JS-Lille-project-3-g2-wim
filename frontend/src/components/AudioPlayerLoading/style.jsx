@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.div`
-  .positionnement {
+  .containe {
     display: flex;
     justify-content: space-between;
     width: 70vw;
