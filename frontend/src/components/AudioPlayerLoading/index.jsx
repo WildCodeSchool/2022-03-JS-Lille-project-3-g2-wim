@@ -1,6 +1,6 @@
 import { useState } from "react";
+import useInterval from "@services/useInterval";
 import SAudioPlayerLoading from "./style";
-import useInterval from "../../services/useInterval";
 
 export default function AudioPlayerLoading() {
   const [timer, setTimer] = useState(0);
