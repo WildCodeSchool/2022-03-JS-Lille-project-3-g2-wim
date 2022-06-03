@@ -6,7 +6,7 @@ function Stream() {
     <SStream>
       <div className="contain">
         <div className="circle" />
-        <img src={img} alt="" />
+        <img src={img} alt="audioBackground" />
       </div>
       <div className="lessonTopic">
         <p className="lesson">Fonction sinus ...</p>
