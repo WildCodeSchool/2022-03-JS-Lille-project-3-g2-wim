@@ -11,9 +11,6 @@ export default function AudioPlayerLoading() {
   useInterval(() => {
     if (timer >= maxDuration - 1) setListen(false);
     if (listen) setDuration(duration - 1);
-  }, 1000);
-
-  useInterval(() => {
     if (listen) setTimer(timer + 1);
   }, 1000);
 
@@ -29,9 +26,7 @@ export default function AudioPlayerLoading() {
           type="range"
           min="0"
           max={maxDuration}
-          step="1"
           value={timer}
-          onChange={(evt) => evt.target.value}
         />
       </section>
 
