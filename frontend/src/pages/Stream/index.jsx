@@ -1,13 +1,10 @@
+import AudioPlayer from "@components/AudioPlayer";
 import SStream from "./style";
 
-function Stream() {
+export default function Stream() {
   return (
     <SStream>
-      <div>
-        <p>Stream</p>
-      </div>
+      <AudioPlayer />
     </SStream>
   );
 }
-
-export default Stream;
