@@ -1,7 +1,8 @@
 import img from "@assets/imgAudio.png";
+import AudioPlayer from "@components/AudioPlayer";
 import SStream from "./style";
 
-function Stream() {
+export default function Stream() {
   return (
     <SStream>
       <div className="contain">
@@ -12,8 +13,7 @@ function Stream() {
         <p className="lesson">Fonction sinus ...</p>
         <p className="topic">Mathématique</p>
       </div>
+      <AudioPlayer />
     </SStream>
   );
 }
-
-export default Stream;
