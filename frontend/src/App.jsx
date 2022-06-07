@@ -5,7 +5,6 @@ import LogIn from "@pages/LogIn";
 import SignIn from "@pages/SignIn";
 import Subjects from "@pages/Subjects";
 import Stream from "@pages/Stream";
-
 import Styled from "./AppStyle";
 
 function App() {
