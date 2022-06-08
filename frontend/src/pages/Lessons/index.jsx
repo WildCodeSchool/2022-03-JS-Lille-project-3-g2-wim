@@ -1,12 +1,12 @@
-import Style from "./style";
+import SLessons from "./style";
 
 function Lessons() {
   return (
-    <Style>
+    <SLessons>
       <div>
         <p>Lessons</p>
       </div>
-    </Style>
+    </SLessons>
   );
 }
 

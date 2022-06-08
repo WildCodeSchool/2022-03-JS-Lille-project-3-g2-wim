@@ -1,12 +1,12 @@
-import Style from "./style";
+import SSubjects from "./style";
 
 function Subjects() {
   return (
-    <Style>
+    <SSubjects>
       <div>
         <p>Subjects</p>
       </div>
-    </Style>
+    </SSubjects>
   );
 }
 

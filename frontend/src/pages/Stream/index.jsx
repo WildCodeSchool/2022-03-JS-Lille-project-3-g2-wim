@@ -1,13 +1,19 @@
-import Style from "./style";
+import img from "@assets/imgAudio.png";
+import AudioPlayer from "@components/AudioPlayer";
+import SStream from "./style";
 
-function Stream() {
+export default function Stream() {
   return (
-    <Style>
-      <div>
-        <p>Stream</p>
+    <SStream>
+      <div className="contain">
+        <div className="circle" />
+        <img src={img} alt="audioBackground" />
       </div>
-    </Style>
+      <div className="lessonTopic">
+        <p className="lesson">Fonction sinus ...</p>
+        <p className="topic">Mathématique</p>
+      </div>
+      <AudioPlayer />
+    </SStream>
   );
 }
-
-export default Stream;
