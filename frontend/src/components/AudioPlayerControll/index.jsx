@@ -2,6 +2,7 @@ import playImg from "@assets/play-solid.svg";
 import pauseImg from "@assets/pause-icon.svg";
 import { useEffect, useState } from "react";
 import AudioButton from "@components/AudioButton";
+
 import SAudioPlayerControll from "./style";
 
 export default function AudioPlayerControll() {
