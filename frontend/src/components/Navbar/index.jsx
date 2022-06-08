@@ -7,6 +7,7 @@ import IconHeart from "@assets/Images/icon-heart.svg";
 import IconSelectedHome from "@assets/Images/icon-selected-home.svg";
 import IconSelectedHeart from "@assets/Images/icon-selected-heart.svg";
 import IconSelectedForm from "@assets/Images/icon-selected-form.svg";
+import ButtonNav from "@components/ButtonNav";
 import SNav from "./style";
 
 export default function Navbar() {
@@ -34,49 +35,43 @@ export default function Navbar() {
       <div className="navbar">
         <div className="form">
           <Link to="/subjects" onClick={Subjects}>
-            <button type="button" onClick={changeIconForm}>
-              {iconForm ? (
-                <img
-                  className="iconSelectedForm"
-                  src={IconSelectedForm}
-                  alt="iconSelectedForm"
-                />
-              ) : (
-                <img className="iconform" src={IconForm} alt="iconForm" />
-              )}
-            </button>
+            <ButtonNav
+              selected={iconForm}
+              imgIcon={IconForm}
+              func={changeIconForm}
+              imgSelected={IconSelectedForm}
+              alt="Accès au formulaire"
+              class1="iconForm"
+              class2="iconSelectedForm"
+            />
           </Link>
         </div>
 
         <div className="home">
           <Link to="/subjects" onClick={Subjects}>
-            <button type="button" onClick={changeIconHome}>
-              {iconHome ? (
-                <img
-                  className="iconSelectedHome"
-                  src={IconSelectedHome}
-                  alt="iconSelectedHome"
-                />
-              ) : (
-                <img className="iconHome" src={IconHome} alt="iconHome" />
-              )}
-            </button>
+            <ButtonNav
+              selected={iconHome}
+              imgIcon={IconHome}
+              func={changeIconHome}
+              imgSelected={IconSelectedHome}
+              alt="Accès aux cours"
+              class1="iconHome"
+              class2="iconSelectedHome"
+            />
           </Link>
         </div>
 
         <div className="heart">
           <Link to="/subjects" onClick={Subjects}>
-            <button type="button" onClick={changeIconHeart}>
-              {iconHeart ? (
-                <img
-                  className="iconSelectedHeart"
-                  src={IconSelectedHeart}
-                  alt="iconSelectedHome"
-                />
-              ) : (
-                <img className="iconHeart" src={IconHeart} alt="iconHeart" />
-              )}
-            </button>
+            <ButtonNav
+              selected={iconHeart}
+              imgIcon={IconHeart}
+              func={changeIconHeart}
+              imgSelected={IconSelectedHeart}
+              alt="Accès aux favoris"
+              class1="iconHome"
+              class2="iconSelectedHeart"
+            />
           </Link>
         </div>
       </div>
