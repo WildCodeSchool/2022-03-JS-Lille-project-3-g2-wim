@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default styled.section`
   margin-top: 3rem;
-  .contain {
+  .containStream {
     display: flex;
     justify-content: center;
     .circle {

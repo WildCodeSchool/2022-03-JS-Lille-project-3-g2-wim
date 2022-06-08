@@ -29,7 +29,7 @@ export default styled.div`
   }
 
   input[type="range"]::-webkit-slider-thumb {
-    width: 15px;
+    width: 5px;
     -webkit-appearance: none;
     height: 15px;
     cursor: ew-resize;
