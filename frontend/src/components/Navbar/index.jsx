@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Subjects from "@pages/Subjects";
-import IconForm from "@assets/Images/icon-form.svg";
-import IconHome from "@assets/Images/icon-home.svg";
-import IconHeart from "@assets/Images/icon-heart.svg";
+import IconFormImg from "@assets/Images/icon-form.svg";
+import IconHomeImg from "@assets/Images/icon-home.svg";
+import IconHeartImg from "@assets/Images/icon-heart.svg";
 import IconSelectedHome from "@assets/Images/icon-selected-home.svg";
 import IconSelectedHeart from "@assets/Images/icon-selected-heart.svg";
 import IconSelectedForm from "@assets/Images/icon-selected-form.svg";
@@ -37,7 +37,7 @@ export default function Navbar() {
           <Link to="/subjects" onClick={Subjects}>
             <ButtonNav
               selected={iconForm}
-              imgIcon={IconForm}
+              imgIcon={IconFormImg}
               func={changeIconForm}
               imgSelected={IconSelectedForm}
               alt="Accès au formulaire"
@@ -51,7 +51,7 @@ export default function Navbar() {
           <Link to="/subjects" onClick={Subjects}>
             <ButtonNav
               selected={iconHome}
-              imgIcon={IconHome}
+              imgIcon={IconHomeImg}
               func={changeIconHome}
               imgSelected={IconSelectedHome}
               alt="Accès aux cours"
@@ -65,7 +65,7 @@ export default function Navbar() {
           <Link to="/subjects" onClick={Subjects}>
             <ButtonNav
               selected={iconHeart}
-              imgIcon={IconHeart}
+              imgIcon={IconHeartImg}
               func={changeIconHeart}
               imgSelected={IconSelectedHeart}
               alt="Accès aux favoris"

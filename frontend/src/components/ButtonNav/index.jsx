@@ -30,6 +30,6 @@ ButtonNav.propTypes = {
   imgSelected: PropTypes.string.isRequired,
   class1: PropTypes.string.isRequired,
   class2: PropTypes.string.isRequired,
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.bool.isRequired,
   alt: PropTypes.string.isRequired,
 };

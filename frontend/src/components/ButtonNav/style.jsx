@@ -13,13 +13,19 @@ export default styled.div`
   .iconSelectedHome,
   .iconSelectedForm,
   .iconSelectedHeart {
-    height: 9vh;
     transition: 0.5s;
-    transform: translateY(-37%);
+    transform-origin: center;
+    transform: translateY(-92%) scale(3.5);
   }
   .iconHome,
   .iconForm,
   .iconHeart {
     height: 3.3vh;
+    cursor: pointer;
+  }
+  .iconHeart:hover,
+  .iconHome:hover,
+  .iconForm:hover {
+    filter: brightness(140%);
   }
 `;
