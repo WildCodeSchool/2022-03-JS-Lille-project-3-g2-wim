@@ -22,6 +22,7 @@ export default function AudioPlayerLoading() {
       </section>
       <section className="containInput">
         <input
+          readOnly="readOnly"
           className="range"
           type="range"
           min="0"

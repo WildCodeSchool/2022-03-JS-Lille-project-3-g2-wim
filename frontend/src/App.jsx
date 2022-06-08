@@ -7,7 +7,6 @@ import Subjects from "@pages/Subjects";
 import Stream from "@pages/Stream";
 import Styled from "./AppStyle";
 
-
 function App() {
   return (
     <div className="App">
