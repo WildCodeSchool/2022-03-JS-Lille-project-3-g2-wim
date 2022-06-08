@@ -4,12 +4,10 @@ export default styled.div`
   img {
     height: 3.3vh;
   }
-
   button {
     border: none;
     background-color: transparent;
   }
-
   .iconSelectedHome,
   .iconSelectedForm,
   .iconSelectedHeart {

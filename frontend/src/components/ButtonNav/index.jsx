@@ -23,7 +23,6 @@ export default function ButtonNav({
     </SButtonNav>
   );
 }
-
 ButtonNav.propTypes = {
   imgIcon: PropTypes.string.isRequired,
   func: PropTypes.func.isRequired,

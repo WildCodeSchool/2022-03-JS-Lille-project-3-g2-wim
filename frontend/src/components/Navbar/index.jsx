@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Subjects from "@pages/Subjects";
 import IconFormImg from "@assets/Images/icon-form.svg";
 import IconHomeImg from "@assets/Images/icon-home.svg";
 import IconHeartImg from "@assets/Images/icon-heart.svg";
@@ -14,66 +13,76 @@ export default function Navbar() {
   const [iconHome, setIconHome] = useState(true);
   const [iconForm, setIconForm] = useState(false);
   const [iconHeart, setIconHeart] = useState(false);
-
-  const changeIconHome = () => {
-    setIconHome(true);
-    setIconForm(false);
-    setIconHeart(false);
-  };
-  const changeIconForm = () => {
-    setIconForm(true);
-    setIconHome(false);
-    setIconHeart(false);
-  };
-  const changeIconHeart = () => {
-    setIconHeart(true);
-    setIconForm(false);
-    setIconHome(false);
-  };
+  const buttonsNav = [
+    {
+      id: 1,
+      name: "form",
+      selected: iconForm,
+      imgIcon: IconFormImg,
+      changeIcon() {
+        setIconForm(true);
+        setIconHome(false);
+        setIconHeart(false);
+      },
+      imgSelected: IconSelectedForm,
+      alt: "Accès au formulaire",
+      class1: "iconForm",
+      class2: "iconSelectedForm",
+      linkToPage: "/subjects",
+    },
+    {
+      id: 2,
+      name: "home",
+      selected: iconHome,
+      imgIcon: IconHomeImg,
+      changeIcon() {
+        setIconHome(true);
+        setIconForm(false);
+        setIconHeart(false);
+      },
+      imgSelected: IconSelectedHome,
+      alt: "Accès aux cours",
+      class1: "iconHome",
+      class2: "iconSelectedHome",
+      linkToPage: "/subjects",
+    },
+    {
+      id: 3,
+      name: "heart",
+      selected: iconHeart,
+      imgIcon: IconHeartImg,
+      changeIcon() {
+        setIconHeart(true);
+        setIconForm(false);
+        setIconHome(false);
+      },
+      imgSelected: IconSelectedHeart,
+      alt: "Accès aux favoris",
+      class1: "iconHeart",
+      class2: "iconSelectedHeart",
+      linkToPage: "/subjects",
+    },
+  ];
   return (
     <SNav>
       <div className="navbar">
-        <div className="form">
-          <Link to="/subjects" onClick={Subjects}>
-            <ButtonNav
-              selected={iconForm}
-              imgIcon={IconFormImg}
-              func={changeIconForm}
-              imgSelected={IconSelectedForm}
-              alt="Accès au formulaire"
-              class1="iconForm"
-              class2="iconSelectedForm"
-            />
-          </Link>
-        </div>
-
-        <div className="home">
-          <Link to="/subjects" onClick={Subjects}>
-            <ButtonNav
-              selected={iconHome}
-              imgIcon={IconHomeImg}
-              func={changeIconHome}
-              imgSelected={IconSelectedHome}
-              alt="Accès aux cours"
-              class1="iconHome"
-              class2="iconSelectedHome"
-            />
-          </Link>
-        </div>
-
-        <div className="heart">
-          <Link to="/subjects" onClick={Subjects}>
-            <ButtonNav
-              selected={iconHeart}
-              imgIcon={IconHeartImg}
-              func={changeIconHeart}
-              imgSelected={IconSelectedHeart}
-              alt="Accès aux favoris"
-              class1="iconHome"
-              class2="iconSelectedHeart"
-            />
-          </Link>
-        </div>
+        {buttonsNav.map((buttonNav) => {
+          return (
+            <div className={buttonNav.name} key={buttonNav.id}>
+              <Link to={buttonNav.linkToPage}>
+                <ButtonNav
+                  selected={buttonNav.selected}
+                  imgIcon={buttonNav.imgIcon}
+                  func={buttonNav.changeIcon}
+                  imgSelected={buttonNav.imgSelected}
+                  alt={buttonNav.alt}
+                  class1={buttonNav.class1}
+                  class2={buttonNav.class2}
+                />
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </SNav>
   );
