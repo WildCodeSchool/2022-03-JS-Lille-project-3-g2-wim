@@ -65,13 +65,11 @@ export default function BasicTabs() {
                 onChange={handleChange}
                 aria-label="basic tabs example"
               >
-                {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                 <Tab
                   label="Se connecter"
                   id={tabIndex(0).id}
                   aria-controls={tabIndex(0)["aria-controls"]}
                 />
-                {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                 <Tab
                   label="S'inscrire"
                   id={tabIndex(1).id}
