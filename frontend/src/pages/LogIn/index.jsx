@@ -9,7 +9,7 @@ import SSwitchTabs from "./style";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#1ea0a5",
+      main: "#299bc8",
     },
   },
 });
