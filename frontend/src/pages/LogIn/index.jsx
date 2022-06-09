@@ -17,12 +17,6 @@ const theme = createTheme({
 function TabPanel(props) {
   const { children, value, index } = props;
 
-  TabPanel.propTypes = {
-    children: PropTypes.node.isRequired,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-  };
-
   return (
     <div
       role="tabpanel"
@@ -70,6 +64,7 @@ export default function BasicTabs() {
                   id={tabIndex(0).id}
                   aria-controls={tabIndex(0)["aria-controls"]}
                 />
+                git
                 <Tab
                   label="S'inscrire"
                   id={tabIndex(1).id}
@@ -89,3 +84,8 @@ export default function BasicTabs() {
     </SSwitchTabs>
   );
 }
+TabPanel.propTypes = {
+  children: PropTypes.node.isRequired,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
