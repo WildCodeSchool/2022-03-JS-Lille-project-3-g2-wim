@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.header`
-  background-color: var(--colorBluePrincipal);
+  background-color: var(--colorBlueMain);
   height: 10vh;
   min-height: 85px;
   display: flex;

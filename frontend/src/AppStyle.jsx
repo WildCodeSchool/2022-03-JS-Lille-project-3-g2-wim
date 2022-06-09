@@ -4,7 +4,7 @@ export default styled.div`
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Poppins&display=swap');
 
-  --colorBluePrincipal: #29abe2;
+  --colorBlueMain: #29abe2;
   --colorTopicBlue: #00c3e3;
   --colorTopicBlueGreen: #00d8cf;
   --colorTopicGreen: #55e9ae;
@@ -12,14 +12,14 @@ export default styled.div`
   --colorTextBlue: #29abe2;
   --colorTextDarkBlue: #515c6f;
   --colorTextDarkGrey: #767676;
-  --colorBackgroundPrincipal: white;
+  --colorBackgroundMain: white;
   --colorBackgroundLightBlue: #e6fcf3;
   --colorBackgroundLightGrey: #f3f3f3;
   --colorBackgroundMediumGrey: #d8dadb;
   --colorBackgroundCancel: #f05151;
   
-  --fontPrincipal: 1.5rem 'Poppins', sans-serif ;
-  --fontSecondaire: 1rem 'Poppins', sans-serif ;
+  --fontMain: 1.5rem 'Poppins', sans-serif ;
+  --fontSecondary: 1rem 'Poppins', sans-serif ;
   --fontTitleBold: bold 1.75rem 'Poppins', sans-serif  ;
   --fontTitleTopic: bold 1.25rem 'Poppins', sans-serif ;
   --fontTitleXL: 2.5rem 'Poppins', sans-serif ;
@@ -37,16 +37,15 @@ export default styled.div`
   --heightButton : 6vh;
   --heightButtonTopic : 13vh: 
 
-  background-color: var( --colorBackgroundPrincipal);
-  font: var(--fontPrincipal);
+  background-color: var( --colorBackgroundMain);
+  font: var(--fontMain);
   box-sizing: border-box;
-
-
- main {
-    align-items: center;
-    width:90vw;
-margin:auto;
-margin-top:2rem;
+  
+  main {
+  align-items: center;
+  width:90vw;
+  margin:auto;
+  margin-top:2rem;
   }
 
 `;
