@@ -8,7 +8,7 @@ export default styled.div`
     margin: auto;
   }
   button {
-    margin: 0 40vw;
+    margin: 0 3vw;
   }
   .containInput {
     display: flex;
@@ -29,11 +29,16 @@ export default styled.div`
   }
 
   input[type="range"]::-webkit-slider-thumb {
-    width: 15px;
+    width: 5px;
     -webkit-appearance: none;
     height: 15px;
     cursor: ew-resize;
     background: #1c4f7e;
     box-shadow: -3000px 0 0 3000px #29abe2;
+  }
+  .containButton {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
   }
 `;
