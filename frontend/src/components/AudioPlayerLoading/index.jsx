@@ -71,11 +71,6 @@ export default function AudioPlayerLoading() {
         />
       </section>
 
-      <AudioButton
-        img={playOrPauseImg}
-        alt="Cliquez pour lancer la chanson"
-        funcAudio={startOrPause}
-      />
       <section className="containButton">
         <AudioButton
           img={repeatImg}
@@ -87,14 +82,11 @@ export default function AudioPlayerLoading() {
           alt="retourner en arrière sur la musique"
           funcAudio={backspaceMusic}
         />
-        <button
-          type="button"
-          onClick={() => {
-            setListen(true);
-          }}
-        >
-          play
-        </button>
+        <AudioButton
+          img={playOrPauseImg}
+          alt="Cliquez pour lancer la chanson"
+          funcAudio={startOrPause}
+        />
         <AudioButton
           img={forwardImg}
           alt="avancer dans la musique"
