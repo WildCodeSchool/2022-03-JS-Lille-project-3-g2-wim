@@ -29,13 +29,22 @@ export default function AudioPlayerLoading() {
     if (playOn) setTimer(timer + 1);
   }, 1000);
   const advanceMusic = () => {
-    setTimer(timer + 10);
-    setDuration(duration - 10);
+    if (timer === maxDuration) {
+      setTimer(maxDuration);
+    } else {
+      setTimer(timer + 10);
+      setDuration(duration - 10);
+    }
   };
 
   const backspaceMusic = () => {
-    setTimer(timer - 10);
-    setDuration(duration + 10);
+    if (timer <= 10) {
+      setTimer(0);
+      setDuration(maxDuration);
+    } else {
+      setTimer(timer - 10);
+      setDuration(duration + 10);
+    }
   };
   const backToZero = () => {
     setTimer(0);
