@@ -64,7 +64,6 @@ export default function Login() {
                   id={tabIndex(0).id}
                   aria-controls={tabIndex(0)["aria-controls"]}
                 />
-                git
                 <Tab
                   label="S'inscrire"
                   id={tabIndex(1).id}
