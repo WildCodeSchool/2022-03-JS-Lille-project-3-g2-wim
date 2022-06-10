@@ -33,19 +33,18 @@ function TabPanel(props) {
   );
 }
 
-function tabIndex(index) {
-  return {
-    id: `${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-export default function BasicTabs() {
+export default function Login() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  function tabIndex(index) {
+    return {
+      id: `${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
 
   return (
     <SSwitchTabs>
