@@ -5,7 +5,7 @@ import SStream from "./style";
 export default function Stream() {
   return (
     <SStream>
-      <div className="contain">
+      <div className="containStream">
         <div className="circle" />
         <img src={img} alt="audioBackground" />
       </div>
