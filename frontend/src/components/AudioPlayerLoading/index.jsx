@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import useInterval from "@services/useInterval";
 import playImg from "@assets/play-solid.svg";
 import pauseImg from "@assets/pause-icon.svg";
@@ -15,12 +16,13 @@ export default function AudioPlayerLoading() {
   const [playOn, setPlayOn] = useState(false);
   const [audio, setAudio] = useState(null);
   const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
+
   useEffect(() => {
-    setAudio(
-      new Audio(
-        `${import.meta.env.VITE_BACKEND_URL}/assets/espagnol5SePresenter.mp3`
-      )
-    );
+    axios.get(`http://localhost:5000/lessons/1`).then(({ data }) => {
+      setAudio(
+        new Audio(`${import.meta.env.VITE_BACKEND_URL}${data.fileLocation}`)
+      );
+    });
   }, []);
 
   useInterval(() => {
@@ -87,14 +89,6 @@ export default function AudioPlayerLoading() {
           alt="retourner en arrière sur la musique"
           funcAudio={backspaceMusic}
         />
-        <button
-          type="button"
-          onClick={() => {
-            setListen(true);
-          }}
-        >
-          play
-        </button>
         <AudioButton
           img={forwardImg}
           alt="avancer dans la musique"
