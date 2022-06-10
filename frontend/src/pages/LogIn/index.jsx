@@ -34,7 +34,7 @@ function TabPanel(props) {
   );
 }
 
-export default function Login() {
+export default function LogIn() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -46,7 +46,6 @@ export default function Login() {
       "aria-controls": `simple-tabpanel-${index}`,
     };
   }
-
   return (
     <SSwitchTabs>
       <ThemeProvider theme={theme}>

@@ -1,11 +1,13 @@
+import Header from "@components/Header";
+import Navbar from "@components/Navbar";
 import SHome from "./style";
 
 function Home() {
   return (
     <SHome>
-      <div>
-        <p>Home</p>
-      </div>
+      <Header />
+      <p>Home</p>
+      <Navbar />
     </SHome>
   );
 }
