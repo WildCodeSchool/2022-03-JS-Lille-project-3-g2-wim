@@ -40,12 +40,5 @@ export default styled.div`
   background-color: var( --colorBackgroundMain);
   font: var(--fontMain);
   box-sizing: border-box;
-  
-  main {
-  align-items: center;
-  width:90vw;
-  margin:auto;
-  margin-top:2rem;
-  }
 
 `;

@@ -49,6 +49,6 @@ export default function Home() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </SHome>
+      </SHome>
   );
 }
