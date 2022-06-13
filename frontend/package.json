@@ -16,7 +16,8 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5",
-    "styled-reset": "^4.4.1"
+    "styled-reset": "^4.4.1",
+    "swiper": "^8.2.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
