@@ -12,19 +12,19 @@ import SHome from "./style";
 export default function Home() {
   const images = [
     {
-      destop: "../../../src/assets/home-Logo.png",
+      desktop: "../../../src/assets/home-Logo.png",
       mobile: "../../../src/assets/homeLogo.jpg",
     },
     {
-      destop: "../../../src/assets/home2.png",
+      desktop: "../../../src/assets/home2.png",
       mobile: "../../../src/assets/home2.jpg",
     },
     {
-      destop: "../../../src/assets/home-3.png",
+      desktop: "../../../src/assets/home-3.png",
       mobile: "../../../src/assets/home3.jpg",
     },
     {
-      destop: "../../../src/assets/home-4.png",
+      desktop: "../../../src/assets/home-4.png",
       mobile: "../../../src/assets/home4.jpg",
     },
   ];
