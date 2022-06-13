@@ -17,12 +17,22 @@ export default styled.div`
   --colorBackgroundLightGrey: #f3f3f3;
   --colorBackgroundMediumGrey: #d8dadb;
   --colorBackgroundCancel: #f05151;
-  
+
   --fontMain: 1.5rem 'Poppins', sans-serif ;
   --fontSecondary: 1rem 'Poppins', sans-serif ;
   --fontTitleBold: bold 1.75rem 'Poppins', sans-serif  ;
-  --fontTitleTopic: bold 1.25rem 'Poppins', sans-serif ;
+  --fontTitleTopic: bold 1.125rem 'Poppins', sans-serif ;
   --fontTitleXL: 2.5rem 'Poppins', sans-serif ;
+  
+
+  //We redefine font size smaller for mobile
+  @media screen and (max-width: 760px) {
+    --fontMain: 1rem 'Poppins', sans-serif ;
+  --fontSecondary: 0.85rem 'Poppins', sans-serif ;
+  --fontTitleBold: bold 1.25rem 'Poppins', sans-serif  ;
+  --fontTitleTopic: rem 'Poppins', sans-serif ;
+  --fontTitleXL: 2rem 'Poppins', sans-serif ;
+  }
   
   --radiusButton: 8px;
   --radusTopic: 22px;

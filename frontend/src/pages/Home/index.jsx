@@ -13,12 +13,10 @@ function Home() {
   return (
     <SHome>
       <>
-        <p>Home</p>
+        <h1>Matières</h1>
         <ul>
           {topics.map((topic) => (
-            <li className="topicCard" key={topic.id}>
-              {topic.name}
-            </li>
+            <li key={topic.id}>{topic.name}</li>
           ))}
         </ul>
       </>
