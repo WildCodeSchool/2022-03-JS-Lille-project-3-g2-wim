@@ -87,14 +87,7 @@ export default function AudioPlayerLoading() {
           alt="retourner en arrière sur la musique"
           funcAudio={backspaceMusic}
         />
-        <button
-          type="button"
-          onClick={() => {
-            setListen(true);
-          }}
-        >
-          play
-        </button>
+
         <AudioButton
           img={forwardImg}
           alt="avancer dans la musique"

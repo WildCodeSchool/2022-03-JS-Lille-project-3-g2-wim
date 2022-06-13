@@ -32,7 +32,7 @@ export default styled.div`
   
   --widthButtonXL : 80vw;
   --widthButtonL : 40vw;
-  --widthButtonM : 26vw;
+  --widthButtonM : 25vw;
   --widthButtonS : 20vw;
   --heightButton : 6vh;
   --heightButtonTopic : 13vh: 
