@@ -44,7 +44,7 @@ export default function Home() {
           <SwiperSlide>
             <picture>
               <source srcSet={image.mobile} media="(max-width: 700px)" />
-              <img src={image.destop} alt="home" />
+              <img src={image.desktop} alt="home" />
             </picture>
           </SwiperSlide>
         ))}
