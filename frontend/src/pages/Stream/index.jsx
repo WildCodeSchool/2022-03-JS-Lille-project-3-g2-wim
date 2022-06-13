@@ -1,10 +1,13 @@
 import img from "@assets/imgAudio.png";
 import AudioPlayer from "@components/AudioPlayer";
+import Header from "@components/Header";
+import Navbar from "@components/Navbar";
 import SStream from "./style";
 
 export default function Stream() {
   return (
     <SStream>
+      <Header />
       <div className="containStream">
         <div className="circle" />
         <img src={img} alt="audioBackground" />
@@ -14,6 +17,7 @@ export default function Stream() {
         <p className="topic">Mathématique</p>
       </div>
       <AudioPlayer />
+      <Navbar />
     </SStream>
   );
 }
