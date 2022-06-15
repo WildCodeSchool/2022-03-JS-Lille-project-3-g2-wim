@@ -1,6 +1,5 @@
 const express = require("express");
 const passport = require("passport");
-
 const {
   ItemController,
   LessonController,
@@ -8,14 +7,11 @@ const {
 } = require("./controllers");
 
 const router = express.Router();
-
 //routes /lessons
-
 router.get("/lessons", LessonController.browse);
 router.get("/lessons/:id", LessonController.read);
 
 //  auth routes
-
 router.post("/auth/signup", AuthController.signup);
 router.post(
   "/auth/login",
