@@ -7,7 +7,6 @@ class AuthController {
     const user = req.body;
 
     // TODO validations (length, format...)
-
     user.password = bcrypt.hashSync(
       user.password,
       parseInt(process.env.CRYPT_ROUNDS, 10)
@@ -29,7 +28,6 @@ class AuthController {
 
   static login = (req, res) => {
     // TODO validations (length, format...)
-
     return res.sendStatus(418);
   };
 

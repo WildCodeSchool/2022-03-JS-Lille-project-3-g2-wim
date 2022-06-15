@@ -10,11 +10,9 @@ const {
 const router = express.Router();
 
 // get routes /lessons
-
 router.get("/lessons", LessonController.browse);
 
 //  auth routes
-
 router.post("/auth/signup", AuthController.signup);
 router.post(
   "/auth/login",
@@ -27,8 +25,8 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   AuthController.lessons
 );
-// items routes by default
 
+// items routes by default
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
 router.put("/items/:id", ItemController.edit);
