@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default styled.div`
   img {
-    height: 3.3vh;
+    height: 3vh;
   }
   button {
     border: none;
@@ -13,12 +13,12 @@ export default styled.div`
   .iconSelectedHeart {
     transition: 0.5s;
     transform-origin: center;
-    transform: translateY(-92%) scale(3.5);
+    transform: translateY(-92%) scale(2.3);
   }
   .iconHome,
   .iconForm,
   .iconHeart {
-    height: 3.3vh;
+    height: 3vh;
     cursor: pointer;
   }
   .iconHeart:hover,

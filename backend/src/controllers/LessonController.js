@@ -12,6 +12,18 @@ class LessonController {
         res.sendStatus(500);
       });
   };
+
+  static read = (req, res) => {
+    models.lesson
+      .findAll()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
 }
 
 module.exports = LessonController;

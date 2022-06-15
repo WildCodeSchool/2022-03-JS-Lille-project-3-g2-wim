@@ -9,9 +9,10 @@ const {
 
 const router = express.Router();
 
-// get routes /lessons
+//routes /lessons
 
 router.get("/lessons", LessonController.browse);
+router.get("/lessons/:id", LessonController.read);
 
 //  auth routes
 
@@ -27,6 +28,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   AuthController.lessons
 );
+
 // items routes by default
 
 router.get("/items", ItemController.browse);
