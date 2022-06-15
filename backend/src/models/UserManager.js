@@ -17,12 +17,4 @@ class UserManager extends AbstractManager {
     );
   }
 
-  //   update(item) {
-  //     return this.connection.query(
-  //       `update ${ProjectManager.table} set title = ? where id = ?`,
-  //       [item.title, item.id]
-  //     );
-  //   }
-}
-
 module.exports = UserManager;
