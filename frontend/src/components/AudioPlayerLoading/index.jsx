@@ -6,6 +6,7 @@ import AudioButton from "@components/AudioButton";
 import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
+import axios from "axios";
 import SAudioPlayerLoading from "./style";
 
 export default function AudioPlayerLoading() {
@@ -15,12 +16,13 @@ export default function AudioPlayerLoading() {
   const [playOn, setPlayOn] = useState(false);
   const [audio, setAudio] = useState(null);
   const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
+
   useEffect(() => {
-    setAudio(
-      new Audio(
-        `${import.meta.env.VITE_BACKEND_URL}/assets/espagnol5SePresenter.mp3`
-      )
-    );
+    axios.get("http://localhost:5000/lessons/:id").then(({ data }) => {
+      setAudio(
+        new Audio(`${import.meta.env.VITE_BACKEND_URL}${data[0].fileLocation}`)
+      );
+    });
   }, []);
 
   useInterval(() => {

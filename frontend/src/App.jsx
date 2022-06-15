@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "@components/Header";
+import Home from "@pages/Home";
 import LogIn from "@pages/LogIn";
 import SignIn from "@pages/SignIn";
 import Subjects from "@pages/Subjects";
@@ -11,7 +12,6 @@ function App() {
   return (
     <div className="App">
       <Styled>
-        <Header />
         <main>
           <Routes>
             <Route path="/intro" element={<Intro />} />;

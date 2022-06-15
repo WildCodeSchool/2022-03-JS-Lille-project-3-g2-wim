@@ -28,7 +28,7 @@ export default function Navbar() {
       alt: "Accès au formulaire",
       class1: "iconForm",
       class2: "iconSelectedForm",
-      linkToPage: "/subjects",
+      linkToPage: "/login",
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ export default function Navbar() {
       alt: "Accès aux favoris",
       class1: "iconHeart",
       class2: "iconSelectedHeart",
-      linkToPage: "/subjects",
+      linkToPage: "/stream",
     },
   ];
   return (

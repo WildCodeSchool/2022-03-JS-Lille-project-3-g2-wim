@@ -3,6 +3,7 @@ import styled from "styled-components";
 export default styled.div`
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Poppins&display=swap');
+//VARIABLES DEFINITION
 
   --colorBlueMain: #29abe2;
   --colorTopicBlue: #00c3e3;
@@ -24,6 +25,15 @@ export default styled.div`
   --fontTitleTopic: bold 1.25rem 'Poppins', sans-serif ;
   --fontTitleXL: 2.5rem 'Poppins', sans-serif ;
   
+  //We redefine font size smaller for mobile
+  @media screen and (max-width: 760px) {
+    --fontMain: 1rem 'Poppins', sans-serif ;
+  --fontSecondary: 0.85rem 'Poppins', sans-serif ;
+  --fontTitleBold: bold 1.25rem 'Poppins', sans-serif  ;
+  --fontTitleTopic: rem 'Poppins', sans-serif ;
+  --fontTitleXL: 2rem 'Poppins', sans-serif ;
+  }
+
   --radiusButton: 8px;
   --radusTopic: 22px;
   --shadowButton: 0px 1px 5px #00000030;
