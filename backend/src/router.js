@@ -17,6 +17,8 @@ router.get("/users/:id", UserController.read);
 router.put("/users/:id", UserController.edit);
 
 router.get("/topics", TopicController.browse);
+router.get("/topic/:id", TopicController.browse2);
+
 router.get("/topics/:id", TopicController.read);
 router.put("/topics/:id", TopicController.edit);
 router.post("/topics", TopicController.add);

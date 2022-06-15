@@ -13,6 +13,18 @@ class TopicController {
       });
   };
 
+  static browse2 = (req, res) => {
+    models.schoolTopic
+      .findAllUserTopics(req.params.id)
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static read = (req, res) => {
     models.schoolTopic
       .find(req.params.id)
