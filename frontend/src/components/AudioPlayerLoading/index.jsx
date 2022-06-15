@@ -8,6 +8,7 @@ import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
 import Slider from "@mui/material/Slider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import axios from "axios";
 import SAudioPlayerLoading from "./style";
 
 const theme = createTheme({
@@ -26,12 +27,13 @@ export default function AudioPlayerLoading() {
   const [playOn, setPlayOn] = useState(false);
   const [audio, setAudio] = useState(null);
   const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
+
   useEffect(() => {
-    setAudio(
-      new Audio(
-        `${import.meta.env.VITE_BACKEND_URL}/assets/espagnol5SePresenter.mp3`
-      )
-    );
+    axios.get("http://localhost:5000/lessons/:id").then(({ data }) => {
+      setAudio(
+        new Audio(`${import.meta.env.VITE_BACKEND_URL}${data[0].fileLocation}`)
+      );
+    });
   }, []);
 
   useInterval(() => {
