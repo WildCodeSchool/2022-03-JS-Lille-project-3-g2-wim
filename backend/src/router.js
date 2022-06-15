@@ -22,6 +22,11 @@ router.post(
   AuthController.login
 );
 
+router.get(
+  "/secure/ponies",
+  passport.authenticate("jwt"),
+  AuthController.ponies
+);
 // items routes by default
 
 router.get("/items", ItemController.browse);
