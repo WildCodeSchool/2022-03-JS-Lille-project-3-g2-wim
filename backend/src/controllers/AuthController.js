@@ -33,7 +33,7 @@ class AuthController {
     return res.sendStatus(418);
   };
 
-  static ponies = (req, res) => {
+  static lessons = (req, res) => {
     return res.send("Yay <3");
   };
 }

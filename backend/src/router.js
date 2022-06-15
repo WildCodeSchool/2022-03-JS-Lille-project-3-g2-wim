@@ -18,15 +18,14 @@ router.get("/lessons", LessonController.browse);
 router.post("/auth/signup", AuthController.signup);
 router.post(
   "/auth/login",
-  passport.authenticate("local"),
+  passport.authenticate("local", { session: false }),
   AuthController.login
 );
 
 router.get(
-  "/secure/ponies",
-  passport.authenticate("jwt"),
+  "/secure/lessons",
   passport.authenticate("jwt", { session: false }),
-  AuthController.ponies
+  AuthController.lessons
 );
 // items routes by default
 
