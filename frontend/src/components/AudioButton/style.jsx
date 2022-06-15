@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default styled.div`
   button {
     color: red;
-    width: 5vw;
-    height: 5vh;
+    width: 6vw;
+    height: 4vh;
     background: no-repeat url(${(props) => props.img});
     background-size: contain;
     border: none;
