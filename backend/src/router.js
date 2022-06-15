@@ -5,6 +5,7 @@ const {
   LessonController,
   UserController,
   TopicController,
+  UserTopicController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -17,7 +18,9 @@ router.get("/users/:id", UserController.read);
 router.put("/users/:id", UserController.edit);
 
 router.get("/topics", TopicController.browse);
-router.get("/topic/:id", TopicController.browse2);
+
+router.get("/usertopics/:id", UserTopicController.browse);
+// temporary road before authentification
 
 router.get("/topics/:id", TopicController.read);
 router.put("/topics/:id", TopicController.edit);
