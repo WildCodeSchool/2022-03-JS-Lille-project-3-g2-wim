@@ -39,7 +39,7 @@ export default styled.section`
         height: 16rem;
       }
       img {
-        height: 12rem;
+        width: 12rem;
       }
     }
     .lessonTopic {
