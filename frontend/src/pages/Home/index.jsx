@@ -1,28 +1,51 @@
-import Header from "@components/Header";
-import Navbar from "@components/Navbar";
+/* eslint-disable */
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+/* eslint-enable */
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import SHome from "./style";
 
 function Home() {
-  const topics = [
-    { id: 1, name: "Philosophie", img: "" },
-    { id: 2, name: "Histoire Géographie", img: "" },
-    { id: 3, name: "Science de la Vie et de la Terre", img: "" },
-    { id: 4, name: "Physique Chimie", img: "" },
-    { id: 5, name: "Mathématiques", img: "" },
-    { id: 6, name: "Espagnol", img: "" },
+  const images = [
+    {
+      desktop: "../../../src/assets/Images/home-Logo.png",
+      mobile: "../../../src/assets/Images/homeLogo.jpg",
+    },
+    {
+      desktop: "../../../src/assets/Images/home2.png",
+      mobile: "../../../src/assets/Images/home1.jpg",
+    },
+    {
+      desktop: "../../../src/assets/Images/home-3.png",
+      mobile: "../../../src/assets/Images/home2.jpg",
+    },
+    {
+      desktop: "../../../src/assets/Images/home-4.png",
+      mobile: "../../../src/assets/Images/home3.jpg",
+    },
   ];
   return (
     <SHome>
-      <Header />
-      <>
-        <h1>Matières</h1>
-        <ul>
-          {topics.map((topic) => (
-            <li key={topic.id}>{topic.name}</li>
-          ))}
-        </ul>
-      </>
-      <Navbar />
+      <Swiper
+        cssMode
+        navigation
+        pagination
+        mousewheel
+        keyboard
+        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        className="mySwiper"
+      >
+        {images.map((image) => (
+          <SwiperSlide>
+            <picture>
+              <source srcSet={image.mobile} media="(max-width: 700px)" />
+              <img src={image.desktop} alt="home" />
+            </picture>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </SHome>
   );
 }
