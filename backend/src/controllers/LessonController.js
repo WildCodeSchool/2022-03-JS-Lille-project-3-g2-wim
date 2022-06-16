@@ -15,9 +15,13 @@ class LessonController {
 
   static read = (req, res) => {
     models.lesson
-      .findAll()
+      .find(req.params.id)
       .then(([rows]) => {
-        res.send(rows);
+        if (rows[0] == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows[0]);
+        }
       })
       .catch((err) => {
         console.error(err);
