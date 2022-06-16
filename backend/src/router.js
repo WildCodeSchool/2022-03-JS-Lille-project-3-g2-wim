@@ -1,8 +1,19 @@
 const express = require("express");
 
-const { ItemController, LessonController } = require("./controllers");
+const {
+  ItemController,
+  LessonController,
+  UserController,
+  FavoriteController,
+} = require("./controllers");
 
 const router = express.Router();
+
+router.delete("/users/:id", UserController.delete);
+
+router.get("/favorite/:id", FavoriteController.readByUser);
+router.post("/favorite", FavoriteController.addFavFromUser);
+router.delete("/favorite/:id", FavoriteController.delete);
 
 router.get("/lessons", LessonController.browse);
 router.get("/lessons/:id", LessonController.read);
