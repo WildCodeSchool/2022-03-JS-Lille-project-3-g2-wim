@@ -20,7 +20,11 @@ export default function AudioPlayerLoading() {
   useEffect(() => {
     axios.get("http://localhost:5000/lessons/:id").then(({ data }) => {
       setAudio(
-        new Audio(`${import.meta.env.VITE_BACKEND_URL}${data[0].fileLocation}`)
+        new Audio(
+          `${import.meta.env.VITE_BACKEND_URL}${data[0].fileLocation}${
+            data[0].fileName
+          }`
+        )
       );
     });
   }, []);
