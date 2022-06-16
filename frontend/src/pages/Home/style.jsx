@@ -10,15 +10,18 @@ export default styled.section`
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
   }
   li {
-    width: var(--widthButtonM);
+    width: 25vw;
+    height: 13vh;
     margin: 1vw;
     padding: 1vw;
-    border-radius: var(--radusTopic);
-    text-align: center;
+    border-radius: var(--radiusTopic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--colorTextlight);
     font: var(--fontTitleTopic);
     word-wrap: break-word;
@@ -35,6 +38,7 @@ export default styled.section`
   @media screen and (min-width: 760px) {
     li {
       width: 10vw;
+      padding: 2vw;
     }
   }
 `;
