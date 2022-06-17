@@ -7,18 +7,8 @@ import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
 import Slider from "@mui/material/Slider";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import SAudioPlayerLoading from "./style";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#29abe2",
-      contrastText: "#ffffff",
-    },
-  },
-});
 
 export default function AudioPlayerLoading() {
   const [timer, setTimer] = useState(0);
@@ -78,40 +68,36 @@ export default function AudioPlayerLoading() {
 
   return (
     <SAudioPlayerLoading>
-      <ThemeProvider theme={theme}>
-        <>
-          <section className="contain">
-            <div>{timer}</div>
-            <div>{duration}</div>
-          </section>
-          <section className="containInput">
-            <Slider value={timer} min={0} max={maxDuration} />
-          </section>
+      <section className="contain">
+        <div>{timer}</div>
+        <div>{duration}</div>
+      </section>
+      <section className="containInput">
+        <Slider value={timer} min={0} max={maxDuration} />
+      </section>
 
-          <section className="containButton">
-            <AudioButton
-              img={repeatImg}
-              alt="retourner en arrière sur la musique"
-              funcAudio={backToZero}
-            />
-            <AudioButton
-              img={rewardImg}
-              alt="retourner en arrière sur la musique"
-              funcAudio={backspaceMusic}
-            />
-            <AudioButton
-              img={playOrPauseImg}
-              alt="Cliquez pour lancer la chanson"
-              funcAudio={startOrPause}
-            />
-            <AudioButton
-              img={forwardImg}
-              alt="avancer dans la musique"
-              funcAudio={advanceMusic}
-            />
-          </section>
-        </>
-      </ThemeProvider>
+      <section className="containButton">
+        <AudioButton
+          img={repeatImg}
+          alt="retourner en arrière sur la musique"
+          funcAudio={backToZero}
+        />
+        <AudioButton
+          img={rewardImg}
+          alt="retourner en arrière sur la musique"
+          funcAudio={backspaceMusic}
+        />
+        <AudioButton
+          img={playOrPauseImg}
+          alt="Cliquez pour lancer la chanson"
+          funcAudio={startOrPause}
+        />
+        <AudioButton
+          img={forwardImg}
+          alt="avancer dans la musique"
+          funcAudio={advanceMusic}
+        />
+      </section>
     </SAudioPlayerLoading>
   );
 }
