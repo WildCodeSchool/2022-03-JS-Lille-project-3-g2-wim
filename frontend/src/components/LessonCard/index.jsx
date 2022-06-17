@@ -15,7 +15,7 @@ export default function LessonCard() {
     <SLessonCard>
       <>
         {lessons.map((lesson) => (
-          <div className="CardOfLesson">
+          <div key={lesson.id} className="CardOfLesson">
             <img className="play" src={Play} alt="" />
             <div className="informations">
               <h1 className="lesson"> {lesson.title}</h1>
