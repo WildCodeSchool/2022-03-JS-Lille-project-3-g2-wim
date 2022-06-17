@@ -26,10 +26,3 @@ class FavoriteManager extends AbstractManager {
 }
 
 module.exports = FavoriteManager;
-
-// delete(numberLessonId, userLessonId, id) {
-//   return this.connection.query(
-//     `delete from ${this.table} INNER JOIN lesson ON userFavLesson.lesson_id=lesson.id INNER JOIN user ON userFavLesson.user_id=user.id (user_id, lesson_id) values (?,?) where user.id = ?`,
-//     [userLessonId, numberLessonId, id]
-//   );
-// }
