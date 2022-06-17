@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import useInterval from "@services/useInterval";
 import playImg from "@assets/play-solid.svg";
@@ -7,30 +7,20 @@ import AudioButton from "@components/AudioButton";
 import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
-import axios from "axios";
 import SAudioPlayerLoading from "./style";
 
-export default function AudioPlayerLoading({ id }) {
+export default function AudioPlayerLoading({
+  durationAudio,
+  maxDurationAudio,
+  audio,
+}) {
+  const [duration, setDuration] = useState(durationAudio);
+  const [maxDuration] = useState(maxDurationAudio);
   const [timer, setTimer] = useState(0);
-  const [duration, setDuration] = useState();
-  const [maxDuration, setMaxDuration] = useState();
-  const [playOn, setPlayOn] = useState(false);
-  const [audio, setAudio] = useState(null);
-  const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
 
-  useEffect(() => {
-    axios.get(`http://localhost:5000/lessons/${id}`).then(({ data }) => {
-      setDuration(data.duration);
-      setMaxDuration(data.duration);
-      setAudio(
-        new Audio(
-          `${import.meta.env.VITE_BACKEND_URL}${data.fileLocation}${
-            data.fileName
-          }`
-        )
-      );
-    });
-  }, []);
+  const [playOn, setPlayOn] = useState(false);
+
+  const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
 
   useInterval(() => {
     if (timer >= maxDuration - 1) setPlayOn(false);
@@ -57,7 +47,7 @@ export default function AudioPlayerLoading({ id }) {
   };
   const backToZero = () => {
     setTimer(0);
-    setDuration(60);
+    setDuration(durationAudio);
   };
 
   const startOrPause = () => {
@@ -115,5 +105,7 @@ export default function AudioPlayerLoading({ id }) {
   );
 }
 AudioPlayerLoading.propTypes = {
-  id: PropTypes.string.isRequired,
+  durationAudio: PropTypes.number.isRequired,
+  maxDurationAudio: PropTypes.number.isRequired,
+  audio: PropTypes.instanceOf(Audio).isRequired,
 };
