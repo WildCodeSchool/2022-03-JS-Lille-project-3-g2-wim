@@ -17,7 +17,7 @@ function App() {
             <Route path="/login" element={<LogIn />} />;
             <Route path="/signin" element={<SignIn />} />;
             <Route path="/subjects" element={<Subjects />} />;
-            <Route path="/stream" element={<Stream />} />;
+            <Route path="/stream/:id" element={<Stream />} />;
           </Routes>
         </main>
       </Styled>
