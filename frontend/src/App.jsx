@@ -13,7 +13,7 @@ function App() {
       <Styled>
         <main>
           <Routes>
-            <Route path="*" element={<Home />} />;
+            <Route path="*" element={<Subjects />} />;
             <Route path="/" element={<Home />} />;
             <Route path="/login" element={<LogIn />} />;
             <Route path="/lessons" element={<Lessons />} />;

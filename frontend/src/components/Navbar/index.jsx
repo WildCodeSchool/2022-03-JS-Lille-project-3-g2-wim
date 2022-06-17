@@ -44,7 +44,7 @@ export default function Navbar() {
       alt: "Accès aux cours",
       class1: "iconHome",
       class2: "iconSelectedHome",
-      linkToPage: "/subjects",
+      linkToPage: "/home",
     },
     {
       id: 3,
