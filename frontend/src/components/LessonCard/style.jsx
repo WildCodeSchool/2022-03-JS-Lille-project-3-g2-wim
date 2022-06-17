@@ -36,9 +36,4 @@ export default styled.section`
     position: absolute;
     right: 20px;
   }
-  .barre {
-    position: absolute;
-    right: 12%;
-    left: 12%;
-  }
 `;
