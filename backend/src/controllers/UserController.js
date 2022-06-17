@@ -1,8 +1,8 @@
 const models = require("../models");
 
-class LessonController {
+class UserController {
   static browse = (req, res) => {
-    models.lesson
+    models.user
       .findAll()
       .then(([rows]) => {
         res.send(rows);
@@ -14,7 +14,7 @@ class LessonController {
   };
 
   static read = (req, res) => {
-    models.lesson
+    models.user
       .find(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
@@ -28,6 +28,28 @@ class LessonController {
         res.sendStatus(500);
       });
   };
+
+  static edit = (req, res) => {
+    const user = req.body;
+
+    // TODO validations (length, format...)
+
+    user.id = parseInt(req.params.id, 10);
+
+    models.user
+      .update(user)
+      .then(([result]) => {
+        if (result.affectedRows === 0) {
+          res.sendStatus(404);
+        } else {
+          res.sendStatus(204);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
 }
 
-module.exports = LessonController;
+module.exports = UserController;
