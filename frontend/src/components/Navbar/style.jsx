@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default styled.nav`
   .navbar {
     background-color: white;
-    height: 4vh;
+    height: 6vh;
     width: 100vw;
     display: flex;
     justify-content: space-around;
