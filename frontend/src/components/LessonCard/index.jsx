@@ -7,7 +7,7 @@ import EmptyHeart from "../../assets/Images/emptyheart.svg";
 export default function LessonCard() {
   const [lessons, setLessons] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/lessons").then(({ data }) => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}${"/lessons"}`).then(({ data }) => {
       setLessons(data);
     });
   }, []);
