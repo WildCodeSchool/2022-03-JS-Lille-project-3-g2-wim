@@ -18,7 +18,7 @@ export default function AudioPlayerLoading() {
   const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/lessons/").then(({ data }) => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}${"/lessons"}`).then(({ data }) => {
       setAudio(
         new Audio(
           `${import.meta.env.VITE_BACKEND_URL}${data[0].fileLocation}${
