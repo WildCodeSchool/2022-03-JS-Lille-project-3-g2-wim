@@ -12,18 +12,20 @@ export default function AudioPlayer({ id }) {
   const [title, setTitle] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/lessons/${id}`).then(({ data }) => {
-      setDuration(data.duration);
-      setMaxDuration(data.duration);
-      setTitle(data.title);
-      setAudio(
-        new Audio(
-          `${import.meta.env.VITE_BACKEND_URL}${data.fileLocation}${
-            data.fileName
-          }`
-        )
-      );
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/lessons/${id}`)
+      .then(({ data }) => {
+        setDuration(data.duration);
+        setMaxDuration(data.duration);
+        setTitle(data.title);
+        setAudio(
+          new Audio(
+            `${import.meta.env.VITE_BACKEND_URL}${data.fileLocation}${
+              data.fileName
+            }`
+          )
+        );
+      });
   }, []);
   return (
     <SAudioPlayer>
@@ -33,7 +35,7 @@ export default function AudioPlayer({ id }) {
       </div>
       <div className="lessonTopic">
         <p className="lesson">{title}</p>
-        <p className="topic">Mathématique</p>
+        <p className="topic">Mathématiques</p>
       </div>
       {duration && (
         <AudioPlayerLoading
