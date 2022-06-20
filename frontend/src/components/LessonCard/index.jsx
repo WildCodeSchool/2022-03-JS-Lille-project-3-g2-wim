@@ -16,12 +16,12 @@ export default function LessonCard() {
       <>
         {lessons.map((lesson) => (
           <div key={lesson.id} className="CardOfLesson">
-            <img className="play" src={Play} alt="" />
+            <img className="play" src={Play} alt="play button" />
             <div className="informations">
               <h1 className="lesson"> {lesson.title}</h1>
               <h2>Hip-Hop/{lesson.duration}</h2>
             </div>
-            <img className="heart" src={EmptyHeart} alt="" />
+            <img className="heart" src={EmptyHeart} alt="add favourite button" />
           </div>
         ))}
       </>
