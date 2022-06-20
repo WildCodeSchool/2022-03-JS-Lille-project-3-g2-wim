@@ -6,6 +6,7 @@ import AudioButton from "@components/AudioButton";
 import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
+import Slider from "@mui/material/Slider";
 import axios from "axios";
 import SAudioPlayerLoading from "./style";
 
@@ -76,14 +77,7 @@ export default function AudioPlayerLoading() {
         <div>{duration}</div>
       </section>
       <section className="containInput">
-        <input
-          readOnly="readOnly"
-          className="range"
-          type="range"
-          min="0"
-          max={maxDuration}
-          value={timer}
-        />
+        <Slider value={timer} min={0} max={maxDuration} />
       </section>
 
       <section className="containButton">
