@@ -10,7 +10,6 @@ export default styled.section`
     width: 70%;
   }
   .play {
-    /* border: solid 1px red; */
     height: 3vh;
     margin-left: 2rem;
     margin-right: 0.8rem;
@@ -31,7 +30,6 @@ export default styled.section`
     font-weight: 300;
   }
   .heart {
-    /* border: solid 1px red; */
     height: 3vh;
     position: absolute;
     right: 20px;
