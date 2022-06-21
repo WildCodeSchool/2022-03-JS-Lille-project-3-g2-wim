@@ -10,23 +10,5 @@ export default styled.div`
   background-size: cover;
   height: 100vh;
   width: 100vw;
-  button {
-    border-radius: 9px;
-  }
-  p {
-    color: grey;
-  }
-  .tab {
-    background-color: white;
-    border-radius: 8px;
-    width: 40%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  }
-  @media screen and (max-width: 600px) {
-    background-size: cover;
-    width: 100vw;
-    .tab {
-      width: 90%;
-    }
-  }
+  background-color: white;
 `;

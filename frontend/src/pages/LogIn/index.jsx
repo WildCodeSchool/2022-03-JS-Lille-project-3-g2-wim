@@ -9,7 +9,7 @@ function TabPanel(props) {
   const { children, value, index } = props;
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -20,7 +20,7 @@ function TabPanel(props) {
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </Box>
   );
 }
 
@@ -38,35 +38,40 @@ export default function LogIn() {
   }
   return (
     <SSwitchTabs>
-      <div className="tab">
-        <Box sx={{ width: "100%" }}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              centered
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
-            >
-              <Tab
-                label="Se connecter"
-                id={tabIndex(0).id}
-                aria-controls={tabIndex(0)["aria-controls"]}
-              />
-              <Tab
-                label="S'inscrire"
-                id={tabIndex(1).id}
-                aria-controls={tabIndex(1)["aria-controls"]}
-              />
-            </Tabs>
-          </Box>
-          <TabPanel value={value} index={0}>
-            <SignIn />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <SignUp />
-          </TabPanel>
+      <Box
+        sx={{ maxWidth: "90%", backgroundColor: "white", borderRadius: "8px" }}
+      >
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+          }}
+        >
+          <Tabs
+            centered
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab
+              label="Se connecter"
+              id={tabIndex(0).id}
+              aria-controls={tabIndex(0)["aria-controls"]}
+            />
+            <Tab
+              label="S'inscrire"
+              id={tabIndex(1).id}
+              aria-controls={tabIndex(1)["aria-controls"]}
+            />
+          </Tabs>
         </Box>
-      </div>
+        <TabPanel value={value} index={0}>
+          <SignIn />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <SignUp />
+        </TabPanel>
+      </Box>
     </SSwitchTabs>
   );
 }
