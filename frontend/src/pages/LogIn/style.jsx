@@ -6,7 +6,6 @@ export default styled.div`
   align-items: center;
   background-image: url("src/assets//login/login2.png");
   background-repeat: no-repeat;
-  position: fixed;
   background-size: cover;
   height: 100vh;
   width: 100vw;

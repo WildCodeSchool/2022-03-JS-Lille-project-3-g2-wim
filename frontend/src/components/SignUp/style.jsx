@@ -6,4 +6,7 @@ export default styled.form`
   button {
     margin-top: 2rem;
   }
+  @media only screen and (min-width: 800px) {
+    width: 600px;
+  }
 `;
