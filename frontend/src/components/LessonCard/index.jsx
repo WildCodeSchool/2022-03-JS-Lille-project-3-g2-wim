@@ -1,7 +1,7 @@
 import propTypes from "prop-types";
+import Play from "@assets/Images/play-solid-3.svg";
+import EmptyHeart from "@assets/Images/emptyheart.svg";
 import SLessonCard from "./style";
-import Play from "../../assets/play-solid.svg";
-import EmptyHeart from "../../assets/Images/emptyheart.svg";
 
 export default function LessonCard({ key, title, duration, musicStyle }) {
   return (
