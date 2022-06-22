@@ -8,7 +8,6 @@ import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
 import Slider from "@mui/material/Slider";
-import axios from "axios";
 import SAudioPlayerLoading from "./style";
 
 export default function AudioPlayerLoading({
