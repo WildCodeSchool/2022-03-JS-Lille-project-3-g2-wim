@@ -60,7 +60,7 @@ export default function SignUp() {
               <StepLabel
                 optional={
                   index === 2 ? (
-                    <Typography variant="caption">Dernière étapes</Typography>
+                    <Typography variant="caption">Dernière étape</Typography>
                   ) : null
                 }
               >
