@@ -17,7 +17,9 @@ function Subjects() {
       <h1>Matières</h1>
       <ul>
         {topics.map((topic) => (
-          <li key={topic.id}>{topic.name}</li>
+          <li className="topic" key={topic.id}>
+            {topic.name}
+          </li>
         ))}
       </ul>
       <Navbar />
