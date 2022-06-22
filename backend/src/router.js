@@ -6,13 +6,21 @@ const {
   LessonController,
   AuthController,
   UserController,
+  FavoriteController,
   TopicController,
   UserTopicController,
 } = require("./controllers");
 
 const router = express.Router();
 
-//routes /lessons
+
+router.delete("/users/:id", UserController.delete);
+
+router.get("/favorite/:id", FavoriteController.readByUser);
+router.post("/favorite", FavoriteController.addFavFromUser);
+router.delete("/favorite/:id", FavoriteController.delete);
+
+
 router.get("/lessons", LessonController.browse);
 
 
