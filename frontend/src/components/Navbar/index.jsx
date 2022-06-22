@@ -88,7 +88,6 @@
 //   );
 // }
 import { NavLink } from "react-router-dom";
-
 import SNavBar from "./style";
 
 const icons = [
