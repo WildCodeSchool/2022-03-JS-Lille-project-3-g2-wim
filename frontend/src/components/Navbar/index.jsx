@@ -87,30 +87,41 @@
 //     </SNav>
 //   );
 // }
-import { Link } from "react-router-dom";
-import IconFormImg from "@assets/Images/icon-form.svg";
-import IconHomeImg from "@assets/Images/icon-home.svg";
-import IconHeartImg from "@assets/Images/icon-heart.svg";
-// import IconSelectedHome from "@assets/Images/icon-selected-home.svg";
-// import IconSelectedHeart from "@assets/Images/icon-selected-heart.svg";
-// import IconSelectedForm from "@assets/Images/icon-selected-form.svg";
+import { NavLink } from "react-router-dom";
+
 import SNavBar from "./style";
 
 const icons = [
-  { id: 1, label: "/subjects", img: IconFormImg, alt: "formicon" },
-  { id: 2, label: "/stream", img: IconHomeImg, alt: "homeicon" },
-  { id: 3, label: "/stream", img: IconHeartImg, alt: "hearticon" },
+  {
+    id: 1,
+    label: "/subjects",
+    class1: "selectedIcon",
+    class2: "unSelectedIcon",
+  },
+  {
+    id: 2,
+    label: "/home",
+    class1: "selectedIcon",
+    class2: "unSelectedIcon",
+  },
+  {
+    id: 3,
+    label: "/stream",
+    class1: "selectedIcon",
+    class2: "unSelectedIcon",
+  },
 ];
+
 export default function NavBar() {
   return (
     <SNavBar>
       {icons.map((icon) => {
         return (
-          <Link to={icon.label}>
-            <li key={icon.id}>
-              <img src={icon.img} alt={icon.alt} />
-            </li>
-          </Link>
+          <NavLink
+            key={icon.id}
+            to={icon.label}
+            className={({ isActive }) => (isActive ? icon.class1 : icon.class2)}
+          />
         );
       })}
     </SNavBar>
