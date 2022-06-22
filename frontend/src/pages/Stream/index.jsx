@@ -21,10 +21,6 @@ export default function Stream() {
           <p className="topic">Mathématique</p>
         </div>
         <div className="button">
-          {/* <img src={IconSelectedHeart} alt="" />
-          <img src={arrowDownward} alt="" /> */}
-          {/* <ButtonStream img={IconSelectedHeart} />
-          <ButtonStream img={arrowDownward} /> */}
           <ButtonStream img={IconSelectedHeart} alt="Favorites" />
           <ButtonStream img={arrowDownward} alt="arrow downard" />
         </div>
