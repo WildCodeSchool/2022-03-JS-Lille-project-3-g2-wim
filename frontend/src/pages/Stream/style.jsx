@@ -4,10 +4,7 @@ export default styled.section`
   .globalbContainer {
     height: 86vh;
   }
-  .button {
-    display: flex;
-    justify-content: center;
-  }
+
   .containStream {
     margin-top: 8vh;
     display: flex;
