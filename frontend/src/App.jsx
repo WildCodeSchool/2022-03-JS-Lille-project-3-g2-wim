@@ -20,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Styled>
+
         <ThemeProvider theme={theme}>
           <main>
             <Routes>
