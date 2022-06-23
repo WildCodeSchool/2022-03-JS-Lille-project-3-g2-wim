@@ -19,11 +19,9 @@ export default function AudioPlayerLoading({
   const [duration, setDuration] = useState(durationAudio);
   const [maxDuration] = useState(maxDurationAudio);
   const [timer, setTimer] = useState(0);
-
   const [playOn, setPlayOn] = useState(false);
-
   const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
-
+  
   useInterval(() => {
     if (timer >= maxDuration - 1) setPlayOn(false);
     if (playOn) setDuration(duration - 1);
@@ -35,6 +33,7 @@ export default function AudioPlayerLoading({
     } else {
       setTimer(timer + 10);
       setDuration(duration - 10);
+      audio.fastSeek(duration + 10);
     }
   };
 
@@ -45,6 +44,7 @@ export default function AudioPlayerLoading({
     } else {
       setTimer(timer - 10);
       setDuration(duration + 10);
+      audio.fastSeek(duration - 10);
     }
   };
   const backToZero = () => {
