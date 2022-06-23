@@ -1,4 +1,4 @@
-import arrowDownward from "@assets/arrow_downward-5.svg";
+import arrowDownward from "@assets/Images/download-icon.svg";
 import { saveAs } from "file-saver";
 import PropTypes from "prop-types";
 import SButtonStreamDown from "./style";
