@@ -43,7 +43,6 @@ router.put("/topics/:id", TopicController.edit);
 router.post("/topics", TopicController.add);
 router.delete("/topics/:id", TopicController.delete);
 
-// items routes by default
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
 router.put("/items/:id", ItemController.edit);

@@ -8,6 +8,8 @@ import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
 import Slider from "@mui/material/Slider";
+import ButtonStreamFav from "@components/ButtonStreamFav";
+import ButtonStreamDown from "@components/ButtonStreamDown";
 import SAudioPlayerLoading from "./style";
 
 export default function AudioPlayerLoading({
@@ -77,6 +79,10 @@ export default function AudioPlayerLoading({
 
   return (
     <SAudioPlayerLoading>
+      <div className="button">
+        <ButtonStreamFav />
+        <ButtonStreamDown audioUrl={audio.src} />
+      </div>
       <section className="contain">
         <div>{firstToTime(timer)}</div>
         <div>{secondToTime(duration)}</div>

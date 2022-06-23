@@ -27,6 +27,7 @@ export default function AudioPlayer({ id }) {
         );
       });
   }, []);
+
   return (
     <SAudioPlayer>
       <div className="containStream">

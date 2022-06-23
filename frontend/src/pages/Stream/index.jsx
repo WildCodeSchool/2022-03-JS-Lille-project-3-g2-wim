@@ -9,6 +9,7 @@ export default function Stream() {
   return (
     <SStream>
       <Header />
+      <div className="globalContainer" />
       <AudioPlayer id={id} />
       <Navbar />
     </SStream>
