@@ -33,7 +33,7 @@ function Home() {
       desktop: "../../../src/assets/Images/home-4.png",
       mobile: "../../../src/assets/Images/home3.jpg",
       alt: "Chaque enfant qu'on enseigne est un Homme qu'on gagne",
-      url: "/Subjects",
+      url: "/accueil",
     },
   ];
   return (
