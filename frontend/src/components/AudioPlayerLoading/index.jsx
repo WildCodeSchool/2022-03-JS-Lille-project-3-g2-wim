@@ -65,6 +65,18 @@ export default function AudioPlayerLoading({
       setPlayOrPauseImg(pauseImg);
     }
   };
+  const firstToTime = () => {
+    const min = Math.floor(timer / 60);
+    const timeForSec = timer % 60;
+    const sec = Math.ceil(timeForSec);
+    return `${min}:${sec}`;
+  };
+  const secondToTime = () => {
+    const min = Math.floor(duration / 60);
+    const durationForSec = duration % 60;
+    const sec = Math.ceil(durationForSec);
+    return `${min}:${sec}`;
+  };
 
   return (
     <SAudioPlayerLoading>
@@ -73,8 +85,8 @@ export default function AudioPlayerLoading({
         <ButtonStreamDown audioUrl={audio.src} />
       </div>
       <section className="contain">
-        <div>{timer}</div>
-        <div>{duration}</div>
+        <div>{firstToTime(timer)}</div>
+        <div>{secondToTime(duration)}</div>
       </section>
       <section className="containInput">
         <Slider value={timer} min={0} max={maxDuration} />
