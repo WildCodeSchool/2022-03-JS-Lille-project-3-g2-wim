@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import SHome from "./style";
 
-function Home() {
+export default function Home() {
   const imagesIntro = [
     {
       key: "logo",
@@ -71,5 +71,3 @@ function Home() {
     </SHome>
   );
 }
-
-export default Home;
