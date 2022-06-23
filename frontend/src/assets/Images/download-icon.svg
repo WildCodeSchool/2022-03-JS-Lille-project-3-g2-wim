@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73.518" height="72.696" viewBox="0 0 73.518 72.696">
+  <defs>
+    <filter id="Rectangle_1061" x="0" y="0" width="73.518" height="72.696" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Groupe_2670" data-name="Groupe 2670" transform="translate(-329.256 -858.55)">
+    <g transform="matrix(1, 0, 0, 1, 329.26, 858.55)" filter="url(#Rectangle_1061)">
+      <rect id="Rectangle_1061-2" data-name="Rectangle 1061" width="58.518" height="57.696" rx="7" transform="translate(7.5 6.5)" fill="#fff" opacity="0.61"/>
+    </g>
+    <g id="arrow_downward-24px" transform="translate(348.154 876)">
+      <path id="Tracé_2238" data-name="Tracé 2238" d="M0,0H36.7V36.7H0Z" fill="none"/>
+      <path id="Tracé_2239" data-name="Tracé 2239" d="M28.465,16.233l-2.156-2.156-8.548,8.532V4H14.7V22.609L6.171,14.061,4,16.233,16.233,28.465Z" transform="translate(2.116 2.116)" fill="#29abe2"/>
+    </g>
+  </g>
+</svg>
