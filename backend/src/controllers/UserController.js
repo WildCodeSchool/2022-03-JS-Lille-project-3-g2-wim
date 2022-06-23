@@ -1,12 +1,11 @@
 const models = require("../models");
 
 class UserController {
-
   static delete = (req, res) => {
-    models.user
-      .delete(req.params.id)
-      .then(() => {
-        res.sendStatus(204);
+    models.user.delete(req.params.id).then(() => {
+      res.sendStatus(204);
+    });
+  };
 
   static browse = (req, res) => {
     models.user

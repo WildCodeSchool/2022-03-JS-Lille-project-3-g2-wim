@@ -34,7 +34,7 @@ export default styled.div`
   }
 
   --radiusButton: 8px;
-  --radusTopic: 22px;
+  --radiusTopic: 22px;
   --shadowButton: 0px 1px 5px #00000030;
   --shadowImg: 0px 3px 20px #00000020;
   --borderButton : 2px solid #29abe2;

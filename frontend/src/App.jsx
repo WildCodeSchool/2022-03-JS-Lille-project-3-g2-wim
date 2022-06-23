@@ -3,6 +3,7 @@ import Home from "@pages/Home";
 import LogIn from "@pages/LogIn";
 import Subjects from "@pages/Subjects";
 import Stream from "@pages/Stream";
+import Lessons from "@pages/Lessons";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material";
 import Styled from "./AppStyle";
@@ -20,7 +21,6 @@ function App() {
   return (
     <div className="App">
       <Styled>
-
         <ThemeProvider theme={theme}>
           <main>
             <Routes>
@@ -28,6 +28,8 @@ function App() {
               <Route path="/" element={<Home />} />;
               <Route path="/login" element={<LogIn />} />;
               <Route path="/accueil" element={<Subjects />} />;
+              <Route path="/lessons" element={<Lessons />} />;
+              <Route path="/subjects" element={<Subjects />} />;
               <Route path="/stream/:id" element={<Stream />} />;
             </Routes>
           </main>
@@ -36,5 +38,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
