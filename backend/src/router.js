@@ -13,8 +13,6 @@ const {
 
 const router = express.Router();
 
-
-// routes lessons
 router.delete("/users/:id", UserController.delete);
 router.get("/favorite/:id", FavoriteController.readByUser);
 router.post("/favorite", FavoriteController.addFavFromUser);
