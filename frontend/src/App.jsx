@@ -27,7 +27,7 @@ function App() {
               <Route path="/" element={<Home />} />;
               <Route path="/login" element={<LogIn />} />;
               <Route path="/accueil" element={<Subjects />} />;
-              <Route path="/stream" element={<Stream />} />;
+              <Route path="/stream/:id" element={<Stream />} />;
             </Routes>
           </main>
         </ThemeProvider>
