@@ -4,6 +4,7 @@ export default styled.section`
   .globalbContainer {
     height: 86vh;
   }
+
   .containStream {
     margin-top: 8vh;
     display: flex;
