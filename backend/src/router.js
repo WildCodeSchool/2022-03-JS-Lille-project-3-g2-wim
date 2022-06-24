@@ -12,6 +12,7 @@ const {
 } = require("./controllers");
 
 const router = express.Router();
+
 router.delete("/users/:id", UserController.delete);
 router.get("/favorite/:id", FavoriteController.readByUser);
 router.post("/favorite", FavoriteController.addFavFromUser);
