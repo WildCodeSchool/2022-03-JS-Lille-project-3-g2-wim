@@ -10,7 +10,7 @@ export default function ButtonStreamFav({ id }) {
   const [activ, setActive] = useState(false);
   const [IconActive, setIconActiv] = useState(IconFav);
   const addFavorite = () => {
-    axios.post("http://localhost:5000/favorite", formData).then();
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, formData).then();
     if (activ === false) {
       setActive(true);
       setIconActiv(IconFavAdd);
@@ -20,7 +20,9 @@ export default function ButtonStreamFav({ id }) {
     }
   };
   const deleteFavorite = () => {
-    axios.delete(`http://localhost:5000/favorite${id}`, formData).then();
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/favorite/${id}`, formData)
+      .then();
     if (activ === false) {
       setActive(true);
       setIconActiv(IconFavAdd);
