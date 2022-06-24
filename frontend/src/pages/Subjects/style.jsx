@@ -13,7 +13,7 @@ export default styled.section`
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  li {
+  .topic {
     width: var(--widthButtonM);
     margin: 1vw;
     padding: 1vw;
@@ -23,17 +23,17 @@ export default styled.section`
     font: var(--fontTitleTopic);
     word-wrap: break-word;
   }
-  li:nth-child(3n-2) {
+  .topic:nth-child(3n-2) {
     background-color: var(--colorBlueMain);
   }
-  li:nth-child(3n-1) {
+  .topic:nth-child(3n-1) {
     background-color: var(--colorTopicBlue);
   }
-  li:nth-child(3n) {
+  .topic:nth-child(3n) {
     background-color: var(--colorTopicBlueGreen);
   }
   @media screen and (min-width: 760px) {
-    li {
+    .topic {
       width: 10vw;
     }
   }

@@ -18,7 +18,7 @@ router.post("/favorite", FavoriteController.addFavFromUser);
 router.delete("/favorite/:id", FavoriteController.delete);
 router.get("/lessons", LessonController.browse);
 
-//  auth routes
+// auth routes
 router.post("/auth/signup", AuthController.signup);
 router.post(
   "/auth/login",
