@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export default styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin-top: 1rem;
   button {
