@@ -53,7 +53,7 @@ export default function SignUp() {
 
   return (
     <SSignUp>
-      <Box sx={{ maxWidth: 400 }}>
+      <Box sx={{ maxWidth: "100%" }}>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step key={step.label}>
@@ -111,7 +111,7 @@ export default function SignUp() {
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} sx={{ p: 5 }}>
-            <h1>Bienvenue chez WIM !</h1>
+            <Typography>Bienvenue chez WIM !</Typography>
             <Button size="large" variant="contained" onClick={reset}>
               Se connecter
             </Button>

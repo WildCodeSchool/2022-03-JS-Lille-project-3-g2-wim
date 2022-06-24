@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73.518" height="72.696" viewBox="0 0 73.518 72.696">
+  <defs>
+    <filter id="Rectangle_1062" x="0" y="0" width="73.518" height="72.696" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Groupe_2669" data-name="Groupe 2669" transform="translate(-201.256 -858.55)">
+    <g transform="matrix(1, 0, 0, 1, 201.26, 858.55)" filter="url(#Rectangle_1062)">
+      <rect id="Rectangle_1062-2" data-name="Rectangle 1062" width="58.518" height="57.696" rx="7" transform="translate(7.5 6.5)" fill="#29abe2"/>
+    </g>
+    <g id="Wishlist" transform="translate(222.765 879.303)">
+      <g id="Groupe_2155" data-name="Groupe 2155" transform="translate(0 0)">
+        <path id="Tracé_1269" data-name="Tracé 1269" d="M30.637,32.7a8.324,8.324,0,0,0-13.29.956,12.671,12.671,0,0,0-.823,1.334A12.661,12.661,0,0,0,15.7,33.66,8.324,8.324,0,0,0,2.411,32.7,10.018,10.018,0,0,0,0,39.358c0,2.75,1.074,5.308,3.379,8.049a75.223,75.223,0,0,0,8.456,7.9c1.279,1.09,2.6,2.217,4.009,3.449l.042.037a.968.968,0,0,0,1.275,0l.042-.037c1.408-1.232,2.731-2.359,4.01-3.449a75.208,75.208,0,0,0,8.456-7.9c2.305-2.742,3.379-5.3,3.379-8.049A10.018,10.018,0,0,0,30.637,32.7Z" transform="translate(0 -29.836)" fill="#fdfdfd"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -16,6 +16,7 @@ export default function AudioPlayerLoading({
   durationAudio,
   maxDurationAudio,
   audio,
+  id,
 }) {
   const [duration, setDuration] = useState(durationAudio);
   const [maxDuration] = useState(maxDurationAudio);
@@ -80,7 +81,7 @@ export default function AudioPlayerLoading({
   return (
     <SAudioPlayerLoading>
       <div className="button">
-        <ButtonStreamFav />
+        <ButtonStreamFav id={id} />
         <ButtonStreamDown audioUrl={audio.src} />
       </div>
       <section className="contain">
@@ -120,4 +121,5 @@ AudioPlayerLoading.propTypes = {
   durationAudio: PropTypes.number.isRequired,
   maxDurationAudio: PropTypes.number.isRequired,
   audio: PropTypes.instanceOf(Audio).isRequired,
+  id: PropTypes.string.isRequired,
 };

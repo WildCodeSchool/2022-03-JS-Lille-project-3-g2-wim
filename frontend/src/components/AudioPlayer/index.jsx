@@ -43,6 +43,7 @@ export default function AudioPlayer({ id }) {
           durationAudio={duration}
           maxDurationAudio={maxDuration}
           audio={audio}
+          id={id}
         />
       )}
     </SAudioPlayer>

@@ -27,8 +27,8 @@ class AuthController {
   };
 
   static login = (req, res) => {
-    // TODO validations (length, format...)
-    return res.sendStatus(418);
+    const token = jwt.sign(req.user, process.env.JWT_SECRET);
+    res.status(200).json({ user: req.user, token });
   };
 
   static lessons = (req, res) => {
