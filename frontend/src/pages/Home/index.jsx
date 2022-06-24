@@ -1,11 +1,11 @@
-/* eslint-disable */
+/* eslint-disable import/no-unresolved */
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-/* eslint-enable */
+/* eslint-enable import/no-unresolved */
 import { Link } from "react-router-dom";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import SHome from "./style";
 
 export default function Home() {
