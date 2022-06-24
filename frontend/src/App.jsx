@@ -26,11 +26,10 @@ function App() {
             <Routes>
               <Route path="*" element={<Home />} />;
               <Route path="/" element={<Home />} />;
-              <Route path="/login" element={<LogIn />} />;
+              <Route path="/connexion" element={<LogIn />} />;
               <Route path="/accueil" element={<Subjects />} />;
-              <Route path="/lessons" element={<Lessons />} />;
-              <Route path="/subjects" element={<Subjects />} />;
-              <Route path="/stream/:id" element={<Stream />} />;
+              <Route path="/cours" element={<Lessons />} />;
+              <Route path="/ecoute/:id" element={<Stream />} />;
             </Routes>
           </main>
         </ThemeProvider>
