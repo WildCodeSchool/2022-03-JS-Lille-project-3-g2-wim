@@ -9,7 +9,7 @@ export default styled.div`
     width: 70vw;
     margin: auto;
   }
-  .button {
+  .favDownloadContainer {
     display: flex;
     justify-content: center;
   }

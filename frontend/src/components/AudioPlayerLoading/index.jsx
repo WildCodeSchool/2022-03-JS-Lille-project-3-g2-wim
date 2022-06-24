@@ -80,7 +80,7 @@ export default function AudioPlayerLoading({
 
   return (
     <SAudioPlayerLoading>
-      <div className="button">
+      <div className="favDownloadContainer">
         <ButtonStreamFav id={id} />
         <ButtonStreamDown audioUrl={audio.src} />
       </div>

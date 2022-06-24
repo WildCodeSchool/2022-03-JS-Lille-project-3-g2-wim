@@ -22,7 +22,7 @@ function Subjects() {
       <ul>
         {topics.map((topic) => (
           <li className="topic" key={topic.id}>
-            {topic.name}
+            {topic.label}
           </li>
         ))}
       </ul>
