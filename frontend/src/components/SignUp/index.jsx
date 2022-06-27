@@ -1,3 +1,6 @@
+import cookies from "universal-cookie";
+import { toast } from "react-toastify";
+import axios from "axios";
 import {
   TextField,
   Box,
@@ -37,24 +40,57 @@ const steps = [
 ];
 
 export default function SignUp() {
+  // Variables defined for material admin form
   const [activeStep, setActiveStep] = useState(0);
-
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
-
   const prevStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
   const reset = () => {
     setActiveStep(0);
   };
 
+  // Variables and fonction defined to control the form and sert authentification
+  const [form, setForm] = useState({
+    haveAccount: false,
+    email: "",
+    password: "",
+    passwordBis: "",
+    name: "",
+    firstname: "",
+    age: "",
+    schoolOption: "",
+    schoolName: "",
+    country: "",
+    schoolClass_id: "",
+  });
+  const hChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+  const hSubmit = (evt) => {
+    evt.preventDefault();
+    axios
+      .post("http://localhost:5000/auth/signup", form)
+      .then(({ data }) => {
+        const { token, user } = data;
+        cookies.set("token", token);
+        axios.defaults.headers.authorization = `Bearer ${token}`;
+        // dispatch({ type: "LOGIN", user });
+        toast(`You're now logged in, ${user.firstname} <3`);
+      })
+      .catch((e) => {
+        toast.error(`Achtung!${e}`);
+      });
+  };
+
   return (
-    <SSignUp>
+    <SSignUp onSubmit={hSubmit}>
       <Box sx={{ maxWidth: "100%" }}>
         <Stepper activeStep={activeStep} orientation="vertical">
+          {/* Map made to manage three steps - identity, scolar informations, connexion infos */}
           {steps.map((step, index) => (
             <Step key={step.label}>
               <StepLabel
@@ -67,25 +103,31 @@ export default function SignUp() {
                 <Typography>{step.label}</Typography>
               </StepLabel>
               <StepContent>
+                {/* //First field appearing in three steps - identity, scolar informations, connexion infos */}
                 <TextField
                   required
                   label={step.firstField}
                   fullWidth
                   variant="standard"
+                  onChange={hChange}
                 />
+                {/* //Second field  */}
                 <TextField
                   required
                   label={step.secondeField}
                   fullWidth
                   variant="standard"
                   type={step.type}
+                  onChange={hChange}
                 />
+                {/* //Third field  */}
                 <TextField
                   required
                   label={step.thirdField}
                   fullWidth
                   variant="standard"
                   type={step.type}
+                  onChange={hChange}
                 />
                 <Box sx={{ mb: 2 }}>
                   <Button
