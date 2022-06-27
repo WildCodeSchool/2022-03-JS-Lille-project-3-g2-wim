@@ -6,9 +6,10 @@ import authProvider from "./authProvider";
 function App() {
   return (
     <div className="App">
-      <Admin dataProvider={dataProvider} authProvider={authProvider}>
+      <Admin dataProvider={dataProvider}>
         <Resource name="users" list={ListGuesser} />
         <Resource name="lessons" list={ListGuesser} />
+        <Resource name="topics" list={ListGuesser} />
       </Admin>
     </div>
   );
