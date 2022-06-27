@@ -1,5 +1,5 @@
 import { fetchUtils } from "react-admin";
-import api from "@services/api";
+import api from "../services/api";
 
 const apiUrl = `${api.defaults.baseURL}`;
 
