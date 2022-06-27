@@ -5,7 +5,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import SButtonLessonFav from "./style";
 
-export default function ButtonStreamFav({ id }) {
+export default function ButtonLessonFav({ id }) {
   const [formData] = useState({ user_id: 2, lesson_id: id });
   const [activ, setActive] = useState(false);
   const [IconActive, setIconActiv] = useState(EmptyHeart);
@@ -42,6 +42,6 @@ export default function ButtonStreamFav({ id }) {
     </SButtonLessonFav>
   );
 }
-ButtonStreamFav.propTypes = {
+ButtonLessonFav.propTypes = {
   id: PropTypes.string.isRequired,
 };

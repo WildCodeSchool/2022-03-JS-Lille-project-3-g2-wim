@@ -9,7 +9,7 @@ function Lessons() {
   const [lessons, setLessons] = useState([]);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}${"/lessons/1"}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}${"/lessons"}`)
       .then(({ data }) => {
         setLessons(data);
       });
