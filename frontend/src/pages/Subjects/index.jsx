@@ -1,28 +1,33 @@
 import Header from "@components/Header";
 import Navbar from "@components/Navbar";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import SSubjects from "./style";
 
 function Subjects() {
-  const topics = [
-    { id: 1, name: "Philosophie", img: "" },
-    { id: 2, name: "Histoire Géographie", img: "" },
-    { id: 3, name: "Science de la Vie et de la Terre", img: "" },
-    { id: 4, name: "Physique Chimie", img: "" },
-    { id: 5, name: "Mathématiques", img: "" },
-    { id: 6, name: "Espagnol", img: "" },
-  ];
+  const [topics, setTopics] = useState([]);
+  // General topics for the moment. To customize when authentification is done with user topics
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}${"/topics"}`)
+      .then(({ data }) => {
+        setTopics(data);
+      });
+  }, []);
+
   return (
     <SSubjects>
       <Header />
       <h1>Matières</h1>
       <ul>
         {topics.map((topic) => (
-          <li key={topic.id}>{topic.name}</li>
+          <li className="topic" key={topic.id}>
+            {topic.label}
+          </li>
         ))}
       </ul>
       <Navbar />
     </SSubjects>
   );
 }
-
 export default Subjects;

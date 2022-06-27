@@ -18,8 +18,6 @@ router.get("/favorite/:id", FavoriteController.readByUser);
 router.post("/favorite", FavoriteController.addFavFromUser);
 router.delete("/favorite/:id", FavoriteController.delete);
 router.get("/lessons", LessonController.browse);
-
-//  auth routes
 router.post("/auth/signup", AuthController.signup);
 router.post(
   "/auth/login",
@@ -37,14 +35,10 @@ router.get("/users/:id", UserController.read);
 router.put("/users/:id", UserController.edit);
 router.get("/topics", TopicController.browse);
 router.get("/usertopics/:id", UserTopicController.browse);
-
-// temporary road before authentification
 router.get("/topics/:id", TopicController.read);
 router.put("/topics/:id", TopicController.edit);
 router.post("/topics", TopicController.add);
 router.delete("/topics/:id", TopicController.delete);
-
-// items routes by default
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
 router.put("/items/:id", ItemController.edit);

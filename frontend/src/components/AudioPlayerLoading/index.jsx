@@ -8,12 +8,15 @@ import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
 import Slider from "@mui/material/Slider";
+import ButtonStreamFav from "@components/ButtonStreamFav";
+import ButtonStreamDown from "@components/ButtonStreamDown";
 import SAudioPlayerLoading from "./style";
 
 export default function AudioPlayerLoading({
   durationAudio,
   maxDurationAudio,
   audio,
+  id,
 }) {
   const [duration, setDuration] = useState(durationAudio);
   const [maxDuration] = useState(maxDurationAudio);
@@ -61,12 +64,28 @@ export default function AudioPlayerLoading({
       setPlayOrPauseImg(pauseImg);
     }
   };
+  const firstToTime = () => {
+    const min = Math.floor(timer / 60);
+    const timeForSec = timer % 60;
+    const sec = Math.ceil(timeForSec);
+    return `${min}:${sec}`;
+  };
+  const secondToTime = () => {
+    const min = Math.floor(duration / 60);
+    const durationForSec = duration % 60;
+    const sec = Math.ceil(durationForSec);
+    return `${min}:${sec}`;
+  };
 
   return (
     <SAudioPlayerLoading>
+      <div className="favDownloadContainer">
+        <ButtonStreamFav id={id} />
+        <ButtonStreamDown audioUrl={audio.src} />
+      </div>
       <section className="contain">
-        <div>{timer}</div>
-        <div>{duration}</div>
+        <div>{firstToTime(timer)}</div>
+        <div>{secondToTime(duration)}</div>
       </section>
       <section className="containInput">
         <Slider value={timer} min={0} max={maxDuration} />
@@ -101,4 +120,5 @@ AudioPlayerLoading.propTypes = {
   durationAudio: PropTypes.number.isRequired,
   maxDurationAudio: PropTypes.number.isRequired,
   audio: PropTypes.instanceOf(Audio).isRequired,
+  id: PropTypes.string.isRequired,
 };

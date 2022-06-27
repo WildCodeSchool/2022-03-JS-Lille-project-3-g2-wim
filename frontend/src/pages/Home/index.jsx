@@ -1,14 +1,14 @@
-/* eslint-disable */
+/* eslint-disable import/no-unresolved */
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-/* eslint-enable */
+/* eslint-enable import/no-unresolved */
 import { Link } from "react-router-dom";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import SHome from "./style";
 
-function Home() {
+export default function Home() {
   const imagesIntro = [
     {
       key: "logo",
@@ -33,7 +33,7 @@ function Home() {
       desktop: "../../../src/assets/Images/home-4.png",
       mobile: "../../../src/assets/Images/home3.jpg",
       alt: "Chaque enfant qu'on enseigne est un Homme qu'on gagne",
-      url: "/Subjects",
+      url: "/accueil",
     },
   ];
   return (
@@ -71,5 +71,3 @@ function Home() {
     </SHome>
   );
 }
-
-export default Home;

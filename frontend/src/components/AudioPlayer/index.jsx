@@ -30,6 +30,7 @@ export default function AudioPlayer({ id }) {
         );
       });
   }, []);
+
   return (
     <SAudioPlayer>
       <div className="containStream">
@@ -45,6 +46,7 @@ export default function AudioPlayer({ id }) {
           durationAudio={duration}
           maxDurationAudio={maxDuration}
           audio={audio}
+          id={id}
         />
       )}
     </SAudioPlayer>
