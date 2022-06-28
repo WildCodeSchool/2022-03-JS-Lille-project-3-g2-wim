@@ -1,12 +1,12 @@
 import propTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
-import EmptyHeart from "@assets/Images/emptyheart.svg";
+import ButtonLessonFav from "@components/ButtonLessonFav";
 import SLessonCard from "./style";
 
 export default function LessonCard({ key, title, duration, musicStyle }) {
   return (
     <SLessonCard>
-      <div key={key} className="CardOfLesson">
+      <div key={key} className="cardOfLesson">
         <img className="play" src={Play} alt="play button" />
         <div className="informations">
           <h1 className="lesson"> {title}</h1>
@@ -14,7 +14,7 @@ export default function LessonCard({ key, title, duration, musicStyle }) {
             {musicStyle} / {duration}
           </h2>
         </div>
-        <img className="heart" src={EmptyHeart} alt="add favourite button" />
+        <ButtonLessonFav />
       </div>
     </SLessonCard>
   );
