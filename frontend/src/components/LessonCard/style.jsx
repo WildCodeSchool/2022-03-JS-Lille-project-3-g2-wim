@@ -29,9 +29,4 @@ export default styled.section`
     font-size: 1.1rem;
     font-weight: 300;
   }
-  .heart {
-    height: 3vh;
-    position: absolute;
-    right: 20px;
-  }
 `;

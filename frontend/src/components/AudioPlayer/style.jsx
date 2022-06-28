@@ -17,6 +17,7 @@ export default styled.section`
     img {
       width: 12rem;
       position: absolute;
+      border-radius: 50%;
     }
   }
   .lessonTopic {
