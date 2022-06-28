@@ -6,7 +6,7 @@ import SLessonCard from "./style";
 export default function LessonCard({ key, title, duration, musicStyle }) {
   return (
     <SLessonCard>
-      <div key={key} className="CardOfLesson">
+      <div key={key} className="cardOfLesson">
         <img className="play" src={Play} alt="play button" />
         <div className="informations">
           <h1 className="lesson"> {title}</h1>

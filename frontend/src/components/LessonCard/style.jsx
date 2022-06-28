@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.section`
-  .CardOfLesson {
+  .cardOfLesson {
     display: flex;
     align-items: center;
   }

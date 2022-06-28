@@ -8,7 +8,7 @@ import SButtonLessonFav from "./style";
 export default function ButtonLessonFav({ id }) {
   const [formData] = useState({ user_id: 2, lesson_id: id });
   const [activ, setActive] = useState(false);
-  const [IconActive, setIconActiv] = useState(EmptyHeart);
+  const [iconActive, setIconActiv] = useState(EmptyHeart);
   const addFavorite = () => {
     axios.post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, formData).then();
     if (activ === false) {
@@ -33,7 +33,7 @@ export default function ButtonLessonFav({ id }) {
   };
 
   return (
-    <SButtonLessonFav imgFav={IconActive}>
+    <SButtonLessonFav imgFav={iconActive}>
       <button
         alt="favorites"
         type="button"
