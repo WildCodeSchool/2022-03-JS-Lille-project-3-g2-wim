@@ -17,39 +17,75 @@ import SSignUp from "./style";
 
 const steps = [
   {
+    name: "firstep",
+    key: "1",
     label: "Identité",
-    firstField: "Nom",
-    secondeField: "Prénom",
-    thirdField: "Age",
-    type: "default",
+    field1: {
+      key: "name",
+      label: "Nom",
+      type: "default",
+    },
+    field2: {
+      name: "firstname",
+      label: "Prénom",
+      type: "default",
+    },
+    field3: {
+      key: "age",
+      label: "Age",
+      type: "default",
+    },
   },
   {
+    name: "secondstep",
+    key: "2",
     label: "Informations scolaires",
-    firstField: "Nom de l'école",
-    secondeField: "Classe",
-    thirdField: "Option",
-    type: "default",
+    field1: {
+      key: "schoolClass_id",
+      label: "Classe",
+      type: "default",
+    },
+    field2: {
+      name: "schoolOption",
+      label: "Série",
+      type: "default",
+    },
+    field3: {
+      key: "schoolName",
+      label: "Nom de l'école",
+      type: "default",
+    },
   },
   {
+    name: "thirdstep",
+    key: "3",
     label: "Informations de connexion",
-    firstField: "Adresse mail",
-    secondeField: "Mot de passe",
-    thirdField: "Confirmer le mot de passe",
-    type: "password",
+    field1: {
+      key: "email",
+      label: "Adresse mail",
+      type: "default",
+    },
+    field2: {
+      name: "password",
+      label: "Mot de passe",
+      type: "default",
+    },
+    field3: {
+      key: "passwordBis",
+      label: "Confirmer le mot de passe",
+      type: "default",
+    },
   },
 ];
 
 export default function SignUp() {
-  // Variables defined for material admin form
+  // Variables defined tu manage steps in material admin form
   const [activeStep, setActiveStep] = useState(0);
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
   const prevStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-  const reset = () => {
-    setActiveStep(0);
   };
 
   // Variables and fonction defined to control the form and sert authentification
@@ -63,7 +99,6 @@ export default function SignUp() {
     age: "",
     schoolOption: "",
     schoolName: "",
-    country: "",
     schoolClass_id: "",
   });
   const hChange = (e) => {
@@ -78,7 +113,6 @@ export default function SignUp() {
         const { token, user } = data;
         cookies.set("token", token);
         axios.defaults.headers.authorization = `Bearer ${token}`;
-        // dispatch({ type: "LOGIN", user });
         toast(`You're now logged in, ${user.firstname} <3`);
       })
       .catch((e) => {
@@ -87,10 +121,9 @@ export default function SignUp() {
   };
 
   return (
-    <SSignUp onSubmit={hSubmit}>
+    <SSignUp>
       <Box sx={{ maxWidth: "100%" }}>
         <Stepper activeStep={activeStep} orientation="vertical">
-          {/* Map made to manage three steps - identity, scolar informations, connexion infos */}
           {steps.map((step, index) => (
             <Step key={step.label}>
               <StepLabel
@@ -103,30 +136,30 @@ export default function SignUp() {
                 <Typography>{step.label}</Typography>
               </StepLabel>
               <StepContent>
-                {/* //First field appearing in three steps - identity, scolar informations, connexion infos */}
                 <TextField
                   required
-                  label={step.firstField}
+                  label={step.field1.label}
                   fullWidth
                   variant="standard"
                   onChange={hChange}
+                  name={step.field1.key}
                 />
-                {/* //Second field  */}
                 <TextField
                   required
-                  label={step.secondeField}
+                  label={step.field2.label}
                   fullWidth
                   variant="standard"
                   type={step.type}
+                  name={step.field2.key}
                   onChange={hChange}
                 />
-                {/* //Third field  */}
                 <TextField
                   required
-                  label={step.thirdField}
+                  label={step.field3.label}
                   fullWidth
                   variant="standard"
                   type={step.type}
+                  name={step.field3.key}
                   onChange={hChange}
                 />
                 <Box sx={{ mb: 2 }}>
@@ -154,7 +187,7 @@ export default function SignUp() {
         {activeStep === steps.length && (
           <Paper square elevation={0} sx={{ p: 5 }}>
             <Typography>Bienvenue chez WIM !</Typography>
-            <Button size="large" variant="contained" onClick={reset}>
+            <Button size="large" variant="contained" onClick={hSubmit}>
               Se connecter
             </Button>
           </Paper>
