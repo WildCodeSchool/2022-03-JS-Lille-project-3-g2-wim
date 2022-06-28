@@ -49,7 +49,7 @@ export default function SignIn() {
       <Button variant="contained" size="large">
         Connecter
       </Button>
-      <input className="submit" type="submit" value="ENVOYER" />
+      <input className="submit" type="submit" value="CONNECTER" />
     </SSignIn>
   );
 }
