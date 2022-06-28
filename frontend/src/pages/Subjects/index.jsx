@@ -22,8 +22,8 @@ function Subjects() {
       <h1>Matières</h1>
       <ul>
         {topics.map((topic) => (
-          <Link to={`/cours/${topic.id}`}>
-            <li className="topic" key={topic.id} value={topic.id}>
+          <Link to={`/cours/${topic.id}`} key={topic.id}>
+            <li className="topic" value={topic.id}>
               {topic.label}
             </li>
           </Link>
