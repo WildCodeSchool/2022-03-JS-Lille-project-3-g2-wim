@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.section`
-  .CardOfLesson {
+  .cardOfLesson {
     display: flex;
     align-items: center;
   }
@@ -28,10 +28,5 @@ export default styled.section`
     align-items: center;
     font-size: 1.1rem;
     font-weight: 300;
-  }
-  .heart {
-    height: 3vh;
-    position: absolute;
-    right: 20px;
   }
 `;

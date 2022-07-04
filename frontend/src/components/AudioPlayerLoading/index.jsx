@@ -23,7 +23,6 @@ export default function AudioPlayerLoading({
   const [timer, setTimer] = useState(0);
   const [playOn, setPlayOn] = useState(false);
   const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
-
   useInterval(() => {
     if (timer >= maxDuration - 1) setPlayOn(false);
     if (playOn) setDuration(duration - 1);
