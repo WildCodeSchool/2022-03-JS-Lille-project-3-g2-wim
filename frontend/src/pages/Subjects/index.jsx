@@ -19,7 +19,7 @@ function Subjects() {
     <SSubjects>
       <Header />
       <h1>Matières</h1>
-      <ul>
+      <ul className="listContainer">
         {topics.map((topic) => (
           <li className="topic" key={topic.id}>
             {topic.label}
