@@ -1,4 +1,3 @@
-import cookies from "universal-cookie";
 import { toast } from "react-toastify";
 import axios from "axios";
 import {
@@ -13,97 +12,17 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
+import { cookies } from "../../confCookie";
 import SSignUp from "./style";
-
-const steps = [
-  {
-    name: "firstep",
-    key: "1",
-    label: "Identité",
-    field1: {
-      key: "name",
-      name: "name",
-      label: "Nom",
-      typeOption: false,
-      type: "default",
-    },
-    field2: {
-      key: "firstname",
-      name: "firstname",
-      label: "Prénom",
-      typeOption: false,
-      type: "default",
-    },
-    field3: {
-      key: "age",
-      name: "age",
-      label: "Age",
-      typeOption: false,
-      type: "default",
-    },
-  },
-  {
-    name: "secondstep",
-    key: "2",
-    label: "Informations scolaires",
-    field1: {
-      key: "schoolClass_id",
-      name: "schoolClass_id",
-      label: "Classe",
-      typeOption: true,
-      type: "default",
-    },
-    field2: {
-      key: "schoolOption",
-      name: "schoolOption",
-      label: "Série",
-      typeOption: false,
-      type: "default",
-    },
-    field3: {
-      key: "schoolName",
-      name: "schoolName",
-      label: "Nom de l'école",
-      typeOption: false,
-      type: "default",
-    },
-  },
-  {
-    name: "thirdstep",
-    key: "3",
-    label: "Informations de connexion",
-    field1: {
-      key: "email",
-      name: "email",
-      label: "Adresse mail",
-      typeOption: false,
-      type: "email",
-    },
-    field2: {
-      key: "password",
-      name: "password",
-      label: "Mot de passe",
-      typeOption: false,
-      type: "password",
-    },
-    field3: {
-      key: "passwordBis",
-      name: "passwordBis",
-      label: "Confirmer le mot de passe",
-      typeOption: false,
-      type: "password",
-    },
-  },
-];
+import steps from "../../assets/dataStepForm";
 
 export default function SignUp() {
-  // Variables defined tu manage steps in material admin form
+  // Variables defined to manage steps in material admin form
   const [activeStep, setActiveStep] = useState(0);
   // Variables to define dynamically the list of classes from database
   const [schoolClassList, setSchoolClassList] = useState([]);
-  // Variables and fonction defined to control the form and sert authentification
+  // Variables and fonction defined to control the form and new authentification
   const [form, setForm] = useState({
-    haveAccount: false,
     email: "",
     password: "",
     passwordBis: "",
@@ -127,19 +46,49 @@ export default function SignUp() {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
+  // Function to check fields with regex (just mail for the moment)
+  const hCheck = (e, i) => {
+    if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i))
+      toast.error(`Votre email n'est pas bon`, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+  };
   // Function to send values in database
   const hSubmit = (evt) => {
     evt.preventDefault();
+
     axios
       .post("http://localhost:5000/auth/signup", form)
       .then(({ data }) => {
-        const { token, user } = data;
+        const { token } = data;
         cookies.set("token", token);
         axios.defaults.headers.authorization = `Bearer ${token}`;
-        toast(`You're now logged in, ${user.firstname} <3`);
+        toast.success(`Félicitations, vous êtes bien inscrit à WIM`, {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .catch((e) => {
-        toast.error(`Achtung!${e}`);
+        toast.error(`Veuillez réésayer !${e}`, {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
   // Using API delivering existing schoolClasses to make it connected to database
@@ -175,6 +124,9 @@ export default function SignUp() {
                     type={step.field1.type}
                     name={step.field1.name}
                     onChange={hChange}
+                    onBlur={(e) => {
+                      hCheck(e, step.field1.name);
+                    }}
                     select
                     SelectProps={{
                       native: true,
@@ -197,6 +149,9 @@ export default function SignUp() {
                     onChange={hChange}
                     name={step.field1.name}
                     type={step.field1.type}
+                    onBlur={(e) => {
+                      hCheck(e, step.field1.name);
+                    }}
                   />
                 )}
 

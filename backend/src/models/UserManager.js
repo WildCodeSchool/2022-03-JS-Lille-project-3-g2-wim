@@ -26,8 +26,8 @@ class UserManager extends AbstractManager {
         user.name,
         user.firstname,
         user.age,
-        user.shcoolOption,
-        user.shcoolName,
+        user.schoolOption,
+        user.schoolName,
         user.schoolClass_id,
       ]
     );
