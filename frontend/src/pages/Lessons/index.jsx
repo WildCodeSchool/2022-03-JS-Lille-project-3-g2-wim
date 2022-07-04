@@ -20,6 +20,7 @@ function Lessons() {
       {lessons.map((lesson) => (
         <LessonCard
           key={lesson.id}
+          id={lesson.id}
           title={lesson.title}
           duration={lesson.duration}
           musicStyle={lesson.musicStyle}
