@@ -48,7 +48,7 @@ export default function Home() {
         className="mySwiper"
       >
         {imagesIntro.map((imageIntro) => (
-          <SwiperSlide>
+          <SwiperSlide key={imageIntro.alt}>
             {imageIntro.key === "image3" ? (
               <Link to={imageIntro.url} key={imageIntro.key}>
                 <picture>
