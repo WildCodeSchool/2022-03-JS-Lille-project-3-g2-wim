@@ -172,7 +172,7 @@ export default function SignUp() {
                     label={step.field1.label}
                     fullWidth
                     variant="standard"
-                    type={step.type}
+                    type={step.field1.type}
                     name={step.field1.name}
                     onChange={hChange}
                     select
@@ -196,6 +196,7 @@ export default function SignUp() {
                     variant="standard"
                     onChange={hChange}
                     name={step.field1.name}
+                    type={step.field1.type}
                   />
                 )}
 
@@ -204,7 +205,7 @@ export default function SignUp() {
                   label={step.field2.label}
                   fullWidth
                   variant="standard"
-                  type={step.type}
+                  type={step.field2.type}
                   name={step.field2.name}
                   onChange={hChange}
                 />
@@ -214,7 +215,7 @@ export default function SignUp() {
                   label={step.field3.label}
                   fullWidth
                   variant="standard"
-                  type={step.type}
+                  type={step.field3.type}
                   name={step.field3.name}
                   onChange={hChange}
                 />
