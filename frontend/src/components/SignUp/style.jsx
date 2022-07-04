@@ -9,7 +9,4 @@ export default styled.form`
   @media only screen and (min-width: 800px) {
     width: 600px;
   }
-  .red {
-    border: 2px solid red;
-  }
 `;
