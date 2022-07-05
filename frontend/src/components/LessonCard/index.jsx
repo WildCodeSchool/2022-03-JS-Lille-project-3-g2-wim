@@ -18,7 +18,7 @@ export default function LessonCard({ key, id, title, duration, musicStyle }) {
             {musicStyle} / {duration}
           </h2>
         </div>
-        <ButtonLessonFav />
+        <ButtonLessonFav id={id} />
       </div>
     </SLessonCard>
   );

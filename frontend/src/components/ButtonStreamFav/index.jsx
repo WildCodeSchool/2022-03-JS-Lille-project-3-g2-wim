@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import SButtonStreamFav from "./style";
 
 export default function ButtonStreamFav({ id }) {
-  const [formData] = useState({ user_id: 2, lesson_id: id });
+  const [formData] = useState({ user_id: 19, lesson_id: id });
   const [activ, setActive] = useState(false);
   const [IconActive, setIconActiv] = useState(IconFav);
   const addFavorite = () => {
