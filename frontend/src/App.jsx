@@ -28,7 +28,7 @@ function App() {
               <Route path="/" element={<Home />} />;
               <Route path="/connexion" element={<LogIn />} />;
               <Route path="/accueil" element={<Subjects />} />;
-              <Route path="/cours" element={<Lessons />} />;
+              <Route path="/cours/:id" element={<Lessons />} />;
               <Route path="/ecoute/:id" element={<Stream />} />;
             </Routes>
           </main>

@@ -2,6 +2,7 @@ import Header from "@components/Header";
 import Navbar from "@components/Navbar";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import SSubjects from "./style";
 
 function Subjects() {
@@ -21,9 +22,11 @@ function Subjects() {
       <h1>Matières</h1>
       <ul>
         {topics.map((topic) => (
-          <li className="topic" key={topic.id}>
-            {topic.label}
-          </li>
+          <Link to={`/cours/${topic.id}`} key={topic.id}>
+            <li className="topic" value={topic.id}>
+              {topic.label}
+            </li>
+          </Link>
         ))}
       </ul>
       <Navbar />
