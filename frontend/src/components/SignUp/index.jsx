@@ -64,7 +64,7 @@ export default function SignUp() {
     evt.preventDefault();
 
     axios
-      .post("http://localhost:5000/auth/signup", form)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
       .then(({ data }) => {
         const { token } = data;
         cookies.set("token", token);
@@ -93,9 +93,11 @@ export default function SignUp() {
   };
   // Using API delivering existing schoolClasses to make it connected to database
   useEffect(() => {
-    axios.get("http://localhost:5000/schoolclass").then(({ data }) => {
-      setSchoolClassList(data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/schoolclass`)
+      .then(({ data }) => {
+        setSchoolClassList(data);
+      });
   }, []);
 
   return (
