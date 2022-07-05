@@ -7,6 +7,10 @@ export default styled.section`
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--colorTextDarkGrey);
   }
+
+  a {
+    text-decoration: none;
+  }
   .listContainer {
     display: flex;
     flex-direction: row;
