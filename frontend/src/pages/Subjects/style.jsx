@@ -16,6 +16,18 @@ export default styled.section`
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  img {
+    padding-bottom: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+  }
+
   .topic {
     width: 25vw;
     height: 13vh;
@@ -42,6 +54,11 @@ export default styled.section`
     .topic {
       width: 10vw;
       padding: 2vw;
+    }
+    img {
+      padding-bottom: 2rem;
+      width: 6rem;
+      height: 6rem;
     }
   }
 `;
