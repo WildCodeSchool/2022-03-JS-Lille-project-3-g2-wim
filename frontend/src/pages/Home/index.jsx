@@ -11,24 +11,28 @@ import SHome from "./style";
 export default function Home() {
   const imagesIntro = [
     {
+      id: 1,
       key: "logo",
       desktop: "../../../src/assets/Images/home-Logo.png",
       mobile: "../../../src/assets/Images/homeLogo.jpg",
       alt: "logo de WIM",
     },
     {
+      id: 2,
       key: "image1",
       desktop: "../../../src/assets/Images/home2.png",
       mobile: "../../../src/assets/Images/home1.jpg",
       alt: "Dans un univers de paix et d'amour, la musique serait le langage universel",
     },
     {
+      id: 3,
       key: "image2",
       desktop: "../../../src/assets/Images/home-3.png",
       mobile: "../../../src/assets/Images/home2.jpg",
       alt: "La musique peut rendre les gens meilleurs, il suffit de la leur injecter constamment",
     },
     {
+      id: 4,
       key: "image3",
       desktop: "../../../src/assets/Images/home-4.png",
       mobile: "../../../src/assets/Images/home3.jpg",
@@ -48,7 +52,7 @@ export default function Home() {
         className="mySwiper"
       >
         {imagesIntro.map((imageIntro) => (
-          <SwiperSlide>
+          <SwiperSlide key={imageIntro.id}>
             {imageIntro.key === "image3" ? (
               <Link to={imageIntro.url} key={imageIntro.key}>
                 <picture>
