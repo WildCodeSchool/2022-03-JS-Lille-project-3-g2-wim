@@ -12,9 +12,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
+import steps from "@assets/dataStepForm";
 import { cookies } from "../../confCookie";
 import SSignUp from "./style";
-import steps from "../../assets/dataStepForm";
 
 export default function SignUp() {
   // Variables defined to manage steps in material admin form
