@@ -6,6 +6,7 @@ import LessonList from "@components/Lessons/lessonList";
 import TopicList from "@components/Topic/topicList";
 import TopicEdit from "@components/Topic/topicEdit";
 import UserIcon from "@mui/icons-material/Group";
+import PostIcon from "@mui/icons-material/Book";
 import Dashboard from "./Dashboard";
 
 import dataProvider from "./dataProvider";
@@ -20,7 +21,12 @@ function App() {
           edit={UserEdit}
           icon={UserIcon}
         />
-        <Resource name="lessons" list={LessonList} edit={LessonEdit} />
+        <Resource
+          name="lessons"
+          list={LessonList}
+          edit={LessonEdit}
+          icon={PostIcon}
+        />
         <Resource name="topics" list={TopicList} edit={TopicEdit} />
       </Admin>
     </div>
