@@ -8,6 +8,12 @@ const datas = [
     class1: "selectedIconHome",
     class2: "unSelectedIconHome",
   },
+  {
+    id: 2,
+    label: "/favoris/2",
+    class1: "selectedIconHeart",
+    class2: "unselectedIconHeart",
+  },
 ];
 
 export default function NavBar() {

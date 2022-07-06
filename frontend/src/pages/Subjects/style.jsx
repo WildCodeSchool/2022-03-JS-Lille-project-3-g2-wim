@@ -7,10 +7,11 @@ export default styled.section`
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--colorTextDarkGrey);
   }
+
   a {
     text-decoration: none;
   }
-  ul {
+  .listContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

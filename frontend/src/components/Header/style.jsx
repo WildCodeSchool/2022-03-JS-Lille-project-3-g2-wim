@@ -10,8 +10,11 @@ export default styled.header`
     border-radius: 50%;
     margin: 0 1.6rem;
   }
-  p {
-    color: var(--colorTextlight);
-    font: var(--fontTitleBold);
+  a {
+    text-decoration: none;
+    p {
+      color: var(--colorTextlight);
+      font: var(--fontTitleBold);
+    }
   }
 `;
