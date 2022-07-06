@@ -31,11 +31,9 @@ class FavoriteController {
   };
 
   static delete = (req, res) => {
-    const lessonId = req.body.lesson_id;
-    const userId = req.body.user_id;
-
+    const lessonId = req.params.id;
     models.userFavLesson
-      .delete(lessonId, userId, req.params.id)
+      .delete(lessonId)
       .then(() => {
         res.sendStatus(204);
       })

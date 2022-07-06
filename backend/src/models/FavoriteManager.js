@@ -3,10 +3,11 @@ const AbstractManager = require("./AbstractManager");
 class FavoriteManager extends AbstractManager {
   static table = "userFavLesson";
 
+  // HEre the user_id is defined in code in frontend, waiting for authentification. To be changed after authentification implemented
   insert(numberLessonId, userLessonId) {
     return this.connection.query(
-      `insert into userFavLesson (user_id, lesson_id) values (?,?)`,
-      [userLessonId, numberLessonId]
+      `insert into userFavLesson ( lesson_id, user_id) values (?,?)`,
+      [numberLessonId, userLessonId]
     );
   }
 
@@ -17,10 +18,11 @@ class FavoriteManager extends AbstractManager {
     );
   }
 
-  delete(numberLessonId, userLessonId, id) {
+  // Temporary road waiting for authentification : all favorites are managed on user 2. To be changed after authentification implemented
+  delete(id) {
     return this.connection.query(
-      `delete userFavLesson from userFavLesson INNER JOIN user ON userFavLesson.user_id=user.id WHERE user_id = ? AND lesson_id = ? AND user.id = ?`,
-      [userLessonId, numberLessonId, id]
+      `delete from userFavLesson WHERE user_id = 2 AND lesson_id = ?`,
+      [id]
     );
   }
 }
