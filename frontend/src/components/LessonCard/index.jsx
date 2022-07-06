@@ -1,9 +1,9 @@
 import propTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
-import ButtonLessonFav from "@components/ButtonLessonFav";
+import ButtonStreamFav from "@components/ButtonStreamFav";
 import SLessonCard from "./style";
 
-export default function LessonCard({ title, duration, musicStyle }) {
+export default function LessonCard({ id, title, duration, musicStyle }) {
   return (
     <SLessonCard>
       <div className="cardOfLesson">
@@ -14,13 +14,14 @@ export default function LessonCard({ title, duration, musicStyle }) {
             {musicStyle} / {duration}
           </h2>
         </div>
-        <ButtonLessonFav />
+        <ButtonStreamFav id={id} />
       </div>
     </SLessonCard>
   );
 }
 
 LessonCard.propTypes = {
+  id: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   duration: propTypes.number.isRequired,
   musicStyle: propTypes.string.isRequired,
