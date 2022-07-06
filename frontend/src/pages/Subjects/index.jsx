@@ -20,10 +20,11 @@ function Subjects() {
     <SSubjects>
       <Header />
       <h1>Matières</h1>
-      <ul>
+      <ul className="listContainer">
         {topics.map((topic) => (
           <Link to={`/cours/${topic.id}`} key={topic.id}>
             <li className="topic" value={topic.id}>
+              <img src={`../src/${topic.icon}`} alt="logo de la matière" />{" "}
               {topic.label}
             </li>
           </Link>

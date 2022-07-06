@@ -1,11 +1,14 @@
 import avatar from "@assets/avatar.png";
+import { Link } from "react-router-dom";
 import SHeader from "./style";
 
 function Header() {
   return (
     <SHeader>
       <img src={avatar} alt="avatar" />
-      <p>WIM</p>
+      <Link to="/accueil">
+        <p>WIM</p>
+      </Link>
     </SHeader>
   );
 }
