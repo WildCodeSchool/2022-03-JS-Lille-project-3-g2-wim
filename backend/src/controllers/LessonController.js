@@ -15,7 +15,7 @@ class LessonController {
 
   static read = (req, res) => {
     models.lesson
-      .find(req.params.id)
+      .findTopic(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);

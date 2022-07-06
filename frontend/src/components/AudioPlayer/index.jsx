@@ -2,7 +2,6 @@ import AudioPlayerLoading from "@components/AudioPlayerLoading";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import img from "@assets/imgAudio.png";
 import SAudioPlayer from "./style";
 
 export default function AudioPlayer({ id }) {
@@ -10,11 +9,15 @@ export default function AudioPlayer({ id }) {
   const [maxDuration, setMaxDuration] = useState(0);
   const [audio, setAudio] = useState(null);
   const [title, setTitle] = useState("");
+  const [img, setImg] = useState("");
+  const [topicLabel, setTopicLabel] = useState("");
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/lessons/${id}`)
       .then(({ data }) => {
+        setImg(`../src/${data.logo}`);
+        setTopicLabel(data.label);
         setDuration(data.duration);
         setMaxDuration(data.duration);
         setTitle(data.title);
@@ -36,7 +39,7 @@ export default function AudioPlayer({ id }) {
       </div>
       <div className="lessonTopic">
         <p className="lesson">{title}</p>
-        <p className="topic">Mathématiques</p>
+        <p className="topic">{topicLabel}</p>
       </div>
       {duration && (
         <AudioPlayerLoading

@@ -22,7 +22,8 @@
     "react-toastify": "^9.0.5",
     "styled-components": "^5.3.5",
     "styled-reset": "^4.4.1",
-    "swiper": "^8.2.4"
+    "swiper": "^8.2.4",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
