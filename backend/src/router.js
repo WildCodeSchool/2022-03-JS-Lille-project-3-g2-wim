@@ -9,6 +9,7 @@ const {
   FavoriteController,
   TopicController,
   UserTopicController,
+  TopicHaveLessonController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -34,6 +35,7 @@ router.get("/users", UserController.browse);
 router.get("/users/:id", UserController.read);
 router.put("/users/:id", UserController.edit);
 router.get("/topics", TopicController.browse);
+router.get("/!empty-topics", TopicHaveLessonController.browse);
 router.get("/usertopics/:id", UserTopicController.browse);
 router.get("/topics/:id", TopicController.read);
 router.put("/topics/:id", TopicController.edit);
