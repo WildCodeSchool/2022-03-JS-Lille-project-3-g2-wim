@@ -11,10 +11,10 @@ export default function SignIn() {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}${"/auth/login"}`, formData)
       .then(() => {
-        toast("Wow so easy!");
+        toast("Bienvenue sur Wim");
       })
       .catch(() => {
-        toast.error("Aww, it broke!");
+        toast.error("Email ou mot de passe incorrect");
       });
   };
   const hChange = (evt) => {
