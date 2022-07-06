@@ -12,7 +12,7 @@ class LessonManager extends AbstractManager {
 
   findTopic(id) {
     return this.connection.query(
-      `select lesson.id, lesson.fileName, schoolTopic.id, schoolTopic.label, lesson.title, lesson.musicStyle, lesson.fileLocation, lesson.duration, schoolClass.id, schoolClass.label, schoolTopic.logo from  ${LessonManager.table} inner join schoolTopic on schoolTopic.id = lesson.schoolTopic_id inner join schoolClass on schoolClass.id = lesson.schoolClass_id where lesson.id = ?`,
+      `select * from  ${LessonManager.table} where id = ?`,
       [id]
     );
   }
