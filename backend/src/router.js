@@ -33,6 +33,7 @@ router.get(
   AuthController.lessons
 );
 router.get("/lessons/:id", LessonController.read);
+router.get("/lessonsdata/:id", LessonController.readdata);
 router.get("/users", UserController.browse);
 router.get("/users/:id", UserController.read);
 router.put("/users/:id", UserController.edit);

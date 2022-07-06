@@ -62,6 +62,24 @@ class LessonController {
       });
   };
 
+  // created for explicite data in frontend
+
+  static readdata = (req, res) => {
+    models.lesson
+      .findTopicData(req.params.id)
+      .then(([rows]) => {
+        if (rows[0] == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static delete = (req, res) => {
     models.lesson
       .delete(req.params.id)

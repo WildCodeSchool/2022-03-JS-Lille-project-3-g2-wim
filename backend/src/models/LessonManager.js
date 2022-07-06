@@ -17,6 +17,13 @@ class LessonManager extends AbstractManager {
     );
   }
 
+  findTopicData(id) {
+    return this.connection.query(
+      `select lesson.fileName, schoolTopic.id, schoolTopic.logo, schoolTopic.label, lesson.title, lesson.musicStyle, lesson.fileLocation, lesson.duration, schoolClass.id, schoolClass.label from  ${LessonManager.table} inner join schoolTopic on schoolTopic.id = lesson.schoolTopic_id inner join schoolClass on schoolClass.id = lesson.schoolClass_id where lesson.id = ?`,
+      [id]
+    );
+  }
+
   insert(lesson) {
     return this.connection.query(
       `insert into ${LessonManager.table} (fileName, schoolTopic_id, title, subTitle, musicStyle, fileLocation, lyrics, img, duration, schoolClass_id) values (?,?,?,?,?,?,?,?,?,?)`,
