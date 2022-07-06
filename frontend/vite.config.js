@@ -1,6 +1,10 @@
-const path = require("path");
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import Cookies from "universal-cookie";
+
+const path = require("path");
+
+const cookies = new Cookies();
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,3 +18,5 @@ export default defineConfig({
     },
   },
 });
+
+export { cookies };
