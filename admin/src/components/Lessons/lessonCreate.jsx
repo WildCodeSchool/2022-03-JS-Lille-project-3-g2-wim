@@ -1,5 +1,5 @@
 import {
-  Edit,
+  Create,
   NumberInput,
   ReferenceInput,
   SelectInput,
@@ -7,9 +7,9 @@ import {
   TextInput,
 } from "react-admin";
 
-export default function LessonEdit() {
+export default function LessonCreate() {
   return (
-    <Edit>
+    <Create>
       <SimpleForm>
         <TextInput source="id" />
         <TextInput source="fileName" />
@@ -24,6 +24,6 @@ export default function LessonEdit() {
           <SelectInput optionText="id" />
         </ReferenceInput>
       </SimpleForm>
-    </Edit>
+    </Create>
   );
 }

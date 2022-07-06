@@ -3,6 +3,7 @@ import UserList from "@components/Users/userList";
 import UserEdit from "@components/Users/userEdit";
 import LessonEdit from "@components/Lessons/lessonEdit";
 import LessonList from "@components/Lessons/lessonList";
+import LessonCreate from "@components/Lessons/lessonCreate";
 import TopicList from "@components/Topic/topicList";
 import TopicEdit from "@components/Topic/topicEdit";
 import UserIcon from "@mui/icons-material/Group";
@@ -25,6 +26,7 @@ function App() {
           name="lessons"
           list={LessonList}
           edit={LessonEdit}
+          create={LessonCreate}
           icon={PostIcon}
         />
         <Resource name="topics" list={TopicList} edit={TopicEdit} />

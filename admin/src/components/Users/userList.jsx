@@ -3,7 +3,7 @@ import {
   EmailField,
   List,
   NumberField,
-  ReferenceManyField,
+  ReferenceField,
   TextField,
 } from "react-admin";
 
@@ -21,9 +21,9 @@ export default function UserList() {
         <TextField source="schoolName" />
         <TextField source="country" />
         <TextField source="city" />
-        <ReferenceManyField source="schoolClass_id" reference="User">
-          <TextField source="label" />
-        </ReferenceManyField>
+        <ReferenceField source="schoolClass_id" reference="users">
+          <TextField source="schoolClass_id" />
+        </ReferenceField>
       </Datagrid>
     </List>
   );

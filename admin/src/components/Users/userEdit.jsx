@@ -21,7 +21,7 @@ export default function UserEdit() {
         <TextInput source="schoolName" />
         <TextInput source="country" />
         <TextInput source="city" />
-        <ReferenceInput source="schoolClass_id" reference="schoolClasses">
+        <ReferenceInput source="schoolClass_id" reference="users">
           <SelectInput optionText="id" />
         </ReferenceInput>
       </SimpleForm>
