@@ -10,6 +10,7 @@ const {
   TopicController,
   UserTopicController,
   TopicHaveLessonController,
+  ClassController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -41,6 +42,7 @@ router.get("/topics/:id", TopicController.read);
 router.put("/topics/:id", TopicController.edit);
 router.post("/topics", TopicController.add);
 router.delete("/topics/:id", TopicController.delete);
+router.get("/schoolclass", ClassController.browse);
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
 router.put("/items/:id", ItemController.edit);
