@@ -19,6 +19,9 @@ router.get("/favorite/:id", FavoriteController.readByUser);
 router.post("/favorite", FavoriteController.addFavFromUser);
 router.delete("/favorite/:id", FavoriteController.delete);
 router.get("/lessons", LessonController.browse);
+router.post("/lessons", LessonController.add);
+router.put("/lessons/:id", LessonController.edit);
+router.delete("/lessons/:id", LessonController.delete);
 router.post("/auth/signup", AuthController.signup);
 router.post(
   "/auth/login",
@@ -31,6 +34,7 @@ router.get(
   AuthController.lessons
 );
 router.get("/lessons/:id", LessonController.read);
+router.get("/lessonsdata/:id", LessonController.readdata);
 router.get("/users", UserController.browse);
 router.get("/users/:id", UserController.read);
 router.put("/users/:id", UserController.edit);
