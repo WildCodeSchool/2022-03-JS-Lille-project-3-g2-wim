@@ -10,7 +10,6 @@ export default function LessonList() {
   return (
     <List>
       <Datagrid rowClick="edit">
-        <TextField source="id" />
         <TextField source="fileName" />
         <ReferenceField source="schoolTopic_id" reference="lessons">
           <TextField source="id" />

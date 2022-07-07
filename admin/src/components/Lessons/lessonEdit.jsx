@@ -11,7 +11,6 @@ export default function LessonEdit() {
   return (
     <Edit>
       <SimpleForm>
-        <TextInput source="id" />
         <TextInput source="fileName" />
         <ReferenceInput source="schoolTopic_id" reference="lessons">
           <SelectInput optionText="id" />

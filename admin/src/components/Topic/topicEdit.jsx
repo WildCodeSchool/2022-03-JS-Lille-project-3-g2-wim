@@ -4,7 +4,6 @@ export default function TopicEdit() {
   return (
     <Edit>
       <SimpleForm>
-        <TextInput source="id" />
         <TextInput source="label" />
         <TextInput source="logo" />
         <TextInput source="icon" />

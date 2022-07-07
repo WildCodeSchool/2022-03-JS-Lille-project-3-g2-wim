@@ -4,7 +4,6 @@ export default function TopicList() {
   return (
     <List>
       <Datagrid rowClick="edit">
-        <TextField source="id" />
         <TextField source="label" />
         <TextField source="logo" />
         <TextField source="icon" />
