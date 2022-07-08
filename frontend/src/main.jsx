@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { Reset } from "styled-reset";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { Provider } from "react-redux";
+import store from "@services/reducers";
 import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 
@@ -12,8 +14,10 @@ root.render(
   <React.StrictMode>
     <Reset />
     <BrowserRouter>
-      <App />
-      <ToastContainer />
+      <Provider store={store}>
+        <App />
+        <ToastContainer />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
