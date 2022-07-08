@@ -60,8 +60,9 @@ export default function SignUp() {
 
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
-      .then(({ data, user }) => {
-        const { token } = data;
+      .then(({ data }) => {
+        const { token, user } = data;
+
         cookies.set("token", token);
         axios.defaults.headers.authorization = `Bearer ${token}`;
         dispatch({ type: "USER_LOGIN", payload: user });
