@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import {
@@ -43,8 +44,16 @@ export default function SignUp() {
   };
   // Function to get values from form
   const hChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    const { name, value, type, files } = e.target;
+    let newValue = null;
+    switch (type) {
+      case "file":
+        [newValue] = files;
+        break;
+      default:
+        newValue = value;
+    }
+    setForm({ ...form, [name]: newValue });
   };
   // Function to check fields with regex (just mail for the moment)
   const hCheck = (e, i) => {
@@ -59,6 +68,7 @@ export default function SignUp() {
         progress: undefined,
       });
   };
+  const navigate = useNavigate();
   // Function to send values in database
   const hSubmit = (evt) => {
     evt.preventDefault();
@@ -78,6 +88,9 @@ export default function SignUp() {
           draggable: true,
           progress: undefined,
         });
+      })
+      .then(() => {
+        navigate("/accueil");
       })
       .catch((e) => {
         toast.error(`Veuillez réésayer !${e}`, {
@@ -177,6 +190,16 @@ export default function SignUp() {
                   onChange={hChange}
                 />
                 <Box sx={{ mb: 2 }}>
+                  <Button
+                    type="file"
+                    name="avatar"
+                    size="large"
+                    variant={index === steps.length - 1 ? "contained" : ""}
+                    onClick={hChange}
+                    sx={{ mt: 1, mr: 1 }}
+                  >
+                    {index === steps.length - 1 ? "Avatar" : ""}
+                  </Button>
                   <Button
                     size="large"
                     variant="contained"
