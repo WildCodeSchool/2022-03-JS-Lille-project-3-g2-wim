@@ -8,7 +8,7 @@ export default function LessonEdit() {
         <NumberInput
           min="1"
           max="12"
-          label="Identifiant de la Matière"
+          label="Identifiant de l de la Matière"
           source="schoolTopic_id"
         />
         <TextInput label="Titre" source="title" />
