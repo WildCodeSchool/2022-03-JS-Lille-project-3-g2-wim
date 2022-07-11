@@ -12,11 +12,16 @@ import UserIcon from "@mui/icons-material/Group";
 import PostIcon from "@mui/icons-material/Book";
 import Dashboard from "./Dashboard";
 import dataProvider from "./dataProvider";
+import authProvider from "./authProvider";
 
 function App() {
   return (
     <div className="App">
-      <Admin dashboard={Dashboard} dataProvider={dataProvider}>
+      <Admin
+        authProvider={authProvider}
+        dashboard={Dashboard}
+        dataProvider={dataProvider}
+      >
         <Resource
           name="users"
           list={UserList}
