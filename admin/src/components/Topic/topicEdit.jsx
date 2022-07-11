@@ -1,10 +1,10 @@
-import { Edit, SimpleForm, TextInput } from "react-admin";
+import { Edit, NumberInput, SimpleForm, TextInput } from "react-admin";
 
 export default function TopicEdit() {
   return (
     <Edit>
       <SimpleForm>
-        <TextInput label="Identifiant" source="id" />
+        <NumberInput min="1" max="12" label="Identifiant" source="id" />
         <TextInput label="Matière" source="label" />
         <TextInput label="Logo (Page d'écoute)" source="logo" />
         <TextInput label="Icon de la matière" source="icon" />
