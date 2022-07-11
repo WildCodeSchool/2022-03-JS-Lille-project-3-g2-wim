@@ -5,12 +5,12 @@ export default function LessonEdit() {
     <Edit>
       <SimpleForm>
         <TextInput source="fileName" />
-        <TextInput source="schoolTopic_id" />
+        <NumberInput source="schoolTopic_id" />
         <TextInput source="title" />
         <TextInput source="musicStyle" />
         <TextInput source="fileLocation" />
         <NumberInput source="duration" />
-        <TextInput source="schoolClass_id" />
+        <NumberInput source="schoolClass_id" />
       </SimpleForm>
     </Edit>
   );

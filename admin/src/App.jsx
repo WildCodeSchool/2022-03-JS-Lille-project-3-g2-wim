@@ -9,7 +9,6 @@ import TopicEdit from "@components/Topic/topicEdit";
 import UserIcon from "@mui/icons-material/Group";
 import PostIcon from "@mui/icons-material/Book";
 import Dashboard from "./Dashboard";
-
 import dataProvider from "./dataProvider";
 
 function App() {

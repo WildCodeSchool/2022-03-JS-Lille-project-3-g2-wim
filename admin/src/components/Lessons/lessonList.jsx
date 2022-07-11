@@ -1,4 +1,11 @@
-import { Datagrid, List, NumberField, TextField } from "react-admin";
+import {
+  Datagrid,
+  DeleteButton,
+  EditButton,
+  List,
+  NumberField,
+  TextField,
+} from "react-admin";
 
 export default function LessonList() {
   return (
@@ -11,6 +18,8 @@ export default function LessonList() {
         <TextField source="fileLocation" />
         <NumberField source="duration" />
         <TextField source="schoolClass_id" />
+        <EditButton />
+        <DeleteButton />
       </Datagrid>
     </List>
   );
