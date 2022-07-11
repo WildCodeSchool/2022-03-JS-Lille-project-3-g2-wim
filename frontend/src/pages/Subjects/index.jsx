@@ -24,7 +24,11 @@ function Subjects() {
         {topics.map((topic) => (
           <Link to={`/cours/${topic.schoolTopic_id}`} key={topic.id}>
             <li className="topic" value={topic.id}>
-              <img src={`../src/${topic.icon}`} alt="logo de la matière" />{" "}
+              <img
+                className="iconImg"
+                src={`../src/${topic.icon}`}
+                alt="logo de la matière"
+              />{" "}
               {topic.label}
             </li>
           </Link>

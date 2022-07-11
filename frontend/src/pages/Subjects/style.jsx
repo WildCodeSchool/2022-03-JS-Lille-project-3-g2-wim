@@ -18,7 +18,7 @@ export default styled.section`
     justify-content: center;
   }
 
-  img {
+  .iconImg {
     padding-bottom: 1rem;
     width: 3rem;
     height: 3rem;
@@ -56,7 +56,7 @@ export default styled.section`
       width: 10vw;
       padding: 2vw;
     }
-    img {
+    .iconImg {
       padding-bottom: 2rem;
       width: 6rem;
       height: 6rem;
