@@ -43,7 +43,7 @@ export default function ButtonLessonFav({ id }) {
   );
 }
 ButtonLessonFav.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
 };
 ButtonLessonFav.defaultProps = {
   id: 0,
