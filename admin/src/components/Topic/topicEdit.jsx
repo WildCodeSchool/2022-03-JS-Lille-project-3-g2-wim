@@ -4,10 +4,10 @@ export default function TopicEdit() {
   return (
     <Edit>
       <SimpleForm>
-        <TextInput source="id" />
-        <TextInput source="label" />
-        <TextInput source="logo" />
-        <TextInput source="icon" />
+        <TextInput label="Identifiant" source="id" />
+        <TextInput label="Matière" source="label" />
+        <TextInput label="Logo (Page d'écoute)" source="logo" />
+        <TextInput label="Icon de la matière" source="icon" />
       </SimpleForm>
     </Edit>
   );
