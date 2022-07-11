@@ -22,7 +22,7 @@ function Subjects() {
       <h1>Matières</h1>
       <ul className="listContainer">
         {topics.map((topic) => (
-          <Link to={`/cours/${topic.schoolTopic_id}`} key={topic.id}>
+          <Link to={`/cours/${topic.schoolTopic_id}`} key={topic.label}>
             <li className="topic" value={topic.id}>
               <img
                 className="iconImg"
