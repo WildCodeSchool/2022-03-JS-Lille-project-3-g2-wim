@@ -41,6 +41,13 @@ export default styled.section`
     color: var(--colorTextlight);
     font: var(--fontTitleTopic);
     word-wrap: break-word;
+    text-align: center;
+    img {
+      padding-bottom: 1rem;
+      width: 4rem;
+      height: 4rem;
+      margin: auto;
+    }
   }
   .topic:nth-child(3n-2) {
     background-color: var(--colorBlueMain);
