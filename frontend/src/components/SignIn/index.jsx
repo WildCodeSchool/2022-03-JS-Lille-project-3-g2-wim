@@ -2,22 +2,23 @@ import { TextField, Box } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 import useApi from "@services/useApi";
-import { cookies } from "../../confCookie";
 import SSignIn from "./style";
 
 export default function SignIn() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
   const api = useApi();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const hSubmit = (evt) => {
     evt.preventDefault();
     api
       .post(`${import.meta.env.VITE_BACKEND_URL}${"/auth/login"}`, formData)
       .then(({ data }) => {
-        const { token } = data;
-        cookies.set("token", token);
+        const { token, user } = data;
         api.defaults.headers.authorization = `Bearer ${token}`;
+        dispatch({ type: "USER_LOGIN", payload: user });
         toast.success("Bienvenue sur Wim");
       })
       .then(() => {
