@@ -18,8 +18,7 @@ export default styled.div`
   }
 
   p {
-    text-align: center;
-    margin: 0;
+    margin: 0 1rem;
     padding: 1em;
   }
 `;

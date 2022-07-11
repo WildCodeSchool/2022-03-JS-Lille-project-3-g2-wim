@@ -12,7 +12,7 @@ export default function Avatar() {
         }
         alt="User avatar"
       />
-      <p>{name || "Stranger"}!</p>
+      <p>{name || "Stranger"}</p>
     </SAvatar>
   );
 }

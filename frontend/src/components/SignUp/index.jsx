@@ -195,17 +195,6 @@ export default function SignUp() {
                     onChange={hChange}
                   />
                   <Box sx={{ mb: 2 }}>
-                    {/* <Input
-                      type="file"
-                      name="avatar"
-                      size="large"
-                      color="primary"
-                      variant={index === steps.length - 1 ? "contained" : ""}
-                      onClick={hChange}
-                      sx={{ mt: 1, mr: 1 }}
-                    >
-                      {index === steps.length - 1 ? "Avatar" : ""}
-                    </Input> */}
                     <Button
                       size="large"
                       variant="contained"
@@ -239,6 +228,7 @@ export default function SignUp() {
       </div>
       <div>
         <input
+          className="inputAvatar"
           type="file"
           name="avatar"
           placeholder="Votre avatar"
