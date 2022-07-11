@@ -1,14 +1,15 @@
 import { Button, TextField, Box } from "@mui/material";
 import { useState } from "react";
-import axios from "axios";
+import useApi from "@services/useApi";
 import { toast } from "react-toastify";
 import SSignIn from "./style";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const api = useApi();
   const hSubmit = (evt) => {
     evt.preventDefault();
-    axios
+    api
       .post(`${import.meta.env.VITE_BACKEND_URL}${"/auth/login"}`, formData)
       .then(() => {
         toast("Bienvenue sur Wim");
