@@ -7,15 +7,28 @@ export default styled.section`
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--colorTextDarkGrey);
   }
+
   a {
     text-decoration: none;
   }
-  ul {
+  .listContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .iconImg {
+    padding-bottom: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+  }
+
   .topic {
     width: 25vw;
     height: 13vh;
@@ -28,6 +41,13 @@ export default styled.section`
     color: var(--colorTextlight);
     font: var(--fontTitleTopic);
     word-wrap: break-word;
+    text-align: center;
+    img {
+      padding-bottom: 1rem;
+      width: 4rem;
+      height: 4rem;
+      margin: auto;
+    }
   }
   .topic:nth-child(3n-2) {
     background-color: var(--colorBlueMain);
@@ -42,6 +62,11 @@ export default styled.section`
     .topic {
       width: 10vw;
       padding: 2vw;
+    }
+    .iconImg {
+      padding-bottom: 2rem;
+      width: 6rem;
+      height: 6rem;
     }
   }
 `;

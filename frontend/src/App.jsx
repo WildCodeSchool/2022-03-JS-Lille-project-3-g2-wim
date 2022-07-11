@@ -5,6 +5,7 @@ import Subjects from "@pages/Subjects";
 import Stream from "@pages/Stream";
 import Lessons from "@pages/Lessons";
 import Profil from "@pages/Profil";
+import Favorites from "@pages/Favorite";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material";
 import Styled from "./AppStyle";
@@ -32,6 +33,7 @@ function App() {
               <Route path="/cours/:id" element={<Lessons />} />;
               <Route path="/ecoute/:id" element={<Stream />} />;
               <Route path="/profil/:id" element={<Profil />} />;
+            <Route path="/favoris/:id" element={<Favorites />} />
             </Routes>
           </main>
         </ThemeProvider>

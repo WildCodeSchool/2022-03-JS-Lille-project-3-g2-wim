@@ -9,6 +9,10 @@ function Header() {
         <img src={avatar} alt="avatar" />
       </Link>
       <p>WIM</p>
+      <img className="avatar" src={avatar} alt="avatar" />
+      <Link to="/accueil">
+        <p>WIM</p>
+      </Link>
     </SHeader>
   );
 }

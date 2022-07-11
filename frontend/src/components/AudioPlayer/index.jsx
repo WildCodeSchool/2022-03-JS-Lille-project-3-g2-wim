@@ -14,7 +14,7 @@ export default function AudioPlayer({ id }) {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/lessons/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/lessonsdata/${id}`)
       .then(({ data }) => {
         setImg(`../src/${data.logo}`);
         setTopicLabel(data.label);
