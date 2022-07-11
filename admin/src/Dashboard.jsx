@@ -11,7 +11,7 @@ export default function DashBoard() {
           Consulter, modifier les utilisateurs.
           <br />
           Ajouter, modifier, supprimer les cours. <br />
-          Ajouter, modifier, supprimer les matières.
+          Consulter, modifier, supprimer les matières.
         </Typography>
       </CardContent>
     </Card>
