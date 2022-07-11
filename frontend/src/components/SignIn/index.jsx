@@ -1,13 +1,15 @@
 import { TextField, Box } from "@mui/material";
 import { useState } from "react";
-import useApi from "@services/useApi";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useApi from "@services/useApi";
 import { cookies } from "../../confCookie";
 import SSignIn from "./style";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const api = useApi();
+  const navigate = useNavigate();
   const hSubmit = (evt) => {
     evt.preventDefault();
     api
@@ -17,6 +19,9 @@ export default function SignIn() {
         cookies.set("token", token);
         api.defaults.headers.authorization = `Bearer ${token}`;
         toast.success("Bienvenue sur Wim");
+      })
+      .then(() => {
+        navigate("/accueil");
       })
       .catch(() => {
         toast.error("Email ou mot de passe incorrect");

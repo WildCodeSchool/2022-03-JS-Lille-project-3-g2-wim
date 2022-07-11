@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import useApi from "@services/useApi";
+import { useNavigate } from "react-router-dom";
 import {
   TextField,
   Box,
@@ -61,6 +62,7 @@ export default function SignUp() {
       });
   };
   // Function to send values in database
+  const navigate = useNavigate();
   const hSubmit = (evt) => {
     evt.preventDefault();
     api
@@ -78,6 +80,9 @@ export default function SignUp() {
           draggable: true,
           progress: undefined,
         });
+      })
+      .then(() => {
+        navigate("/accueil");
       })
       .catch((e) => {
         toast.error(`Veuillez réésayer !${e}`, {
