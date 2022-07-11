@@ -19,6 +19,7 @@ import { cookies } from "../../confCookie";
 import SSignUp from "./style";
 
 export default function SignUp() {
+  const dispatch = useDispatch();
   // Variables defined to manage steps in material admin form
   const [activeStep, setActiveStep] = useState(0);
   // Variables to define dynamically the list of classes from database
@@ -60,18 +61,9 @@ export default function SignUp() {
   // Function to check fields with regex (just mail for the moment)
   const hCheck = (e, i) => {
     if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i))
-      toast.error(`Votre email n'est pas bon`, {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error(`Votre email n'est pas bon`);
   };
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   // Function to send values in database
 
   const api = useApi();
