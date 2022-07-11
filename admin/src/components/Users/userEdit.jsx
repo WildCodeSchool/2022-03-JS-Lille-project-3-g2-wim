@@ -5,12 +5,17 @@ export default function UserEdit() {
     <Edit>
       <SimpleForm>
         <TextInput source="email" />
-        <TextInput source="name" />
-        <TextInput source="firstname" />
-        <NumberInput source="age" />
-        <TextInput source="schoolOption" />
-        <TextInput source="schoolName" />
-        <TextInput source="schoolClass_id" />
+        <TextInput label="Nom" source="name" />
+        <TextInput label="Prénom" source="firstname" />
+        <NumberInput min="0" source="age" />
+        <TextInput label="Option" source="schoolOption" />
+        <TextInput label="Nom de l'école" source="schoolName" />
+        <NumberInput
+          min="1"
+          max="8"
+          label="Identifiant de la classe"
+          source="schoolClass_id"
+        />
       </SimpleForm>
     </Edit>
   );
