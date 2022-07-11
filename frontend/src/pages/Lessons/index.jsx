@@ -1,7 +1,7 @@
 import Header from "@components/Header";
 import LessonCard from "@components/LessonCard";
 import Navbar from "@components/Navbar";
-import axios from "axios";
+import useApi from "@services/useApi";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SLessons from "./style";
@@ -9,8 +9,9 @@ import SLessons from "./style";
 function Lessons() {
   const [lessons, setLessons] = useState([]);
   const { id } = useParams();
+  const api = useApi();
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_BACKEND_URL}${"/lessons"}`)
       .then(({ data }) => {
         setLessons(data);

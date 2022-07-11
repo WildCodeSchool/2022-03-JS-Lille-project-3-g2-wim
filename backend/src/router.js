@@ -1,5 +1,6 @@
 const express = require("express");
 const passport = require("passport");
+const multer = require("multer");
 
 const {
   ItemController,
@@ -13,6 +14,8 @@ const {
   ClassController,
 } = require("./controllers");
 
+const upload = multer({ dest: "./tmp/" });
+
 const router = express.Router();
 
 router.delete("/users/:id", UserController.delete);
@@ -23,7 +26,7 @@ router.get("/lessons", LessonController.browse);
 router.post("/lessons", LessonController.add);
 router.put("/lessons/:id", LessonController.edit);
 router.delete("/lessons/:id", LessonController.delete);
-router.post("/auth/signup", AuthController.signup);
+router.post("/auth/signup", upload.single("avatar"), AuthController.signup);
 router.post(
   "/auth/login",
   passport.authenticate("local", { session: false }),

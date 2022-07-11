@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import useApi from "@services/useApi";
 import {
   TextField,
   Box,
@@ -33,6 +34,7 @@ export default function SignUp() {
     schoolOption: "",
     schoolName: "",
     schoolClass_id: "",
+    avatar: "",
   });
 
   // Function to manage steps in accordeon
@@ -69,16 +71,26 @@ export default function SignUp() {
       });
   };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   // Function to send values in database
+
+  const api = useApi();
   const hSubmit = (evt) => {
     evt.preventDefault();
 
-    axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
+    const finalForm = Object.keys(form).reduce((accu, key) => {
+      accu.append(key, form[key]);
+      return accu;
+    }, new FormData());
+
+    api
+      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, finalForm)
       .then(({ data }) => {
-        const { token } = data;
+        const { token, user } = data;
         cookies.set("token", token);
-        axios.defaults.headers.authorization = `Bearer ${token}`;
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        dispatch({ type: "USER_LOGIN", payload: { ...user, token } });
+
         toast.success(`Félicitations, vous êtes bien inscrit à WIM`, {
           position: "bottom-center",
           autoClose: 5000,
@@ -106,7 +118,7 @@ export default function SignUp() {
   };
   // Using API delivering existing schoolClasses to make it connected to database
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_BACKEND_URL}/schoolclass`)
       .then(({ data }) => {
         setSchoolClassList(data);
@@ -115,121 +127,132 @@ export default function SignUp() {
 
   return (
     <SSignUp>
-      <Box sx={{ maxWidth: "100%" }}>
-        <Stepper activeStep={activeStep} orientation="vertical">
-          {steps.map((step, index) => (
-            <Step key={step.label}>
-              <StepLabel
-                optional={
-                  index === 2 ? (
-                    <Typography variant="caption">Dernière étape</Typography>
-                  ) : null
-                }
-              >
-                {/* Case step 2, field 1 : field with options to manage the schoolClasses */}
-                <Typography>{step.label}</Typography>
-              </StepLabel>
-              <StepContent>
-                {step.field1.typeOption ? (
+      <div>
+        <Box sx={{ maxWidth: "100%" }}>
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((step, index) => (
+              <Step key={step.label}>
+                <StepLabel
+                  optional={
+                    index === 2 ? (
+                      <Typography variant="caption">Dernière étape</Typography>
+                    ) : null
+                  }
+                >
+                  {/* Case step 2, field 1 : field with options to manage the schoolClasses */}
+                  <Typography>{step.label}</Typography>
+                </StepLabel>
+                <StepContent>
+                  {step.field1.typeOption ? (
+                    <TextField
+                      required
+                      label={step.field1.label}
+                      fullWidth
+                      variant="standard"
+                      type={step.field1.type}
+                      name={step.field1.name}
+                      onChange={hChange}
+                      onBlur={(e) => {
+                        hCheck(e, step.field1.name);
+                      }}
+                      select
+                      SelectProps={{
+                        native: true,
+                      }}
+                    >
+                      <option value>--Classe -- </option>
+                      {schoolClassList.map((option) => (
+                        <option key={option.id} value={option.id}>
+                          {option.label}
+                        </option>
+                      ))}
+                      {/* All other cases for step 1 */}
+                    </TextField>
+                  ) : (
+                    <TextField
+                      required
+                      label={step.field1.label}
+                      fullWidth
+                      variant="standard"
+                      onChange={hChange}
+                      name={step.field1.name}
+                      type={step.field1.type}
+                      onBlur={(e) => {
+                        hCheck(e, step.field1.name);
+                      }}
+                    />
+                  )}
+
                   <TextField
                     required
-                    label={step.field1.label}
+                    label={step.field2.label}
                     fullWidth
                     variant="standard"
-                    type={step.field1.type}
-                    name={step.field1.name}
+                    type={step.field2.type}
+                    name={step.field2.name}
                     onChange={hChange}
-                    onBlur={(e) => {
-                      hCheck(e, step.field1.name);
-                    }}
-                    select
-                    SelectProps={{
-                      native: true,
-                    }}
-                  >
-                    <option value>--Classe -- </option>
-                    {schoolClassList.map((option) => (
-                      <option key={option.id} value={option.id}>
-                        {option.label}
-                      </option>
-                    ))}
-                    {/* All other cases for step 1 */}
-                  </TextField>
-                ) : (
-                  <TextField
-                    required
-                    label={step.field1.label}
-                    fullWidth
-                    variant="standard"
-                    onChange={hChange}
-                    name={step.field1.name}
-                    type={step.field1.type}
-                    onBlur={(e) => {
-                      hCheck(e, step.field1.name);
-                    }}
                   />
-                )}
 
-                <TextField
-                  required
-                  label={step.field2.label}
-                  fullWidth
-                  variant="standard"
-                  type={step.field2.type}
-                  name={step.field2.name}
-                  onChange={hChange}
-                />
-
-                <TextField
-                  required
-                  label={step.field3.label}
-                  fullWidth
-                  variant="standard"
-                  type={step.field3.type}
-                  name={step.field3.name}
-                  onChange={hChange}
-                />
-                <Box sx={{ mb: 2 }}>
-                  <Button
-                    type="file"
-                    name="avatar"
-                    size="large"
-                    variant={index === steps.length - 1 ? "contained" : ""}
-                    onClick={hChange}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    {index === steps.length - 1 ? "Avatar" : ""}
-                  </Button>
-                  <Button
-                    size="large"
-                    variant="contained"
-                    onClick={nextStep}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    {index === steps.length - 1 ? "Fin" : "Continuer"}
-                  </Button>
-                  <Button
-                    size="large"
-                    disabled={index === 0}
-                    onClick={prevStep}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    Retour
-                  </Button>
-                </Box>
-              </StepContent>
-            </Step>
-          ))}
-        </Stepper>
-        {activeStep === steps.length && (
-          <Paper square elevation={0} sx={{ p: 5 }}>
-            <Typography>Bienvenue chez WIM !</Typography>
-            <Button size="large" variant="contained" onClick={hSubmit}>
-              Se connecter
-            </Button>
-          </Paper>
-        )}
-      </Box>
+                  <TextField
+                    required
+                    label={step.field3.label}
+                    fullWidth
+                    variant="standard"
+                    type={step.field3.type}
+                    name={step.field3.name}
+                    onChange={hChange}
+                  />
+                  <Box sx={{ mb: 2 }}>
+                    {/* <Input
+                      type="file"
+                      name="avatar"
+                      size="large"
+                      color="primary"
+                      variant={index === steps.length - 1 ? "contained" : ""}
+                      onClick={hChange}
+                      sx={{ mt: 1, mr: 1 }}
+                    >
+                      {index === steps.length - 1 ? "Avatar" : ""}
+                    </Input> */}
+                    <Button
+                      size="large"
+                      variant="contained"
+                      onClick={nextStep}
+                      sx={{ mt: 1, mr: 1 }}
+                    >
+                      {index === steps.length - 1 ? "Fin" : "Continuer"}
+                    </Button>
+                    <Button
+                      size="large"
+                      disabled={index === 0}
+                      onClick={prevStep}
+                      sx={{ mt: 1, mr: 1 }}
+                    >
+                      Retour
+                    </Button>
+                  </Box>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
+          {activeStep === steps.length && (
+            <Paper square elevation={0} sx={{ p: 5 }}>
+              <Typography>Bienvenue chez WIM !</Typography>
+              <Button size="large" variant="contained" onClick={hSubmit}>
+                Se connecter
+              </Button>
+            </Paper>
+          )}
+        </Box>
+      </div>
+      <div>
+        <input
+          type="file"
+          name="avatar"
+          placeholder="Votre avatar"
+          onChange={hChange}
+        />
+      </div>
     </SSignUp>
   );
 }
