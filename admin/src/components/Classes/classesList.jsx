@@ -1,19 +1,17 @@
 import {
+  DeleteButton,
+  EditButton,
   Datagrid,
   List,
   TextField,
-  DeleteButton,
-  EditButton,
 } from "react-admin";
 
-export default function TopicList() {
+export default function SchoolclassList() {
   return (
     <List>
       <Datagrid rowClick="edit">
         <TextField label="Identifiant" source="id" />
-        <TextField label="Matière" source="label" />
-        <TextField label="Logo (Page d'écoute)" source="logo" />
-        <TextField label="Icon de la matière" source="icon" />
+        <TextField label="Classe" source="label" />
         <EditButton label="Editer" />
         <DeleteButton label="Supprimer" />
       </Datagrid>
