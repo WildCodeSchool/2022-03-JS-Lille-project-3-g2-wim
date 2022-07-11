@@ -1,28 +1,26 @@
-import {
-  Edit,
-  NumberInput,
-  ReferenceInput,
-  SelectInput,
-  SimpleForm,
-  TextInput,
-} from "react-admin";
+import { Edit, NumberInput, SimpleForm, TextInput } from "react-admin";
 
 export default function LessonEdit() {
   return (
     <Edit>
       <SimpleForm>
-        <TextInput source="id" />
-        <TextInput source="fileName" />
-        <ReferenceInput source="schoolTopic_id" reference="lessons">
-          <SelectInput optionText="id" />
-        </ReferenceInput>
-        <TextInput source="title" />
-        <TextInput source="musicStyle" />
-        <TextInput source="fileLocation" />
-        <NumberInput source="duration" />
-        <ReferenceInput source="schoolClass_id" reference="users">
-          <SelectInput optionText="id" />
-        </ReferenceInput>
+        <TextInput label="Nom du fichier" source="fileName" />
+        <NumberInput
+          min="1"
+          max="12"
+          label="Identifiant de l de la Matière"
+          source="schoolTopic_id"
+        />
+        <TextInput label="Titre" source="title" />
+        <TextInput label="Genre" source="musicStyle" />
+        <TextInput label="Emplacement" source="fileLocation" />
+        <NumberInput label="Durée" source="duration" />
+        <NumberInput
+          min="1"
+          max="8"
+          label="Identifiant de la classe"
+          source="schoolClass_id"
+        />
       </SimpleForm>
     </Edit>
   );

@@ -23,13 +23,9 @@ function Subjects() {
       <h1>Matières</h1>
       <ul className="listContainer">
         {topics.map((topic) => (
-          <Link to={`/cours/${topic.schoolTopic_id}`} key={topic.id}>
-            <li className="topic" value={topic.id}>
-              <img
-                className="iconImg"
-                src={`../src/${topic.icon}`}
-                alt="logo de la matière"
-              />{" "}
+          <Link className="topic" to={`/cours/${topic.id}`} key={topic.id}>
+            <li value={topic.id}>
+              <img src={`../src/${topic.icon}`} alt="logo de la matière" />{" "}
               {topic.label}
             </li>
           </Link>

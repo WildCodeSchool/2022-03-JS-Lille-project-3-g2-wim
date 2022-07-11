@@ -12,6 +12,72 @@ class ClassController {
         res.sendStatus(500);
       });
   };
+
+  static read = (req, res) => {
+    models.schoolClass
+      .find(req.params.id)
+      .then(([rows]) => {
+        if (rows[0] == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static edit = (req, res) => {
+    const schoolClass = req.body;
+
+    // TODO validations (length, format...)
+
+    schoolClass.id = parseInt(req.params.id, 10);
+
+    models.schoolClass
+      .update(schoolClass)
+      .then(([result]) => {
+        if (result.affectedRows === 0) {
+          res.sendStatus(404);
+        } else {
+          res.sendStatus(204);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static add = (req, res) => {
+    const schoolClass = req.body;
+
+    // TODO validations (length, format...)
+
+    models.schoolClass
+      .insert(schoolClass)
+      .then(([result]) => {
+        res.status(201).send({ ...schoolClass, id: result.insertId });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static delete = (req, res) => {
+    models.schoolClass
+      .delete(req.params.id)
+      .then(() => {
+        res.sendStatus(204);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
 }
 
 module.exports = ClassController;
