@@ -11,15 +11,15 @@ export default function LessonList() {
   return (
     <List>
       <Datagrid rowClick="edit">
-        <TextField source="fileName" />
-        <TextField source="schoolTopic_id" />
-        <TextField source="title" />
-        <TextField source="musicStyle" />
-        <TextField source="fileLocation" />
-        <NumberField source="duration" />
-        <TextField source="schoolClass_id" />
-        <EditButton />
-        <DeleteButton />
+        <TextField label="Nom du fichier" source="fileName" />
+        <TextField label="Identifiant de la Matière" source="schoolTopic_id" />
+        <TextField label="Titre" source="title" />
+        <TextField label="Genre" source="musicStyle" />
+        <TextField label="Emplacement" source="fileLocation" />
+        <NumberField label="Durée" source="duration" />
+        <TextField label="Identifiant de la classe" source="schoolClass_id" />
+        <EditButton label="Editer" />
+        <DeleteButton label="Supprimer" />
       </Datagrid>
     </List>
   );
