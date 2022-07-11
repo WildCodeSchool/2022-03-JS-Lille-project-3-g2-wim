@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import axios from "axios";
+import useApi from "@services/useApi";
 import {
   TextField,
   Box,
@@ -33,6 +33,7 @@ export default function SignUp() {
     schoolName: "",
     schoolClass_id: "",
   });
+  const api = useApi();
 
   // Function to manage steps in accordeon
   const nextStep = () => {
@@ -63,12 +64,12 @@ export default function SignUp() {
   const hSubmit = (evt) => {
     evt.preventDefault();
 
-    axios
+    api
       .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
       .then(({ data }) => {
         const { token } = data;
         cookies.set("token", token);
-        axios.defaults.headers.authorization = `Bearer ${token}`;
+        api.defaults.headers.authorization = `Bearer ${token}`;
         toast.success(`Félicitations, vous êtes bien inscrit à WIM`, {
           position: "bottom-center",
           autoClose: 5000,
@@ -93,7 +94,7 @@ export default function SignUp() {
   };
   // Using API delivering existing schoolClasses to make it connected to database
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_BACKEND_URL}/schoolclass`)
       .then(({ data }) => {
         setSchoolClassList(data);
