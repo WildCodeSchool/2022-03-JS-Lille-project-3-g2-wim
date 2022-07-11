@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import useApi from "@services/useApi";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   TextField,
   Box,
@@ -18,6 +19,7 @@ import { cookies } from "../../confCookie";
 import SSignUp from "./style";
 
 export default function SignUp() {
+  const dispatch = useDispatch();
   // Variables defined to manage steps in material admin form
   const [activeStep, setActiveStep] = useState(0);
   // Variables to define dynamically the list of classes from database
@@ -51,15 +53,7 @@ export default function SignUp() {
   // Function to check fields with regex (just mail for the moment)
   const hCheck = (e, i) => {
     if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i))
-      toast.error(`Votre email n'est pas bon`, {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error(`Votre email n'est pas bon`);
   };
   // Function to send values in database
   const navigate = useNavigate();
@@ -68,18 +62,12 @@ export default function SignUp() {
     api
       .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
       .then(({ data }) => {
-        const { token } = data;
+        const { token, user } = data;
+
         cookies.set("token", token);
         api.defaults.headers.authorization = `Bearer ${token}`;
-        toast.success(`Félicitations, vous êtes bien inscrit à WIM`, {
-          position: "bottom-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        dispatch({ type: "USER_LOGIN", payload: user });
+        toast.success(`Félicitations, vous êtes bien inscrit à WIM`);
       })
       .then(() => {
         navigate("/accueil");
