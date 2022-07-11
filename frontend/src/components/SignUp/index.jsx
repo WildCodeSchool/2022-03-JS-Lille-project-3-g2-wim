@@ -63,7 +63,6 @@ export default function SignUp() {
   // Function to send values in database
   const hSubmit = (evt) => {
     evt.preventDefault();
-
     api
       .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
       .then(({ data }) => {

@@ -1,7 +1,8 @@
-import { Button, TextField, Box } from "@mui/material";
+import { TextField, Box } from "@mui/material";
 import { useState } from "react";
 import useApi from "@services/useApi";
 import { toast } from "react-toastify";
+import { cookies } from "../../confCookie";
 import SSignIn from "./style";
 
 export default function SignIn() {
@@ -11,8 +12,11 @@ export default function SignIn() {
     evt.preventDefault();
     api
       .post(`${import.meta.env.VITE_BACKEND_URL}${"/auth/login"}`, formData)
-      .then(() => {
-        toast("Bienvenue sur Wim");
+      .then(({ data }) => {
+        const { token } = data;
+        cookies.set("token", token);
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        toast.success("Bienvenue sur Wim");
       })
       .catch(() => {
         toast.error("Email ou mot de passe incorrect");
@@ -47,9 +51,6 @@ export default function SignIn() {
           onChange={hChange}
         />
       </Box>
-      <Button variant="contained" size="large">
-        Connecter
-      </Button>
       <input className="submit" type="submit" value="CONNECTER" />
     </SSignIn>
   );
