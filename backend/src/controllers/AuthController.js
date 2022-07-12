@@ -31,6 +31,15 @@ class AuthController {
     res.status(200).json({ user: req.user, token });
   };
 
+  static loginAdmin = (req, res) => {
+    if (req.user.email === process.env.ADMIN_EMAIL) {
+      const token = jwt.sign(req.user, process.env.JWT_SECRET);
+      res.status(200).json({ user: req.user, token });
+    } else {
+      res.status(401).send();
+    }
+  };
+
   static lessons = (req, res) => {
     return res.send("Yay <3");
   };

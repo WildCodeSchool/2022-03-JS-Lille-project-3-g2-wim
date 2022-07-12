@@ -10,11 +10,19 @@ class FavoriteManager extends AbstractManager {
     );
   }
 
-  findAllFavorites(id) {
+  findAllFavorites(userId) {
     return this.connection.query(
-      `select lesson.id, lesson.fileName, lesson.schoolTopic_id, lesson.title, lesson.subTitle, lesson.musicStyle, lesson.fileLocation, lesson.lyrics, lesson.img, lesson.duration, lesson.schoolClass_id from user INNER JOIN userFavLesson ON user.id=userFavLesson.user_id INNER JOIN lesson ON userFavLesson.lesson_id=lesson.id where user.id = ?
+      `
+      SELECT 
+        lesson.id, lesson.fileName, lesson.schoolTopic_id, lesson.title, lesson.subTitle, lesson.musicStyle, lesson.fileLocation, lesson.lyrics, lesson.img, lesson.duration, lesson.schoolClass_id 
+      FROM 
+        user 
+        INNER JOIN userFavLesson ON user.id=userFavLesson.user_id 
+        INNER JOIN lesson ON userFavLesson.lesson_id=lesson.id 
+      WHERE 
+        user.id = ?
       `,
-      [id]
+      [userId]
     );
   }
 

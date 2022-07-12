@@ -3,7 +3,7 @@ const models = require("../models");
 class FavoriteController {
   static readByUser = (req, res) => {
     models.userFavLesson
-      .findAllFavorites(req.params.id)
+      .findAllFavorites(req.user.id)
       .then(([rows]) => {
         res.send(rows);
       })
