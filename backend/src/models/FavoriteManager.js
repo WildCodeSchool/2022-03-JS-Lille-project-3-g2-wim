@@ -5,7 +5,7 @@ class FavoriteManager extends AbstractManager {
 
   insert(lessonId, userId) {
     return this.connection.query(
-      `insert into userFavLesson (user_id, lesson_id) values (?,?)`,
+      `insert into userFavLesson ( lesson_id, user_id) values (?,?)`,
       [lessonId, userId]
     );
   }
@@ -20,7 +20,7 @@ class FavoriteManager extends AbstractManager {
 
   delete(lessonId, userId) {
     return this.connection.query(
-      `DELETE userFavLesson FROM userFavLesson $ WHERE lesson_id = ? AND user.id = ?`,
+      `DELETE FROM userFavLesson $ WHERE lesson_id = ? AND user_id = ?`,
       [lessonId, userId]
     );
   }

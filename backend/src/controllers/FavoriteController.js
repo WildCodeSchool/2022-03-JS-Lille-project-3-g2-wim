@@ -14,6 +14,7 @@ class FavoriteController {
   };
 
   static addFavFromUser = (req, res) => {
+    // The lesson number to add a favorite is sent in a body from front
     const lessonId = req.body.lesson_id;
     const userId = req.user.id;
 
