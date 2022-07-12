@@ -23,16 +23,12 @@ export default styled.div`
     background-color: transparent;
     width: 85vw;
     border: none;
-    margin: auto;
   }
   .titleCategory {
     display: flex;
-    img {
-      padding: 0 1.5rem;
-      width: 1rem;
-    }
+    margin-left: 2rem;
     p {
-      margin-bottom: 1rem;
+      font-size: 1rem;
     }
   }
   .accordionHeading {
@@ -66,10 +62,11 @@ export default styled.div`
   }
   .for-text {
     background-color: var(--colorBackgroundLightGrey);
-  }
-  p {
-    font-size: 1rem;
-    padding: 1rem;
-    font-family: var(--fontSecondary);
+    padding: 2rem;
+    p {
+      font-size: 1rem;
+      line-height: 1.6rem;
+      font-family: var(--fontSecondary);
+    }
   }
 `;
