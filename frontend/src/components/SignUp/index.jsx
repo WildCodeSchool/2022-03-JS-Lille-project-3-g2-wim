@@ -227,13 +227,10 @@ export default function SignUp() {
         </Box>
       </div>
       <div>
-        <input
-          className="inputAvatar"
-          type="file"
-          name="avatar"
-          placeholder="Votre avatar"
-          onChange={hChange}
-        />
+        <div className="custom-file-upload">
+          <input type="file" onChange={hChange} />
+          <i>AJOUTE TON AVATAR</i>
+        </div>
       </div>
     </SSignUp>
   );
