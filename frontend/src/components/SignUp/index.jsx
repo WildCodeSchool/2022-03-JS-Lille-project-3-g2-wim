@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
+import useApi from "@services/useApi";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import axios from "axios";
-
 import {
   TextField,
   Box,
@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import steps from "@assets/dataStepForm";
-import { cookies } from "../../confCookie";
 import SSignUp from "./style";
 
 export default function SignUp() {
@@ -36,6 +35,7 @@ export default function SignUp() {
     schoolName: "",
     schoolClass_id: "",
   });
+  const api = useApi();
 
   // Function to manage steps in accordeon
   const nextStep = () => {
@@ -55,18 +55,19 @@ export default function SignUp() {
       toast.error(`Votre email n'est pas bon`);
   };
   // Function to send values in database
+  const navigate = useNavigate();
   const hSubmit = (evt) => {
     evt.preventDefault();
-
-    axios
+    api
       .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
       .then(({ data }) => {
         const { token, user } = data;
-
-        cookies.set("token", token);
-        axios.defaults.headers.authorization = `Bearer ${token}`;
+        api.defaults.headers.authorization = `Bearer ${token}`;
         dispatch({ type: "USER_LOGIN", payload: user });
         toast.success(`Félicitations, vous êtes bien inscrit à WIM`);
+      })
+      .then(() => {
+        navigate("/accueil");
       })
       .catch((e) => {
         toast.error(`Veuillez réésayer !${e}`, {
@@ -82,7 +83,7 @@ export default function SignUp() {
   };
   // Using API delivering existing schoolClasses to make it connected to database
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_BACKEND_URL}/schoolclass`)
       .then(({ data }) => {
         setSchoolClassList(data);
