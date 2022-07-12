@@ -3,10 +3,10 @@ const AbstractManager = require("./AbstractManager");
 class FavoriteManager extends AbstractManager {
   static table = "userFavLesson";
 
-  insert(numberLessonId, userLessonId) {
+  insert(lessonId, userId) {
     return this.connection.query(
       `insert into userFavLesson (user_id, lesson_id) values (?,?)`,
-      [userLessonId, numberLessonId]
+      [lessonId, userId]
     );
   }
 
@@ -26,10 +26,10 @@ class FavoriteManager extends AbstractManager {
     );
   }
 
-  delete(numberLessonId, userLessonId, id) {
+  delete(lessonId, userId) {
     return this.connection.query(
       `delete userFavLesson from userFavLesson INNER JOIN user ON userFavLesson.user_id=user.id WHERE user_id = ? AND lesson_id = ? AND user.id = ?`,
-      [userLessonId, numberLessonId, id]
+      [lessonId, userId]
     );
   }
 }

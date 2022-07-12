@@ -23,8 +23,16 @@ router.get(
   FavoriteController.readByUser
 );
 
-router.post("/favorite", FavoriteController.addFavFromUser);
-router.delete("/favorite/:id", FavoriteController.delete);
+router.post(
+  "/favorite",
+  passport.authenticate("jwt", { session: false }),
+  FavoriteController.addFavFromUser
+);
+router.delete(
+  "/favorite/:id",
+  passport.authenticate("jwt", { session: false }),
+  FavoriteController.delete
+);
 router.get("/lessons", LessonController.browse);
 router.post("/lessons", LessonController.add);
 router.put("/lessons/:id", LessonController.edit);
