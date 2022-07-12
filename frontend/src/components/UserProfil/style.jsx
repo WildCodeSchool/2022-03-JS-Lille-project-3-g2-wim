@@ -18,14 +18,12 @@ export default styled.div`
     color: var(--colorTextlight);
     font: var(--fontTitleBold);
   }
-
-  .contenairname {
+ .contenairname {
     display: flex;
     justify-content: flex-start;
     height: 17vh;
     width: 85vw;
     margin: auto;
-
     border: 1px solid var(--colorBackgroundLightGrey);
     background-color: var(--colorTextlight);
     border-radius: 8px;
