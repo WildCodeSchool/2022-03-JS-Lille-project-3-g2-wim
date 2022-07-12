@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
 import useApi from "@services/useApi";
+import { useDispatch } from "react-redux";
 import {
   TextField,
   Box,
@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import steps from "@assets/dataStepForm";
-import { cookies } from "../../confCookie";
 import SSignUp from "./style";
 
 export default function SignUp() {
@@ -37,7 +36,6 @@ export default function SignUp() {
     schoolClass_id: "",
     avatar: "",
   });
-
   // Function to manage steps in accordeon
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -79,7 +77,6 @@ export default function SignUp() {
       .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, finalForm)
       .then(({ data }) => {
         const { token, user } = data;
-        cookies.set("token", token);
         api.defaults.headers.authorization = `Bearer ${token}`;
         dispatch({ type: "USER_LOGIN", payload: { ...user, token } });
 
@@ -92,6 +89,9 @@ export default function SignUp() {
           draggable: true,
           progress: undefined,
         });
+      })
+      .then(() => {
+        navigate("/accueil");
       })
       .then(() => {
         navigate("/accueil");

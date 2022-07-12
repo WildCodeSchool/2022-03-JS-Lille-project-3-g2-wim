@@ -1,16 +1,17 @@
 import { TextField, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import useApi from "@services/useApi";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
+import useApi from "@services/useApi";
 import SSignIn from "./style";
 
 export default function SignIn() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const api = useApi();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: "", password: "" });
+
   const hSubmit = (evt) => {
     evt.preventDefault();
     api
@@ -19,7 +20,6 @@ export default function SignIn() {
         const { token, user } = data;
         api.defaults.headers.authorization = `Bearer ${token}`;
         dispatch({ type: "USER_LOGIN", payload: { ...user, token } });
-
         toast("Bienvenue sur Wim");
       })
       .then(() => {

@@ -12,7 +12,6 @@ export default function AudioPlayer({ id }) {
   const [img, setImg] = useState("");
   const [topicLabel, setTopicLabel] = useState("");
   const api = useApi();
-
   useEffect(() => {
     api
       .get(`${import.meta.env.VITE_BACKEND_URL}/lessonsdata/${id}`)
