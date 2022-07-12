@@ -25,7 +25,7 @@ function Subjects() {
           <Link
             className="topic"
             to={`/cours/${topic.schoolTopic_id}`}
-            key={topic.id}
+            key={topic.label}
           >
             <li value={topic.id}>
               <img src={`../src/${topic.icon}`} alt="logo de la matière" />{" "}
