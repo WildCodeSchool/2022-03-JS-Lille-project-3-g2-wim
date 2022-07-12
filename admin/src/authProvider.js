@@ -7,7 +7,7 @@ export default {
         email: params.username,
         password: params.password,
       };
-      const { data } = await api.post(`/auth/login`, formData);
+      const { data } = await api.post(`/auth/admin`, formData);
       localStorage.setItem("token", data.token);
       return Promise.resolve();
     } catch (e) {
