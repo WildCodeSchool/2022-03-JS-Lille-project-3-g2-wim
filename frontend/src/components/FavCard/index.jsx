@@ -3,10 +3,10 @@ import Play from "@assets/Images/play-solid-3.svg";
 import ButtonStreamFav from "@components/ButtonStreamFav";
 import SFavCard from "./style";
 
-export default function FavCard({ key, id, title, duration, musicStyle }) {
+export default function FavCard({ id, title, duration, musicStyle }) {
   return (
     <SFavCard>
-      <div key={key} className="cardOfFav">
+      <div className="cardOfFav">
         <img className="play" src={Play} alt="play button" />
         <div className="informations">
           <h1 className="lesson"> {title}</h1>
@@ -20,7 +20,6 @@ export default function FavCard({ key, id, title, duration, musicStyle }) {
   );
 }
 FavCard.propTypes = {
-  key: propTypes.string.isRequired,
   id: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   duration: propTypes.number.isRequired,
