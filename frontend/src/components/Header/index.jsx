@@ -1,15 +1,15 @@
 import avatar from "@assets/avatar.png";
-import { Link } from "react-router-dom";
-
-import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import SHeader from "./style";
 
 function Header() {
   const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.user);
-
+  const { email } = useSelector((state) => state.user);
+  const navigate = useNavigate();
   const deconnect = () => {
-    dispatch({ type: "USER_LOGIN" });
+    dispatch({ type: "USER_LOGOUT" });
+    navigate("/connexion");
   };
 
   return (
@@ -18,11 +18,14 @@ function Header() {
       <Link to="/accueil">
         <p>WIM</p>
       </Link>
-      {/* {connected && ( */}
-      <button type="button" onClick={deconnect} className="deconnect">
-        Deconnexion
-      </button>
-      {/* )} */}
+      {email && (
+        <input
+          type="button"
+          onClick={deconnect}
+          className="deconnect"
+          value="Deconnexion"
+        />
+      )}
     </SHeader>
   );
 }
