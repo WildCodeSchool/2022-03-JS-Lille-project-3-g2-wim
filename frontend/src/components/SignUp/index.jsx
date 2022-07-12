@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import steps from "@assets/dataStepForm";
-import { cookies } from "../../confCookie";
 import SSignUp from "./style";
 
 export default function SignUp() {
@@ -63,7 +62,6 @@ export default function SignUp() {
       .then(({ data }) => {
         const { token, user } = data;
 
-        cookies.set("token", token);
         axios.defaults.headers.authorization = `Bearer ${token}`;
         dispatch({ type: "USER_LOGIN", payload: user });
         toast.success(`Félicitations, vous êtes bien inscrit à WIM`);
