@@ -1,17 +1,13 @@
 import propTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
 import ButtonStreamFav from "@components/ButtonStreamFav";
-import { Link } from "react-router-dom";
-import SLessonCard from "./style";
+import SFavCard from "./style";
 
-export default function LessonCard({ id, title, duration, musicStyle }) {
+export default function FavCard({ key, id, title, duration, musicStyle }) {
   return (
-    <SLessonCard>
-      <div className="cardOfLesson">
-        <Link to={`/ecoute/${id}`}>
-          <img className="play" src={Play} alt="play button" />
-        </Link>
-
+    <SFavCard>
+      <div key={key} className="cardOfFav">
+        <img className="play" src={Play} alt="play button" />
         <div className="informations">
           <h1 className="lesson"> {title}</h1>
           <h2>
@@ -20,12 +16,12 @@ export default function LessonCard({ id, title, duration, musicStyle }) {
         </div>
         <ButtonStreamFav id={id} />
       </div>
-    </SLessonCard>
+    </SFavCard>
   );
 }
-
-LessonCard.propTypes = {
-  id: propTypes.number.isRequired,
+FavCard.propTypes = {
+  key: propTypes.string.isRequired,
+  id: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   duration: propTypes.number.isRequired,
   musicStyle: propTypes.string.isRequired,
