@@ -16,7 +16,13 @@ const {
 const router = express.Router();
 
 router.delete("/users/:id", UserController.delete);
-router.get("/favorite/:id", FavoriteController.readByUser);
+
+router.get(
+  "/favorite",
+  passport.authenticate("jwt", { session: false }),
+  FavoriteController.readByUser
+);
+
 router.post("/favorite", FavoriteController.addFavFromUser);
 router.delete("/favorite/:id", FavoriteController.delete);
 router.get("/lessons", LessonController.browse);
@@ -28,6 +34,11 @@ router.post(
   "/auth/login",
   passport.authenticate("local", { session: false }),
   AuthController.login
+);
+router.post(
+  "/auth/admin",
+  passport.authenticate("local", { session: false }),
+  AuthController.loginAdmin
 );
 router.get(
   "/secure/lessons",
