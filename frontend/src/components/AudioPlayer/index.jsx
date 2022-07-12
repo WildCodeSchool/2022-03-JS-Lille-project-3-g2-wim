@@ -1,7 +1,7 @@
 import AudioPlayerLoading from "@components/AudioPlayerLoading";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import useApi from "@services/useApi";
 import SAudioPlayer from "./style";
 
 export default function AudioPlayer({ id }) {
@@ -11,9 +11,9 @@ export default function AudioPlayer({ id }) {
   const [title, setTitle] = useState("");
   const [img, setImg] = useState("");
   const [topicLabel, setTopicLabel] = useState("");
-
+  const api = useApi();
   useEffect(() => {
-    axios
+    api
       .get(`${import.meta.env.VITE_BACKEND_URL}/lessonsdata/${id}`)
       .then(({ data }) => {
         setImg(`../src/${data.logo}`);
