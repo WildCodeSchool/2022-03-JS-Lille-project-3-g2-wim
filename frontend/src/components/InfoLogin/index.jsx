@@ -32,7 +32,6 @@ export default function InfoSchool() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`)
       .then(({ data }) => {
-        // setUserData(data);
         setFormData(data);
       });
   }, []);
