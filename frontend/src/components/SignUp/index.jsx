@@ -51,12 +51,19 @@ export default function SignUp() {
   };
   // Function to check fields with regex (just mail for the moment)
   const hCheck = (e, i) => {
-    if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i))
+    if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,3}$/i))
       toast.error(`Votre email n'est pas bon`);
+  };
+  const hCheckPassword = (e, i) => {
+    if (i === "passwordBis" && !e.target.value !== form.password)
+      toast.error(`Vos mots de passe sont incorrect`);
   };
   // Function to send values in database
   const hSubmit = (evt) => {
     evt.preventDefault();
+
+    if (form.password !== form.passwordBis) return;
+    delete form.passwordBis;
 
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
@@ -69,15 +76,17 @@ export default function SignUp() {
         toast.success(`Félicitations, vous êtes bien inscrit à WIM`);
       })
       .catch((e) => {
-        toast.error(`Veuillez réésayer !${e}`, {
-          position: "bottom-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        if (e.message === "Request failed with status code 418") {
+          toast.error(`Veuillez saisir un email correct`, {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       });
   };
   // Using API delivering existing schoolClasses to make it connected to database
@@ -164,6 +173,9 @@ export default function SignUp() {
                   type={step.field3.type}
                   name={step.field3.name}
                   onChange={hChange}
+                  onBlur={(e) => {
+                    hCheckPassword(e, step.field3.name);
+                  }}
                 />
                 <Box sx={{ mb: 2 }}>
                   <Button
