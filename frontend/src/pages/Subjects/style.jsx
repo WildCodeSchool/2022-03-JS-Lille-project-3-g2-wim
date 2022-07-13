@@ -18,7 +18,7 @@ export default styled.section`
     justify-content: center;
   }
 
-  img {
+  .iconImg {
     padding-bottom: 1rem;
     width: 3rem;
     height: 3rem;
@@ -41,6 +41,13 @@ export default styled.section`
     color: var(--colorTextlight);
     font: var(--fontTitleTopic);
     word-wrap: break-word;
+    text-align: center;
+    img {
+      padding-bottom: 1rem;
+      width: 4rem;
+      height: 4rem;
+      margin: auto;
+    }
   }
   .topic:nth-child(3n-2) {
     background-color: var(--colorBlueMain);
@@ -56,7 +63,7 @@ export default styled.section`
       width: 10vw;
       padding: 2vw;
     }
-    img {
+    .iconImg {
       padding-bottom: 2rem;
       width: 6rem;
       height: 6rem;

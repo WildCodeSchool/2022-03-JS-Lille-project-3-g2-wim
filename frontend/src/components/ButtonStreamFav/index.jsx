@@ -1,6 +1,6 @@
 import IconFavAdd from "@assets/Images/fav-added.svg";
 import IconFav from "@assets/Images/fav-empty.svg";
-import axios from "axios";
+import useApi from "@services/useApi";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import SButtonStreamFav from "./style";
@@ -9,8 +9,9 @@ export default function ButtonStreamFav({ id }) {
   const [formData] = useState({ user_id: 2, lesson_id: id });
   const [activ, setActive] = useState(false);
   const [IconActive, setIconActiv] = useState(IconFav);
+  const api = useApi();
   const addFavorite = () => {
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, formData).then();
+    api.post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, formData).then();
     if (activ === false) {
       setActive(true);
       setIconActiv(IconFavAdd);
@@ -20,7 +21,7 @@ export default function ButtonStreamFav({ id }) {
     }
   };
   const deleteFavorite = () => {
-    axios
+    api
       .delete(`${import.meta.env.VITE_BACKEND_URL}/favorite/${id}`, formData)
       .then();
     if (activ === false) {

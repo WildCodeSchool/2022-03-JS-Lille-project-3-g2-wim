@@ -6,16 +6,22 @@ import LessonList from "@components/Lessons/lessonList";
 import LessonCreate from "@components/Lessons/lessonCreate";
 import TopicList from "@components/Topic/topicList";
 import TopicEdit from "@components/Topic/topicEdit";
+import SchoolclassList from "@components/Classes/classesList";
+import SchoolclassEdit from "@components/Classes/classesEdit";
 import UserIcon from "@mui/icons-material/Group";
 import PostIcon from "@mui/icons-material/Book";
 import Dashboard from "./Dashboard";
-
 import dataProvider from "./dataProvider";
+import authProvider from "./authProvider";
 
 function App() {
   return (
     <div className="App">
-      <Admin dashboard={Dashboard} dataProvider={dataProvider}>
+      <Admin
+        authProvider={authProvider}
+        dashboard={Dashboard}
+        dataProvider={dataProvider}
+      >
         <Resource
           name="users"
           list={UserList}
@@ -30,6 +36,11 @@ function App() {
           icon={PostIcon}
         />
         <Resource name="topics" list={TopicList} edit={TopicEdit} />
+        <Resource
+          name="schoolclass"
+          list={SchoolclassList}
+          edit={SchoolclassEdit}
+        />
       </Admin>
     </div>
   );

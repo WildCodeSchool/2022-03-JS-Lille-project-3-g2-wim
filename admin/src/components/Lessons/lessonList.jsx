@@ -1,8 +1,9 @@
 import {
   Datagrid,
+  DeleteButton,
+  EditButton,
   List,
   NumberField,
-  ReferenceField,
   TextField,
 } from "react-admin";
 
@@ -10,18 +11,15 @@ export default function LessonList() {
   return (
     <List>
       <Datagrid rowClick="edit">
-        <TextField source="id" />
-        <TextField source="fileName" />
-        <ReferenceField source="schoolTopic_id" reference="lessons">
-          <TextField source="id" />
-        </ReferenceField>
-        <TextField source="title" />
-        <TextField source="musicStyle" />
-        <TextField source="fileLocation" />
-        <NumberField source="duration" />
-        <ReferenceField source="schoolClass_id" reference="users">
-          <TextField source="id" />
-        </ReferenceField>
+        <TextField label="Nom du fichier" source="fileName" />
+        <TextField label="Identifiant de la Matière" source="schoolTopic_id" />
+        <TextField label="Titre" source="title" />
+        <TextField label="Genre" source="musicStyle" />
+        <TextField label="Emplacement" source="fileLocation" />
+        <NumberField label="Durée" source="duration" />
+        <TextField label="Identifiant de la classe" source="schoolClass_id" />
+        <EditButton label="Editer" />
+        <DeleteButton label="Supprimer" />
       </Datagrid>
     </List>
   );
