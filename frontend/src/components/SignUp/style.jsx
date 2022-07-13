@@ -7,8 +7,9 @@ export default styled.form`
   button {
     margin-top: 2rem;
   }
-  input[type="file"] {
-    display: none;
+  .inputAvatar {
+    background-color: var(--colorBlueMain);
+    color: white;
   }
   .custom-file-upload {
     border: 1px solid #ccc;
