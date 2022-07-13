@@ -33,7 +33,7 @@ function App() {
               <Route path="/cours/:id" element={<Lessons />} />;
               <Route path="/ecoute/:id" element={<Stream />} />;
               <Route path="/profil/:id" element={<Profil />} />;
-            <Route path="/favoris/:id" element={<Favorites />} />
+              <Route path="/favoris/:id" element={<Favorites />} />
             </Routes>
           </main>
         </ThemeProvider>
