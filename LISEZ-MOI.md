@@ -5,8 +5,7 @@
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+4. [Auteurs](#auteurs)
 
 ## General Info
 
@@ -49,3 +48,31 @@ Ce projet a été développé par 6 développeurs en formation à la Wild Code S
   - Axios pour les appels API.
 
 ## Installation
+
+### Pour commencer un projet
+
+    Sur VSCode, installer les plugins Prettier - Code formatter et ESLint et les configurer
+    Cloner ce dépôt, se rendre à l'intérieur
+    Lancer la commande npm run setup
+    NB: Pour exécuter le backend, un fichier d'environnement avec les données de connexion d'une BdD valide est nécesaire. Un modèle se trouve dans backend/.env.sample
+
+### Liste des commandes et signification
+
+    setup : Initialisation du frontend et du backend ainsi que des outils
+    dev : Démarrage des trois serveurs (frontend + backend + admin) dans un même terminal
+    dev-front : Démarrage d'un serveur React pour le frontend
+    dev-back : Démarrage d'un serveur Express pour le backend
+    dev-admin : Démarrage d'un serveur React pour l'admin
+    lint : Exécute des outils de validation de code (sera exécutée automatiquement à chaque commit)
+    fix : Fixe les erreurs de formatage (à lancer si lint ne passe pas)
+
+## Equipe
+
+Une équipe de développeurs en formation de mars à juin 2022 à la Wild Code School de Lille
+
+- Juliane Casier
+- Thomas Di Cola
+- Jérémy Jorand
+- Amar Lebkiri
+- Rémi Ménart
+- Faycel Nasmi
