@@ -20,7 +20,7 @@ class FavoriteManager extends AbstractManager {
 
   delete(lessonId, userId) {
     return this.connection.query(
-      `DELETE FROM userFavLesson $ WHERE lesson_id = ? AND user_id = ?`,
+      `DELETE FROM userFavLesson WHERE lesson_id = ? AND user_id = ?`,
       [lessonId, userId]
     );
   }
