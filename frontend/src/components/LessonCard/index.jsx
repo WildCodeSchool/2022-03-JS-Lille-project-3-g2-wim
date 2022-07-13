@@ -4,11 +4,11 @@ import ButtonLessonFav from "@components/ButtonLessonFav";
 import { Link } from "react-router-dom";
 import SLessonCard from "./style";
 
-export default function LessonCard({ key, id, title, duration, musicStyle }) {
+export default function LessonCard({ id, title, duration, musicStyle }) {
   return (
     <SLessonCard>
-      <div key={key} className="cardOfLesson">
-        <Link to={`/ecoute/${id}`} key={key}>
+      <div className="cardOfLesson">
+        <Link to={`/ecoute/${id}`}>
           <img className="play" src={Play} alt="play button" />
         </Link>
 
@@ -25,8 +25,7 @@ export default function LessonCard({ key, id, title, duration, musicStyle }) {
 }
 
 LessonCard.propTypes = {
-  id: propTypes.string.isRequired,
-  key: propTypes.string.isRequired,
+  id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
   duration: propTypes.number.isRequired,
   musicStyle: propTypes.string.isRequired,

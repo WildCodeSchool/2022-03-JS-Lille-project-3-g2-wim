@@ -1,17 +1,28 @@
-import { Button, TextField, Box } from "@mui/material";
+import { TextField, Box } from "@mui/material";
 import { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import useApi from "@services/useApi";
 import SSignIn from "./style";
 
 export default function SignIn() {
+  const api = useApi();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const hSubmit = (evt) => {
     evt.preventDefault();
-    axios
+    api
       .post(`${import.meta.env.VITE_BACKEND_URL}${"/auth/login"}`, formData)
+      .then(({ data }) => {
+        const { token, user } = data;
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        dispatch({ type: "USER_LOGIN", payload: user });
+        toast.success("Bienvenue sur Wim");
+      })
       .then(() => {
-        toast("Bienvenue sur Wim");
+        navigate("/accueil");
       })
       .catch(() => {
         toast.error("Email ou mot de passe incorrect");
@@ -46,9 +57,6 @@ export default function SignIn() {
           onChange={hChange}
         />
       </Box>
-      <Button variant="contained" size="large">
-        Connecter
-      </Button>
       <input className="submit" type="submit" value="CONNECTER" />
     </SSignIn>
   );
