@@ -129,11 +129,7 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   TopicController.delete
 );
-router.get(
-  "/schoolclass",
-  passport.authenticate("jwt", { session: false }),
-  ClassController.browse
-);
+router.get("/schoolclass", ClassController.browse);
 router.get(
   "/schoolclass/:id",
   passport.authenticate("jwt", { session: false }),
