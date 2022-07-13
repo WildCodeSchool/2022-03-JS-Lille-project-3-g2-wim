@@ -36,6 +36,8 @@ export default function SignUp() {
     schoolClass_id: "",
     avatar: "",
   });
+  const api = useApi();
+
   // Function to manage steps in accordeon
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -68,7 +70,6 @@ export default function SignUp() {
   const navigate = useNavigate();
   // Function to send values in database
 
-  const api = useApi();
   const hSubmit = (evt) => {
     evt.preventDefault();
 
@@ -97,9 +98,7 @@ export default function SignUp() {
       .then(() => {
         navigate("/accueil");
       })
-      .then(() => {
-        navigate("/accueil");
-      })
+
       .catch((e) => {
         toast.error(`Veuillez réésayer !${e}`, {
           position: "bottom-center",
