@@ -1,34 +1,68 @@
-## Concept
+#Project Title
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+One Paragraph of project description goes here
+Getting Started
 
-## Setup & Use
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Prerequisites
 
-### Project Initialization
+What things you need to install the software and how to install them
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm run setup`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
+Give examples
 
-### Available Commands
+Installing
 
-- `setup` : Initialization of frontend and backend, as well as all toolings
-- `dev` : Starts both servers (frontend + backend) in one terminal
-- `dev-front` : Starts the React frontend server
-- `dev-back` : Starts the Express backend server
-- `lint` : Runs validation tools, and refuses unclean code (will be executed on every _commit_)
-- `fix` : Fixes linter errors (run it if `lint` growls on your code !)
+A step by step series of examples that tell you how to get a development env running
 
-## FAQ
+Say what the step will be
 
-### Tools
+Give the example
 
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-- _Nodemon_ : Allows to restart the server everytime a .js file is udated
+And repeat
+
+until finished
+
+End with an example of getting some data out of the system or using it for a little demo
+Running the tests
+
+Explain how to run the automated tests for this system
+Break down into end to end tests
+
+Explain what these tests test and why
+
+Give an example
+
+And coding style tests
+
+Explain what these tests test and why
+
+Give an example
+
+Deployment
+
+Add additional notes about how to deploy this on a live system
+Built With
+
+    Dropwizard - The web framework used
+    Maven - Dependency Management
+    ROME - Used to generate RSS Feeds
+
+Contributing
+
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+Versioning
+
+We use SemVer for versioning. For the versions available, see the tags on this repository.
+Authors
+
+    Billie Thompson - Initial work - PurpleBooth
+
+See also the list of contributors who participated in this project.
+License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
+Acknowledgments
+
+    Hat tip to anyone whose code was used
+    Inspiration
+    etc

@@ -18,7 +18,7 @@ export default styled.div`
     color: var(--colorTextlight);
     font: var(--fontTitleBold);
   }
- .contenairname {
+  .contenairname {
     display: flex;
     justify-content: flex-start;
     height: 17vh;
