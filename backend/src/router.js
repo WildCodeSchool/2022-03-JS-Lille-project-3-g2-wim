@@ -1,5 +1,9 @@
 const express = require("express");
 const passport = require("passport");
+const multer = require("multer");
+const { uploadAndRename } = require("./services/upload");
+
+const upload = multer({ dest: "tmp/" });
 
 const {
   ItemController,
@@ -42,6 +46,8 @@ router.get(
 );
 router.post(
   "/lessons",
+  upload.single("fileLocation"),
+  uploadAndRename,
   passport.authenticate("jwt", { session: false }),
   LessonController.add
 );

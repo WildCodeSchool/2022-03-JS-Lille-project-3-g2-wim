@@ -33,7 +33,7 @@ class LessonManager extends AbstractManager {
         lesson.title,
         lesson.subTitle,
         lesson.musicStyle,
-        lesson.fileLocation,
+        lesson.filePath,
         lesson.lyrics,
         lesson.img,
         lesson.duration,

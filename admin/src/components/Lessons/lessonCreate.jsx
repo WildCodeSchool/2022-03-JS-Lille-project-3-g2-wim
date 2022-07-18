@@ -31,9 +31,9 @@ export default function LessonCreate() {
     }, new FormData());
 
     axios
-      .post("http://localhost:5000/songs", finalData)
+      .post("http://localhost:5000/lessons", finalData)
       .then(({ data }) => {
-        setFormData(data.label);
+        setFormData(data.fileLocation);
         toast("Musique téléchargée");
       })
       .catch(() => {
@@ -42,7 +42,7 @@ export default function LessonCreate() {
   };
 
   return (
-    <Create>
+    <Create method="post" encType="multipart/form-data" onSubmit={hSubmit}>
       <SimpleForm>
         <TextInput label="Nom du fichier" source="fileName" />
         <NumberInput
@@ -53,10 +53,7 @@ export default function LessonCreate() {
         />
         <TextInput label="Titre" source="title" />
         <TextInput label="Genre" source="musicStyle" />
-        {/* <TextInput label="Emplacement" source="fileLocation" /> */}
-        <form method="post" encType="multipart/form-data" onSubmit={hSubmit}>
-          <input type="file" onChange={hChange} />
-        </form>
+        <input type="file" onChange={hChange} name="fileLocation" />
         <NumberInput min="0" label="Durée" source="duration" />
         <NumberInput
           min="1"
