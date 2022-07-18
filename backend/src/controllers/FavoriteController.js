@@ -3,7 +3,7 @@ const models = require("../models");
 class FavoriteController {
   static readByUser = (req, res) => {
     models.userFavLesson
-      .findAllFavorites(req.params.id)
+      .findAllFavorites(req.user.id)
       .then(([rows]) => {
         res.send(rows);
       })
@@ -14,8 +14,9 @@ class FavoriteController {
   };
 
   static addFavFromUser = (req, res) => {
+    // The lesson number to add a favorite is sent in a body from front
     const lessonId = req.body.lesson_id;
-    const userId = req.body.user_id;
+    const userId = req.user.id;
 
     // TODO validations (length, format...)
 
@@ -31,11 +32,11 @@ class FavoriteController {
   };
 
   static delete = (req, res) => {
-    const lessonId = req.body.lesson_id;
-    const userId = req.body.user_id;
+    const lessonId = req.params.id;
+    const userId = req.user.id;
 
     models.userFavLesson
-      .delete(lessonId, userId, req.params.id)
+      .delete(lessonId, userId)
       .then(() => {
         res.sendStatus(204);
       })

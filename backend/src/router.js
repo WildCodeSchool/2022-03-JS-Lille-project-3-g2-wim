@@ -24,7 +24,7 @@ router.delete(
   UserController.delete
 );
 router.get(
-  "/favorite/:id",
+  "/favorite",
   passport.authenticate("jwt", { session: false }),
   FavoriteController.readByUser
 );
