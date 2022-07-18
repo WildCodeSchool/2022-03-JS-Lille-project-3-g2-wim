@@ -11,6 +11,7 @@ export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
+
   const hSubmit = (evt) => {
     evt.preventDefault();
     api
@@ -18,8 +19,8 @@ export default function SignIn() {
       .then(({ data }) => {
         const { token, user } = data;
         api.defaults.headers.authorization = `Bearer ${token}`;
-        dispatch({ type: "USER_LOGIN", payload: user });
-        toast.success("Bienvenue sur Wim");
+        dispatch({ type: "USER_LOGIN", payload: { ...user, token } });
+        toast("Bienvenue sur Wim");
       })
       .then(() => {
         navigate("/accueil");
