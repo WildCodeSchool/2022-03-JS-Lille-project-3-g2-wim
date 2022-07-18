@@ -36,7 +36,6 @@ function App() {
               <Route path="/favoris/:id" element={<Favorites />} />
               <Route path="/infos" element={<Infos />} />
               <Route path="/profil/:id" element={<Profil />} />;
-              <Route path="/favoris/:id" element={<Favorites />} />
             </Routes>
           </main>
         </ThemeProvider>

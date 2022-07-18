@@ -65,7 +65,6 @@ export default function SignUp() {
     if (i === "passwordBis" && !e.target.value !== form.password)
       toast.error(`Vos mots de passe sont incorrect`);
   };
-  // Function to send values in database
   const navigate = useNavigate();
   // Function to send values in database
 
@@ -100,18 +99,17 @@ export default function SignUp() {
       .then(() => {
         navigate("/accueil");
       })
+
       .catch((e) => {
-        if (e.message === "Request failed with status code 418") {
-          toast.error(`Veuillez saisir un email correct`, {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
+        toast.error(`Veuillez réésayer !${e}`, {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
   // Using API delivering existing schoolClasses to make it connected to database
