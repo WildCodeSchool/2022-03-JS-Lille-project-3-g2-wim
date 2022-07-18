@@ -5,14 +5,7 @@ export default styled.header`
   height: 8vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  .deconnect {
-    color: white;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
+
   .avatar {
     width: 3.5rem;
     height: 3.5rem;
