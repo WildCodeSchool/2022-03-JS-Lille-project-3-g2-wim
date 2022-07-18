@@ -1,5 +1,7 @@
 import { Create, NumberInput, SimpleForm, TextInput } from "react-admin";
 import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function LessonCreate() {
   const [formData, setFormData] = useState({});
@@ -19,6 +21,26 @@ export default function LessonCreate() {
     }
     setFormData({ ...formData, [name]: newValue });
   };
+
+  const hSubmit = (evt) => {
+    evt.preventDefault();
+
+    const finalData = Object.keys(formData).reduce((accu, key) => {
+      accu.append(key, formData[key]);
+      return accu;
+    }, new FormData());
+
+    axios
+      .post("http://localhost:5000/songs", finalData)
+      .then(({ data }) => {
+        setFormData(data.label);
+        toast("Musique téléchargée");
+      })
+      .catch(() => {
+        toast.error("Une erreure est survenue");
+      });
+  };
+
   return (
     <Create>
       <SimpleForm>
