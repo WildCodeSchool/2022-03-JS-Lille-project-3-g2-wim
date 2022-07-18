@@ -1,4 +1,11 @@
-import { Create, NumberInput, SimpleForm, TextInput } from "react-admin";
+import {
+  Create,
+  FileInput,
+  FileField,
+  NumberInput,
+  SimpleForm,
+  TextInput,
+} from "react-admin";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -53,7 +60,16 @@ export default function LessonCreate() {
         />
         <TextInput label="Titre" source="title" />
         <TextInput label="Genre" source="musicStyle" />
-        <input type="file" onChange={hChange} name="fileLocation" />
+
+        <FileInput
+          source="files"
+          label="Related files"
+          accept="application/mp3
+          "
+        >
+          <FileField source="lessons" title="fileLocation" onSubmit={hChange} />
+        </FileInput>
+
         <NumberInput min="0" label="Durée" source="duration" />
         <NumberInput
           min="1"
