@@ -23,7 +23,7 @@ export default styled.div`
     color: var(--colorTextlight);
   }
   .containerName {
-    diplay: flex;
+    display: flex;
     flex-direction: column;
     margin: auto;
     font: var(--fontMain);

@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export default styled.div`
   margin: 4.5rem 0;
-
   .accordion {
     width: 85vw;
     margin: auto;
   }
-
   .containerbutton {
     background-color: transparent;
     width: 85vw;
@@ -20,7 +18,6 @@ export default styled.div`
       width: 1rem;
     }
   }
-
   .accordionHeading {
     padding: 14px 0;
     border: 1px solid var(--colorBackgroundLightGrey);
@@ -46,9 +43,13 @@ export default styled.div`
     height: 15px;
     line-height: 1.6;
   }
-
   .accordionContent p {
     font-size: 15px;
     line-height: 1.6;
+  }
+  .about {
+    letter-spacing: 1.2px;
+    color: var(--colorTextDarkGrey);
+    text-decoration: none;
   }
 `;

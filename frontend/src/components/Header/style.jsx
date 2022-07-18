@@ -26,7 +26,6 @@ export default styled.header`
       font: var(--fontTitleBold);
     }
   }
-
   @media screen and (min-width: 760px) {
     .avatar {
       width: 4rem;

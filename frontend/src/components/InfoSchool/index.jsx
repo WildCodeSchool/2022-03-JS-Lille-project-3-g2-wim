@@ -1,16 +1,15 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
-
+import useApi from "@services/useApi";
+import PropTypes from "prop-types";
 import SInfoSchool from "./style";
 
-export default function InfoSchool() {
-  const { id } = useParams();
+export default function InfoSchool({ iduser }) {
   const [formData, setFormData] = useState({
     schoolName: "",
     schoolOption: "",
     phoneNumber: "",
   });
+  const api = useApi();
 
   const hChangeFormData = (evt) => {
     const newData = { ...formData };
@@ -20,8 +19,8 @@ export default function InfoSchool() {
 
   const hSubmit = (evt) => {
     evt.preventDefault();
-    axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`, {
+    api
+      .put(`${import.meta.env.VITE_BACKEND_URL}/users/${iduser}`, {
         ...formData,
       })
       .then(({ data }) => {
@@ -30,8 +29,8 @@ export default function InfoSchool() {
   };
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`)
+    api
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${iduser}`)
       .then(({ data }) => {
         setFormData(data);
       });
@@ -82,3 +81,6 @@ export default function InfoSchool() {
     </SInfoSchool>
   );
 }
+InfoSchool.propTypes = {
+  iduser: PropTypes.string.isRequired,
+};
