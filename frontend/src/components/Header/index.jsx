@@ -1,4 +1,4 @@
-import avatar from "@assets/avatar.png";
+import Avatar from "@components/Avatar";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SHeader from "./style";
@@ -14,11 +14,7 @@ function Header() {
 
   return (
     <SHeader>
-      <Link to="/profil/:id">
-        <img src={avatar} alt="avatar" />
-      </Link>
-      <p>WIM</p>
-      <img className="avatar" src={avatar} alt="avatar" />
+      <Avatar />
       <Link to="/accueil">
         <p>WIM</p>
       </Link>
