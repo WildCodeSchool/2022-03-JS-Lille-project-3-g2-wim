@@ -1,17 +1,18 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import avatar from "@assets/avatar.png";
 import arrow from "@assets/fleche.png";
-import axios from "axios";
+import useApi from "@services/useApi";
+import PropTypes from "prop-types";
 import SUserProfil from "./style";
 
-function UserProfil() {
+function UserProfil({ iduser }) {
   const [userData, setUserData] = useState([]);
-  const { id } = useParams();
+  const api = useApi();
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`)
+    api
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${iduser}`)
       .then(({ data }) => {
         setUserData(data);
       });
@@ -24,7 +25,7 @@ function UserProfil() {
         <h1>Mon profil</h1>
       </Link>
       <div className="contenairname">
-        <img className="photoprofil" src={avatar} alt="avatar" />
+        <img className="profilpicture" src={avatar} alt="avatar" />
         <ul>
           <li>
             <h2>
@@ -37,5 +38,8 @@ function UserProfil() {
     </SUserProfil>
   );
 }
+UserProfil.propTypes = {
+  iduser: PropTypes.string.isRequired,
+};
 
 export default UserProfil;

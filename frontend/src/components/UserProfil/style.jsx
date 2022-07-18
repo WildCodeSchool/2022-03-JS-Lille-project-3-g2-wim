@@ -28,7 +28,7 @@ export default styled.div`
     background-color: var(--colorTextlight);
     border-radius: 8px;
   }
-  .photoprofil {
+  .profilpicture {
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
@@ -42,7 +42,6 @@ export default styled.div`
   h2 {
     color: var(--colorTextBlue);
   }
-
   li {
     color: var(--colorTextDarkGrey);
     letter-spacing: 1.2px;

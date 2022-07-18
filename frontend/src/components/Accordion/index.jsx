@@ -9,24 +9,25 @@ import logout from "@assets/logout.svg";
 import InfoSchool from "@components/InfoSchool";
 import InfoLogin from "@components/InfoLogin";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import ButtonDisconnection from "@components/ButtonDisconnection";
 import SAccordion from "./style";
 
-export default function Accordion() {
+export default function Accordion({ iduser }) {
   const [active, setActive] = useState(" ");
   const datas = [
     {
       id: 1,
       title: "Informations scolaires",
       img: student,
-      components: <InfoSchool />,
+      components: <InfoSchool iduser={iduser} />,
     },
     {
       id: 2,
       title: "Informations connexion",
       img: login,
-      components: <InfoLogin />,
+      components: <InfoLogin iduser={iduser} />,
     },
-
     { id: 3, title: "Mon agenda", img: agenda, components: "" },
 
     { id: 4, title: "Mes notes", img: book, components: "" },
@@ -39,7 +40,7 @@ export default function Accordion() {
     {
       id: 6,
       title: (
-        <Link to="/infos" style={{ textDecoration: "none" }}>
+        <Link className="about" to="/infos">
           A propos
         </Link>
       ),
@@ -56,12 +57,12 @@ export default function Accordion() {
       id: 8,
       title: "Se déconnecter",
       img: logout,
-      components: "",
+      components: <ButtonDisconnection />,
     },
   ];
 
   return (
-    <SAccordion>
+    <SAccordion iduser={iduser}>
       <div className="accordion">
         {datas.map((data) => (
           <div key={data.id}>
@@ -93,3 +94,6 @@ export default function Accordion() {
     </SAccordion>
   );
 }
+Accordion.propTypes = {
+  iduser: PropTypes.string.isRequired,
+};
