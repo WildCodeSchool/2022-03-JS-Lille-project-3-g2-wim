@@ -12,6 +12,9 @@ class AuthController {
       user.password,
       parseInt(process.env.CRYPT_ROUNDS, 10)
     );
+    if (user.email !== /[\w_-]+@[\w-]+\.[a-z]{2,3}$/i) {
+      res.status(418).res.send("Email incorrect");
+    }
     const feedbackImg = await uploadImage(req.file.path);
     user.avatar = feedbackImg.secure_url;
 

@@ -58,8 +58,12 @@ export default function SignUp() {
   };
   // Function to check fields with regex (just mail for the moment)
   const hCheck = (e, i) => {
-    if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i))
+    if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,3}$/i))
       toast.error(`Votre email n'est pas bon`);
+  };
+  const hCheckPassword = (e, i) => {
+    if (i === "passwordBis" && !e.target.value !== form.password)
+      toast.error(`Vos mots de passe sont incorrect`);
   };
   const navigate = useNavigate();
   // Function to send values in database
@@ -68,6 +72,8 @@ export default function SignUp() {
   const hSubmit = (evt) => {
     evt.preventDefault();
 
+    if (form.password !== form.passwordBis) return;
+    delete form.passwordBis;
     const finalForm = Object.keys(form).reduce((accu, key) => {
       accu.append(key, form[key]);
       return accu;
@@ -93,9 +99,7 @@ export default function SignUp() {
       .then(() => {
         navigate("/accueil");
       })
-      .then(() => {
-        navigate("/accueil");
-      })
+
       .catch((e) => {
         toast.error(`Veuillez réésayer !${e}`, {
           position: "bottom-center",
@@ -119,122 +123,113 @@ export default function SignUp() {
 
   return (
     <SSignUp>
-      <div>
-        <Box sx={{ maxWidth: "100%" }}>
-          <Stepper activeStep={activeStep} orientation="vertical">
-            {steps.map((step, index) => (
-              <Step key={step.label}>
-                <StepLabel
-                  optional={
-                    index === 2 ? (
-                      <Typography variant="caption">Dernière étape</Typography>
-                    ) : null
-                  }
-                >
-                  {/* Case step 2, field 1 : field with options to manage the schoolClasses */}
-                  <Typography>{step.label}</Typography>
-                </StepLabel>
-                <StepContent>
-                  {step.field1.typeOption ? (
-                    <TextField
-                      required
-                      label={step.field1.label}
-                      fullWidth
-                      variant="standard"
-                      type={step.field1.type}
-                      name={step.field1.name}
-                      onChange={hChange}
-                      onBlur={(e) => {
-                        hCheck(e, step.field1.name);
-                      }}
-                      select
-                      SelectProps={{
-                        native: true,
-                      }}
-                    >
-                      <option value>--Classe -- </option>
-                      {schoolClassList.map((option) => (
-                        <option key={option.id} value={option.id}>
-                          {option.label}
-                        </option>
-                      ))}
-                      {/* All other cases for step 1 */}
-                    </TextField>
-                  ) : (
-                    <TextField
-                      required
-                      label={step.field1.label}
-                      fullWidth
-                      variant="standard"
-                      onChange={hChange}
-                      name={step.field1.name}
-                      type={step.field1.type}
-                      onBlur={(e) => {
-                        hCheck(e, step.field1.name);
-                      }}
-                    />
-                  )}
-
+      <Box sx={{ maxWidth: "100%" }}>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((step, index) => (
+            <Step key={step.label}>
+              <StepLabel
+                optional={
+                  index === 2 ? (
+                    <Typography variant="caption">Dernière étape</Typography>
+                  ) : null
+                }
+              >
+                {/* Case step 2, field 1 : field with options to manage the schoolClasses */}
+                <Typography>{step.label}</Typography>
+              </StepLabel>
+              <StepContent>
+                {step.field1.typeOption ? (
                   <TextField
                     required
-                    label={step.field2.label}
+                    label={step.field1.label}
                     fullWidth
                     variant="standard"
-                    type={step.field2.type}
-                    name={step.field2.name}
+                    type={step.field1.type}
+                    name={step.field1.name}
                     onChange={hChange}
-                  />
-
+                    onBlur={(e) => {
+                      hCheck(e, step.field1.name);
+                    }}
+                    select
+                    SelectProps={{
+                      native: true,
+                    }}
+                  >
+                    <option value>--Classe -- </option>
+                    {schoolClassList.map((option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.label}
+                      </option>
+                    ))}
+                    {/* All other cases for step 1 */}
+                  </TextField>
+                ) : (
                   <TextField
                     required
-                    label={step.field3.label}
+                    label={step.field1.label}
                     fullWidth
                     variant="standard"
-                    type={step.field3.type}
-                    name={step.field3.name}
                     onChange={hChange}
+                    name={step.field1.name}
+                    type={step.field1.type}
+                    onBlur={(e) => {
+                      hCheck(e, step.field1.name);
+                    }}
                   />
-                  <Box sx={{ mb: 2 }}>
-                    <Button
-                      size="large"
-                      variant="contained"
-                      onClick={nextStep}
-                      sx={{ mt: 1, mr: 1 }}
-                    >
-                      {index === steps.length - 1 ? "Fin" : "Continuer"}
-                    </Button>
-                    <Button
-                      size="large"
-                      disabled={index === 0}
-                      onClick={prevStep}
-                      sx={{ mt: 1, mr: 1 }}
-                    >
-                      Retour
-                    </Button>
-                  </Box>
-                </StepContent>
-              </Step>
-            ))}
-          </Stepper>
-          {activeStep === steps.length && (
-            <Paper square elevation={0} sx={{ p: 5 }}>
-              <Typography>Bienvenue chez WIM !</Typography>
-              <Button size="large" variant="contained" onClick={hSubmit}>
-                Se connecter
-              </Button>
-            </Paper>
-          )}
-        </Box>
-      </div>
-      <div>
-        <input
-          className="inputAvatar"
-          type="file"
-          name="avatar"
-          placeholder="Votre avatar"
-          onChange={hChange}
-        />
-      </div>
+                )}
+                <TextField
+                  required
+                  label={step.field2.label}
+                  fullWidth
+                  variant="standard"
+                  type={step.field2.type}
+                  name={step.field2.name}
+                  onChange={hChange}
+                />
+
+                <TextField
+                  required
+                  label={step.field3.label}
+                  fullWidth
+                  variant="standard"
+                  type={step.field3.type}
+                  name={step.field3.name}
+                  onChange={hChange}
+                  onBlur={(e) => {
+                    hCheckPassword(e, step.field3.name);
+                  }}
+                />
+                <Box sx={{ mb: 2 }}>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    onClick={nextStep}
+                    sx={{ mt: 1, mr: 1 }}
+                  >
+                    {index === steps.length - 1 ? "Fin" : "Continuer"}
+                  </Button>
+                  <Button
+                    size="large"
+                    disabled={index === 0}
+                    onClick={prevStep}
+                    sx={{ mt: 1, mr: 1 }}
+                  >
+                    Retour
+                  </Button>
+                </Box>
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} sx={{ p: 5 }}>
+            <Typography>Bienvenue chez WIM !</Typography>
+            <Button size="large" variant="contained" onClick={hSubmit}>
+              Se connecter
+            </Button>
+          </Paper>
+        )}
+      </Box>
     </SSignUp>
   );
 }
