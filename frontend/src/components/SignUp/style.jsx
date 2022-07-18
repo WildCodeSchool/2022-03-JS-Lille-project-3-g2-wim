@@ -7,18 +7,31 @@ export default styled.form`
   button {
     margin-top: 2rem;
   }
-  input[type="file"] {
-    display: none;
-  }
-  .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: var(--colorBlueMain);
-    color: white;
-    line-height: 1.75;
-    border-radius: 4px;
-    cursor: pointer;
+  .containerAvatar {
+    display: flex;
+    margin: 2rem 0 0 0;
+    .input-file {
+      display: none;
+    }
+    .label-file {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: var(--colorBlueMain);
+      color: white;
+      line-height: 1.75;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .label-file:hover {
+      background-color: #045f9b;
+    }
+    .green {
+      color: green;
+    }
+    p {
+      margin: 1rem 0 0 1rem;
+    }
   }
   @media only screen and (min-width: 800px) {
     width: 600px;

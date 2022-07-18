@@ -1,6 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useApi from "@services/useApi";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   TextField,
@@ -34,9 +34,8 @@ export default function SignUp() {
     schoolOption: "",
     schoolName: "",
     schoolClass_id: "",
+    avatar: "",
   });
-  const api = useApi();
-
   // Function to manage steps in accordeon
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -46,25 +45,50 @@ export default function SignUp() {
   };
   // Function to get values from form
   const hChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    const { name, value, type, files } = e.target;
+    let newValue = null;
+    switch (type) {
+      case "file":
+        [newValue] = files;
+        break;
+      default:
+        newValue = value;
+    }
+    setForm({ ...form, [name]: newValue });
   };
   // Function to check fields with regex (just mail for the moment)
   const hCheck = (e, i) => {
     if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i))
       toast.error(`Votre email n'est pas bon`);
   };
-  // Function to send values in database
   const navigate = useNavigate();
+  // Function to send values in database
+
+  const api = useApi();
   const hSubmit = (evt) => {
     evt.preventDefault();
+
+    const finalForm = Object.keys(form).reduce((accu, key) => {
+      accu.append(key, form[key]);
+      return accu;
+    }, new FormData());
+
     api
-      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, finalForm)
       .then(({ data }) => {
         const { token, user } = data;
         api.defaults.headers.authorization = `Bearer ${token}`;
-        dispatch({ type: "USER_LOGIN", payload: user });
-        toast.success(`Félicitations, vous êtes bien inscrit à WIM`);
+        dispatch({ type: "USER_LOGIN", payload: { ...user, token } });
+
+        toast.success(`Félicitations, vous êtes bien inscrit à WIM`, {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .then(() => {
         navigate("/accueil");
@@ -168,6 +192,25 @@ export default function SignUp() {
                     onChange={hChange}
                   />
                   <Box sx={{ mb: 2 }}>
+                    {index === steps.length - 1 ? (
+                      <div className="containerAvatar">
+                        <label htmlFor="file" className="label-file">
+                          Importer un avatar
+                          <input
+                            id="file"
+                            name="avatar"
+                            type="file"
+                            className="input-file"
+                            onChange={hChange}
+                          />
+                        </label>
+                        <p className={form.avatar.name ? "green" : ""}>
+                          {form.avatar.name ? "Avatar importé" : ""}
+                        </p>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                     <Button
                       size="large"
                       variant="contained"
@@ -198,12 +241,6 @@ export default function SignUp() {
             </Paper>
           )}
         </Box>
-      </div>
-      <div>
-        <div className="custom-file-upload">
-          <input type="file" onChange={hChange} />
-          <i>AJOUTE TON AVATAR</i>
-        </div>
       </div>
     </SSignUp>
   );
