@@ -1,15 +1,14 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import PropTypes from "prop-types";
+import useApi from "@services/useApi";
+import SInfoLogin from "./style";
 
-import SInfoSchool from "./style";
-
-export default function InfoSchool() {
-  const { id } = useParams();
+export default function InfoLogin({ iduser }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const api = useApi();
 
   const hChangeFormData = (evt) => {
     const newData = { ...formData };
@@ -19,8 +18,8 @@ export default function InfoSchool() {
 
   const hSubmit = (evt) => {
     evt.preventDefault();
-    axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`, {
+    api
+      .put(`${import.meta.env.VITE_BACKEND_URL}/users/${iduser}`, {
         ...formData,
       })
       .then(({ data }) => {
@@ -29,15 +28,15 @@ export default function InfoSchool() {
   };
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`)
+    api
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${iduser}`)
       .then(({ data }) => {
         setFormData(data);
       });
   }, []);
 
   return (
-    <SInfoSchool>
+    <SInfoLogin>
       <div className="contenair">
         <form className="registerForm" onSubmit={hSubmit}>
           <label className="containerName" htmlFor="Adresse mail">
@@ -53,7 +52,6 @@ export default function InfoSchool() {
           </label>
           <label className="containerName" htmlFor="Mot de passe">
             <h3>Mot de passe</h3>
-
             <input
               className="inputForm"
               type="password"
@@ -64,12 +62,14 @@ export default function InfoSchool() {
               onChange={hChangeFormData}
             />
           </label>
-
           <button type="submit" className="button">
             validez
           </button>
         </form>
       </div>
-    </SInfoSchool>
+    </SInfoLogin>
   );
 }
+InfoLogin.propTypes = {
+  iduser: PropTypes.string.isRequired,
+};
