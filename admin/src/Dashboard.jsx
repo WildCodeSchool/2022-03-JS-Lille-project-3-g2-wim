@@ -7,12 +7,7 @@ export default function DashBoard() {
       <CardContent>
         <Typography>Votre espace administrable vous permet de :</Typography>
         <br />
-        <Typography>
-          Consulter, modifier les utilisateurs.
-          <br />
-          Ajouter, modifier, supprimer les cours. <br />
-          Consulter, modifier, supprimer les matières.
-        </Typography>
+        <Typography>Consulter, Ajouter et Supprimer des leçons</Typography>
       </CardContent>
     </Card>
   );
