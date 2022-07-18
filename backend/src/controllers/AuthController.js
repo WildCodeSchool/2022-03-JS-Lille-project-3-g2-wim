@@ -1,9 +1,10 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const models = require("../models");
+const { uploadImage } = require("../services/cloudinary");
 
 class AuthController {
-  static signup = (req, res) => {
+  static signup = async (req, res) => {
     const user = req.body;
 
     // TODO validations (length, format...)
@@ -14,6 +15,8 @@ class AuthController {
     if (user.email !== /[\w_-]+@[\w-]+\.[a-z]{2,3}$/i) {
       res.status(418).res.send("Email incorrect");
     }
+    const feedbackImg = await uploadImage(req.file.path);
+    user.avatar = feedbackImg.secure_url;
 
     models.user
       .insert(user)
