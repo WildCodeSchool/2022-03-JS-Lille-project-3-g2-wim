@@ -33,10 +33,9 @@ function App() {
               <Route path="/accueil" element={<Subjects />} />;
               <Route path="/cours/:id" element={<Lessons />} />;
               <Route path="/ecoute/:id" element={<Stream />} />;
-              <Route path="/favoris/:id" element={<Favorites />} />
               <Route path="/infos" element={<Infos />} />
               <Route path="/profil/:id" element={<Profil />} />;
-              <Route path="/favoris/:id" element={<Favorites />} />
+              <Route path="/favoris" element={<Favorites />} />
             </Routes>
           </main>
         </ThemeProvider>

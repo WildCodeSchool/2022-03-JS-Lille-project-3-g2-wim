@@ -30,6 +30,7 @@ export default styled.div`
   }
   .photoprofil {
     width: 6rem;
+    height: 6rem;
     border-radius: 50%;
     margin: 1rem;
     aspect-ratio: 1/1;
