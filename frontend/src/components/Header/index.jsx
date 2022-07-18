@@ -14,7 +14,9 @@ function Header() {
 
   return (
     <SHeader>
-      <Avatar />
+      <Link to="/profil/:id">
+        <img className="avatar" src={Avatar} alt="avatar" />
+      </Link>
       <Link to="/accueil">
         <p>WIM</p>
       </Link>
