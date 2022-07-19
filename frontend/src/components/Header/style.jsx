@@ -5,7 +5,6 @@ export default styled.header`
   height: 8vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   .avatar {
     width: 3.5rem;
