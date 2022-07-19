@@ -62,7 +62,7 @@ export default function SignUp() {
       toast.error(`Votre email n'est pas bon`);
   };
   const hCheckPassword = (e, i) => {
-    if (i === "passwordBis" && !e.target.value !== form.password)
+    if (i === "passwordBis" && e.target.value !== form.password)
       toast.error(`Vos mots de passe sont incorrect`);
   };
   const navigate = useNavigate();
