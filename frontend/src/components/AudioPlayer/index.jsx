@@ -53,5 +53,5 @@ export default function AudioPlayer({ id }) {
   );
 }
 AudioPlayer.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };

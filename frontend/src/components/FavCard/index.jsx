@@ -20,7 +20,7 @@ export default function FavCard({ id, title, duration, musicStyle }) {
   );
 }
 FavCard.propTypes = {
-  id: propTypes.string.isRequired,
+  id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
   duration: propTypes.number.isRequired,
   musicStyle: propTypes.string.isRequired,

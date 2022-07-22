@@ -48,5 +48,5 @@ export default function ButtonStreamFav({ id }) {
   );
 }
 ButtonStreamFav.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
