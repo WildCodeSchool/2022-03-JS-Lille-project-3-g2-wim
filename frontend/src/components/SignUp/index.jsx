@@ -62,7 +62,7 @@ export default function SignUp() {
       toast.error(`Votre email n'est pas bon`);
   };
   const hCheckPassword = (e, i) => {
-    if (i === "passwordBis" && !e.target.value !== form.password)
+    if (i === "passwordBis" && e.target.value !== form.password)
       toast.error(`Vos mots de passe sont incorrect`);
   };
   const navigate = useNavigate();
@@ -101,7 +101,7 @@ export default function SignUp() {
       })
 
       .catch((e) => {
-        toast.error(`Veuillez réésayer !${e}`, {
+        toast.error(`${e.response.data}`, {
           position: "bottom-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -200,10 +200,29 @@ export default function SignUp() {
                   }}
                 />
                 <Box sx={{ mb: 2 }}>
+                  {index === steps.length - 1 ? (
+                    <div className="containerAvatar">
+                      <label htmlFor="file" className="label-file">
+                        Importer un avatar
+                        <input
+                          id="file"
+                          name="avatar"
+                          type="file"
+                          className="input-file"
+                          onChange={hChange}
+                        />
+                      </label>
+                      <p className={form.avatar.name ? "green" : ""}>
+                        {form.avatar.name ? "Avatar importé" : ""}
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <Button
                     size="large"
                     variant="contained"
-                    onClick={nextStep}
+                    onClick={index === steps.length - 1 ? hSubmit : nextStep}
                     sx={{ mt: 1, mr: 1 }}
                   >
                     {index === steps.length - 1 ? "Fin" : "Continuer"}
@@ -224,7 +243,7 @@ export default function SignUp() {
         {activeStep === steps.length && (
           <Paper square elevation={0} sx={{ p: 5 }}>
             <Typography>Bienvenue chez WIM !</Typography>
-            <Button size="large" variant="contained" onClick={hSubmit}>
+            <Button size="large" variant="contained">
               Se connecter
             </Button>
           </Paper>

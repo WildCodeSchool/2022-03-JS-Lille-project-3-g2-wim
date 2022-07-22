@@ -5,9 +5,7 @@ import SHeader from "./style";
 function Header() {
   return (
     <SHeader>
-      <Link to="/profil/:id">
-        <img className="avatar" src={Avatar} alt="avatar" />
-      </Link>
+      <Avatar />
       <Link to="/accueil">
         <p>WIM</p>
       </Link>
