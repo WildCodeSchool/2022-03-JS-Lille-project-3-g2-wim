@@ -1,6 +1,6 @@
 import propTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
-import ButtonStreamFav from "@components/ButtonStreamFav";
+import ButtonStreamFavList from "@components/ButtonStreamFavList";
 import SFavCard from "./style";
 
 export default function FavCard({ id, title, duration, musicStyle }) {
@@ -14,13 +14,13 @@ export default function FavCard({ id, title, duration, musicStyle }) {
             {musicStyle} / {duration}
           </h2>
         </div>
-        <ButtonStreamFav id={id} />
+        <ButtonStreamFavList id={id} />
       </div>
     </SFavCard>
   );
 }
 FavCard.propTypes = {
-  id: propTypes.string.isRequired,
+  id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
   duration: propTypes.number.isRequired,
   musicStyle: propTypes.string.isRequired,

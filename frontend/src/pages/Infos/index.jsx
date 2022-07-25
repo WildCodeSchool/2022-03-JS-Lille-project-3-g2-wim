@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import arrow from "../../assets/Images/arrow-retour.png";
 import SAccordion from "./style";
 
 export default function Infos() {
+  const { id } = useSelector((state) => state.user);
+
   const [active, setActive] = useState(" ");
   const datas = [
     {
@@ -27,7 +30,7 @@ export default function Infos() {
       <div className="infos-container">
         <Link
           className="button-return"
-          to="/profil/:id"
+          to={`/profil/${id}`}
           style={{ textDecoration: "none" }}
         >
           <img src={arrow} alt="fleche" />

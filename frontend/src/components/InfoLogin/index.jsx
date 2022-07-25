@@ -58,7 +58,6 @@ export default function InfoLogin({ iduser }) {
               id="pass"
               name="password"
               placeholder="Mot de passe"
-              value={formData.password}
               onChange={hChangeFormData}
             />
           </label>

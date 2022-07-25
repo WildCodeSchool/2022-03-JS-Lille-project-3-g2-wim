@@ -120,5 +120,5 @@ AudioPlayerLoading.propTypes = {
   durationAudio: PropTypes.number.isRequired,
   maxDurationAudio: PropTypes.number.isRequired,
   audio: PropTypes.instanceOf(Audio).isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };

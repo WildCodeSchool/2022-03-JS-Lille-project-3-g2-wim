@@ -6,7 +6,11 @@ const router = require("./router");
 require("./passport-strategies");
 
 const app = express();
-const corsWhitelist = [process.env.FRONTEND_URL, process.env.ADMIN_URL];
+const corsWhitelist = [
+  process.env.FRONTEND_URL,
+  process.env.ADMIN_URL,
+  undefined,
+];
 
 app.use(
   cors({
