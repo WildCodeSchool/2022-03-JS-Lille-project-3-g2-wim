@@ -16,8 +16,11 @@ export default styled.section`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-top: 0.5rem;
+    width: 80vw;
+    margin: auto;
+    gap: 0.3rem;
   }
 
   .iconImg {
@@ -29,11 +32,6 @@ export default styled.section`
   li {
     display: flex;
     flex-direction: column;
-  }
-
-  .listContainer {
-    width: 80vw;
-    margin: auto;
   }
 
   .topic {
@@ -68,14 +66,34 @@ export default styled.section`
     background-color: var(--colorTopicBlueGreen);
   }
   @media screen and (min-width: 760px) {
+    margin-bottom: 17vh;
+    h1 {
+      width: 60vw;
+    }
+    .listContainer {
+      width: 60vw;
+      gap: 0.8rem;
+    }
     .topic {
-      width: 10vw;
-      padding: 2vw;
+      width: 13vw;
+      padding: 3vw;
+      margin: 0.5rem 0;
+      height: 20vh;
     }
     .iconImg {
       padding-bottom: 2rem;
-      width: 6rem;
-      height: 6rem;
+      width: 9rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 0.3rem 0;
+    }
+    .topic {
+      font-size: 1rem;
+      img {
+        width: 4.6rem;
+        height: 4.6rem;
+      }
     }
   }
 `;

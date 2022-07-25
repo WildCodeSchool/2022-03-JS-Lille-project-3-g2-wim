@@ -21,6 +21,8 @@ export default styled.header`
     }
   }
   @media screen and (min-width: 760px) {
+    height: 11vh;
+    padding: 0 3rem;
     .avatar {
       width: 4rem;
       height: 4rem;

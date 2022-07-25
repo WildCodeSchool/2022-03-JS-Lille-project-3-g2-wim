@@ -30,7 +30,7 @@ function Subjects() {
           >
             <li value={topic.id}>
               <img src={`../src/${topic.icon}`} alt="logo de la matière" />{" "}
-              {topic.label}
+              <p>{topic.label}</p>
             </li>
           </Link>
         ))}

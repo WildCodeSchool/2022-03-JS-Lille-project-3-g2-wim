@@ -40,4 +40,12 @@ export default styled.section`
     font-weight: 100;
     color: var(--colorTextDarkGrey);
   }
+  @media screen and (min-width: 760px) {
+    .cardOfLesson {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+  }
 `;
