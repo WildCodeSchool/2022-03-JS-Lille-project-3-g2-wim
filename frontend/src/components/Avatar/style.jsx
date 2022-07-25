@@ -1,24 +1,14 @@
 import styled from "styled-components";
 
 export default styled.div`
-  width: 15em;
-  margin: 3em;
-  position: relative;
   border-radius: 0.7em;
   display: flex;
-  flex-flow: column nowrap;
+  align-items: center;
 
   img {
-    position: absolute;
-    margin-top: 0.5rem;
-    left: -1em;
-    width: 2.5em;
+    width: 2.3em;
     aspect-ratio: 1;
     border-radius: 50%;
-  }
-
-  p {
-    margin: 0 1rem;
-    padding: 1em;
+    padding-right: 0.8rem;
   }
 `;
