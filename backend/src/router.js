@@ -43,7 +43,11 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   LessonController.browse
 );
-router.post("/lessons", LessonController.add);
+router.post(
+  "/lessons",
+  passport.authenticate("jwt", { session: false }),
+  LessonController.add
+);
 router.put(
   "/lessons/:id",
   passport.authenticate("jwt", { session: false }),
