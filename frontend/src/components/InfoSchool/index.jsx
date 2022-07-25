@@ -26,7 +26,7 @@ export default function InfoSchool({ iduser, setActive }) {
       })
       .then(({ data }) => {
         setFormData(data);
-        toast("Vos informations ont bien été modifiées");
+        toast.success("Vos informations ont bien été modifiées");
         setActive(" ");
       })
       .catch(() => {

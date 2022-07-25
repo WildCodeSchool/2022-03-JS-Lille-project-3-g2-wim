@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import useApi from "@services/useApi";
+import { toast } from "react-toastify";
 import SInfoLogin from "./style";
 
 export default function InfoLogin({ iduser }) {
@@ -24,6 +25,10 @@ export default function InfoLogin({ iduser }) {
       })
       .then(({ data }) => {
         setFormData(data);
+        toast.success("Vos informations ont bien été modifiées");
+      })
+      .catch(() => {
+        toast.error("La modification n'a pas pu être prise en compte");
       });
   };
 
