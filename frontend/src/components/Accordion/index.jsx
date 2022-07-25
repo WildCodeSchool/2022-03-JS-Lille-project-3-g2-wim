@@ -24,7 +24,7 @@ export default function Accordion({ iduser }) {
     },
     {
       id: 2,
-      title: "Informations connexion",
+      title: "Modifier le mot de passe",
       img: login,
       components: <InfoLogin iduser={iduser} />,
     },

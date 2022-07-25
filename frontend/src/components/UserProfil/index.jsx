@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import avatar from "@assets/avatar.png";
+import { useSelector } from "react-redux";
 import arrow from "@assets/fleche.png";
 import useApi from "@services/useApi";
 import PropTypes from "prop-types";
@@ -8,6 +8,7 @@ import SUserProfil from "./style";
 
 function UserProfil({ iduser }) {
   const [userData, setUserData] = useState([]);
+  const { avatar } = useSelector((store) => store.user);
   const api = useApi();
 
   useEffect(() => {
@@ -25,7 +26,14 @@ function UserProfil({ iduser }) {
         <h1>Mon profil</h1>
       </Link>
       <div className="contenairname">
-        <img className="profilpicture" src={avatar} alt="avatar" />
+        <img
+          className="profilpicture"
+          src={
+            avatar ||
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Anonymous_emblem.svg/640px-Anonymous_emblem.svg.png"
+          }
+          alt="User avatar"
+        />
         <ul>
           <li>
             <h2>
