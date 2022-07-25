@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import useInterval from "@services/useInterval";
 import playImg from "@assets/play-solid.svg";
 import pauseImg from "@assets/pause-icon.svg";
@@ -6,29 +7,22 @@ import AudioButton from "@components/AudioButton";
 import forwardImg from "@assets/forward-icon.svg";
 import rewardImg from "@assets/reward-icon.svg";
 import repeatImg from "@assets/Repeat-icon.svg";
-import axios from "axios";
+import Slider from "@mui/material/Slider";
+import ButtonStreamFav from "@components/ButtonStreamFav";
+import ButtonStreamDown from "@components/ButtonStreamDown";
 import SAudioPlayerLoading from "./style";
 
-export default function AudioPlayerLoading() {
+export default function AudioPlayerLoading({
+  durationAudio,
+  maxDurationAudio,
+  audio,
+  id,
+}) {
+  const [duration, setDuration] = useState(durationAudio);
+  const [maxDuration] = useState(maxDurationAudio);
   const [timer, setTimer] = useState(0);
-  const [duration, setDuration] = useState(60);
-  const [maxDuration] = useState(60);
   const [playOn, setPlayOn] = useState(false);
-  const [audio, setAudio] = useState(null);
   const [playOrPauseImg, setPlayOrPauseImg] = useState(playImg);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/lessons/:id").then(({ data }) => {
-      setAudio(
-        new Audio(
-          `${import.meta.env.VITE_BACKEND_URL}${data[0].fileLocation}${
-            data[0].fileName
-          }`
-        )
-      );
-    });
-  }, []);
-
   useInterval(() => {
     if (timer >= maxDuration - 1) setPlayOn(false);
     if (playOn) setDuration(duration - 1);
@@ -40,6 +34,7 @@ export default function AudioPlayerLoading() {
     } else {
       setTimer(timer + 10);
       setDuration(duration - 10);
+      audio.fastSeek(duration + 10);
     }
   };
 
@@ -50,11 +45,12 @@ export default function AudioPlayerLoading() {
     } else {
       setTimer(timer - 10);
       setDuration(duration + 10);
+      audio.fastSeek(duration - 10);
     }
   };
   const backToZero = () => {
     setTimer(0);
-    setDuration(60);
+    setDuration(durationAudio);
   };
 
   const startOrPause = () => {
@@ -68,22 +64,31 @@ export default function AudioPlayerLoading() {
       setPlayOrPauseImg(pauseImg);
     }
   };
+  const firstToTime = () => {
+    const min = Math.floor(timer / 60);
+    const timeForSec = timer % 60;
+    const sec = Math.ceil(timeForSec);
+    return `${min}:${sec}`;
+  };
+  const secondToTime = () => {
+    const min = Math.floor(duration / 60);
+    const durationForSec = duration % 60;
+    const sec = Math.ceil(durationForSec);
+    return `${min}:${sec}`;
+  };
 
   return (
     <SAudioPlayerLoading>
+      <div className="favDownloadContainer">
+        <ButtonStreamFav id={id} />
+        <ButtonStreamDown audioUrl={audio.src} />
+      </div>
       <section className="contain">
-        <div>{timer}</div>
-        <div>{duration}</div>
+        <div>{firstToTime(timer)}</div>
+        <div>{secondToTime(duration)}</div>
       </section>
       <section className="containInput">
-        <input
-          readOnly="readOnly"
-          className="range"
-          type="range"
-          min="0"
-          max={maxDuration}
-          value={timer}
-        />
+        <Slider value={timer} min={0} max={maxDuration} />
       </section>
 
       <section className="containButton">
@@ -111,3 +116,9 @@ export default function AudioPlayerLoading() {
     </SAudioPlayerLoading>
   );
 }
+AudioPlayerLoading.propTypes = {
+  durationAudio: PropTypes.number.isRequired,
+  maxDurationAudio: PropTypes.number.isRequired,
+  audio: PropTypes.instanceOf(Audio).isRequired,
+  id: PropTypes.number.isRequired,
+};

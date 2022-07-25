@@ -1,6 +1,13 @@
+const bcrypt = require("bcrypt");
 const models = require("../models");
 
 class UserController {
+  static delete = (req, res) => {
+    models.user.delete(req.params.id).then(() => {
+      res.sendStatus(204);
+    });
+  };
+
   static browse = (req, res) => {
     models.user
       .findAll()
@@ -31,7 +38,10 @@ class UserController {
 
   static edit = (req, res) => {
     const user = req.body;
-
+    user.password = bcrypt.hashSync(
+      user.password,
+      parseInt(process.env.CRYPT_ROUNDS, 10)
+    );
     // TODO validations (length, format...)
 
     user.id = parseInt(req.params.id, 10);
