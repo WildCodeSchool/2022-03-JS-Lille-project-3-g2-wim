@@ -1,55 +1,8 @@
-import {
-  Create,
-  FileInput,
-  FileField,
-  NumberInput,
-  SimpleForm,
-  TextInput,
-} from "react-admin";
-import { useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { Create, NumberInput, SimpleForm, TextInput } from "react-admin";
 
 export default function LessonCreate() {
-  const [formData, setFormData] = useState({});
-
-  const hChange = (evt) => {
-    const { name, value, type, checked, files } = evt.target;
-    let newValue = null;
-    switch (type) {
-      case "checkbox":
-        newValue = checked;
-        break;
-      case "file":
-        [newValue] = files;
-        break;
-      default:
-        newValue = value;
-    }
-    setFormData({ ...formData, [name]: newValue });
-  };
-
-  const hSubmit = (evt) => {
-    evt.preventDefault();
-
-    const finalData = Object.keys(formData).reduce((accu, key) => {
-      accu.append(key, formData[key]);
-      return accu;
-    }, new FormData());
-
-    axios
-      .post("http://localhost:5000/lessons", finalData)
-      .then(({ data }) => {
-        setFormData(data.fileLocation);
-        toast("Musique téléchargée");
-      })
-      .catch(() => {
-        toast.error("Une erreure est survenue");
-      });
-  };
-
   return (
-    <Create method="post" encType="multipart/form-data" onSubmit={hSubmit}>
+    <Create method="post" encType="multipart/form-data">
       <SimpleForm>
         <TextInput label="Nom du fichier" source="fileName" />
         <NumberInput
@@ -60,16 +13,7 @@ export default function LessonCreate() {
         />
         <TextInput label="Titre" source="title" />
         <TextInput label="Genre" source="musicStyle" />
-
-        <FileInput
-          source="files"
-          label="Related files"
-          accept="application/mp3
-          "
-        >
-          <FileField source="lessons" title="fileLocation" onSubmit={hChange} />
-        </FileInput>
-
+        <TextInput source="fileLocation" />
         <NumberInput min="0" label="Durée" source="duration" />
         <NumberInput
           min="1"
