@@ -9,7 +9,7 @@ export default function DashBoard() {
 
         <br />
         <Typography>
-          Gérer les leçons et utilisateurs de l'application
+          Gérer les leçons et les utilisateurs de l'application
         </Typography>
       </CardContent>
     </Card>
