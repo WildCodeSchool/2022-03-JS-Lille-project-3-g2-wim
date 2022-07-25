@@ -20,7 +20,7 @@ export default function Accordion({ iduser }) {
       id: 1,
       title: "Informations scolaires",
       img: student,
-      components: <InfoSchool iduser={iduser} />,
+      components: <InfoSchool iduser={iduser} setActive={setActive} />,
     },
     {
       id: 2,
