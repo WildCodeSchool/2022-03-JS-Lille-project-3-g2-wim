@@ -14,7 +14,7 @@ function Favorites() {
       .then(({ data }) => {
         setFavorites(data);
       });
-  }, []);
+  }, [favorites]);
   return (
     <SFavorites>
       <Header />
