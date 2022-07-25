@@ -41,7 +41,7 @@ export default function Accordion({ iduser }) {
       id: 6,
       title: (
         <Link className="about" to="/infos">
-          A propos
+          À propos
         </Link>
       ),
       img: info,
