@@ -1,28 +1,28 @@
-## Concept
+# WIM - Work In Music
 
-Ce template est conçu pour servir de base à tous les projets (P2/P3) suivants la stack React-Node-MySQL telle qu'enseignée à la Wild Code School. Il est préconfiguré avec un ensemble d'outils qui aideront les élèves à produire un code correspondant mieux aux standards du monde du travail et plus facile à maintenir, tout en restant simple à utiliser.
+## Table of Contents
 
-## Installation & Utilisation
+1. [Informations Générales](#informations-generales)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
+4. [Auteurs](#auteurs)
 
-### Pour commencer un projet
+## Informations Générales
 
-- Sur VSCode, installer les plugins **Prettier - Code formatter** et **ESLint** et les configurer
-- Cloner ce dépôt, se rendre à l'intérieur
-- Lancer la commande `npm run setup`
-- _NB: Pour exécuter le backend, un fichier d'environnement avec les données de connexion d'une BdD valide est nécesaire. Un modèle se trouve dans `backend/.env.sample`_
+Cette WebApp est une plateforme d’écoute musicale dédiée à l’éducation. Elle donne accès à des cours chantés par matière (philosophie, chimie, espagnol...) et par niveaux (collèg et lycée) après connexion.
+Cet site web comporte une interface d'administration des cours et des utilisateurs sur React Admin.
 
-### Liste des commandes et signification
+### Statut du projet et état d'avancement
 
-- `setup` : Initialisation du frontend et du backend ainsi que des outils
-- `dev` : Démarrage des deux serveurs (frontend + backend) dans un même terminal
-- `dev-front` : Démarrage d'un serveur React pour le frontend
-- `dev-back` : Démarrage d'un serveur Express pour le backend
-- `lint` : Exécute des outils de validation de code (sera exécutée automatiquement à chaque _commit_)
-- `fix` : Fixe les erreurs de formatage (à lancer si `lint` ne passe pas)
+Ce projet a été développé par 6 développeurs en formation à la Wild Code School de Lille (React Javascript) comme projet de fin de formation. L’objectif de cette application pour le client est de donner à voir et à tester une application proche de ce que sera le produit final, pour rendre concret le projet et donner à voir aux réseaux de sponsors et clients potentiels de WIM.
 
-## Pour plus d'informations
+## Technologies
 
-### Listing des outils utilisés
+### Template
+
+- `Template` : Application développée sur React, Node Express à partir d'un [template](https://github.com/WildCodeSchool/js-template-fullstack) développé par la Wild Code School.
+
+**Outils utilisés dans ce template:**
 
 - _Concurrently_ : Permet d'exécuter plusieurs commandes dans un même terminal
 - _Husky_ : Permet d'exécuter des actions en déclenchement de commandes _git_
@@ -32,18 +32,47 @@ Ce template est conçu pour servir de base à tous les projets (P2/P3) suivants 
 - _Standard Airbnb_ : L'un des "standards" les plus connus, même s'il n'est pas officiellement lié à ES/JS
 - _Nodemon_ : Outil permettant de relancer un serveur à chaque fois qu'un des fichiers est modifié
 
-### Reste à faire
+### Autres librairies
 
-Prettier:
+- `MySQL` : Une base de donnée a été développée sur mysql grâce à WorkBench
+- `ReactAdmin` : La gestion des cours et des utilisateurs a été développée sur React Admin
+- `Redux` : Redux a été utilisé pour gérer les informations liées aux utilisateurs au moment de la connexion ou de l'inscription puis tout au long de la navigation
+- `Passport` : Passeport a été utilisé en Back pour gérer l'authentification
+- `Autres librairies diverses` :
+  - Material UI a été utilisé pour gérer le formulaire d'inscription.
+  - Styled Component a été utilisé pour gérer le style de l'application.
+  - React Router pour gérer les liens entre les page.
+  - Swiper pour gérer le carroussel de d'accueil sur l'application.
+  - React-toastify pour gérer les messages d'erreur (si l'utilisateur n'a pas mis un mail...).
+  - Prop-types pour typer les props.
+  - Axios pour les appels API.
 
-- corriger la config front/back pour qu'elle suive le même standard qu'ESLint
+## Installation
 
-Testing:
+### Pour commencer un projet
 
-- ajouter des tests unitaires sur le front et le back, avec les commandes associées
+    Sur VSCode, installer les plugins Prettier - Code formatter et ESLint et les configurer
+    Cloner ce dépôt, se rendre à l'intérieur
+    Lancer la commande npm run setup
+    NB: Pour exécuter le backend, un fichier d'environnement avec les données de connexion d'une BdD valide est nécesaire. Un modèle se trouve dans backend/.env.sample
 
-Vérifications:
+### Liste des commandes et signification
 
-- s'assurer que les principaux outils utilisés lors de la formation sont compatibles avec ce template
-- deploiements ? Compatible avec Netlify/Vercel/Heroku ?
-- fonctionnement avec yarn/pnpm
+    setup : Initialisation du frontend et du backend ainsi que des outils
+    dev : Démarrage des trois serveurs (frontend + backend + admin) dans un même terminal
+    dev-front : Démarrage d'un serveur React pour le frontend
+    dev-back : Démarrage d'un serveur Express pour le backend
+    dev-admin : Démarrage d'un serveur React pour l'admin
+    lint : Exécute des outils de validation de code (sera exécutée automatiquement à chaque commit)
+    fix : Fixe les erreurs de formatage (à lancer si lint ne passe pas)
+
+## Equipe
+
+Une équipe de développeurs en formation de mars à juin 2022 à la Wild Code School de Lille
+
+- Amar
+- Faycel
+- Rémi
+- Jérémy
+- Juliane
+- Thomas
