@@ -1,4 +1,11 @@
-import { Create, NumberInput, SimpleForm, TextInput } from "react-admin";
+import {
+  Create,
+  FileField,
+  FileInput,
+  NumberInput,
+  SimpleForm,
+  TextInput,
+} from "react-admin";
 
 export default function LessonCreate() {
   return (
@@ -14,6 +21,9 @@ export default function LessonCreate() {
         <TextInput label="Titre" source="title" />
         <TextInput label="Genre" source="musicStyle" />
         <TextInput label="Emplacement" source="fileLocation" />
+        <FileInput label="Fichier audio" source="file" accept="audio/*">
+          <FileField source="audioFile" title="title" />
+        </FileInput>
         <NumberInput min="0" label="Durée" source="duration" />
         <NumberInput
           min="1"
