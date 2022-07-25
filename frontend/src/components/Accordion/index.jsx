@@ -1,9 +1,6 @@
 import { useState } from "react";
 import student from "@assets/student.svg";
 import login from "@assets/login.svg";
-import agenda from "@assets/agenda.svg";
-import book from "@assets/book.svg";
-import card from "@assets/credit-card.svg";
 import info from "@assets/info-7.svg";
 import logout from "@assets/logout.svg";
 import InfoSchool from "@components/InfoSchool";
@@ -28,15 +25,6 @@ export default function Accordion({ iduser }) {
       img: login,
       components: <InfoLogin iduser={iduser} />,
     },
-    { id: 3, title: "Mon agenda", img: agenda, components: "" },
-
-    { id: 4, title: "Mes notes", img: book, components: "" },
-    {
-      id: 5,
-      title: "Informations bancaires",
-      img: card,
-      components: "",
-    },
     {
       id: 6,
       title: (
@@ -45,12 +33,6 @@ export default function Accordion({ iduser }) {
         </Link>
       ),
       img: info,
-      components: "",
-    },
-    {
-      id: 7,
-      title: "Paramètres notifications",
-      img: student,
       components: "",
     },
     {
