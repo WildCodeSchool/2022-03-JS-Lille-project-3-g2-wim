@@ -13,12 +13,15 @@ passport.use(
     (email, password, done) => {
       try {
         models.user.findOneByMail(email).then(([result]) => {
-          if (!result.length)
+          if (!result.length) {
             return done(null, false, { msg: "Wrong username!" });
+          }
 
           const user = result[0];
           const isPasswordOK = bcrypt.compareSync(password, user.password);
-          if (!isPasswordOK) return done(null, false, "Wrong password!");
+          if (!isPasswordOK) {
+            return done(null, false, "Wrong password!");
+          }
 
           delete user.password;
           return done(null, user);

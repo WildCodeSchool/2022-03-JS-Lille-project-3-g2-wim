@@ -5,8 +5,10 @@ export default styled.header`
   height: 8vh;
   display: flex;
   align-items: center;
+
   .avatar {
     width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
     margin: 0 1.6rem;
   }
@@ -17,12 +19,11 @@ export default styled.header`
       font: var(--fontTitleBold);
     }
   }
-
   @media screen and (min-width: 760px) {
     .avatar {
       width: 4rem;
+      height: 4rem;
       border-radius: 50%;
-      margin: 0 1.6rem;
     }
   }
 `;

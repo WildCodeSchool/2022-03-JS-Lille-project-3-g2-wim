@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import SStream from "./style";
 
 export default function Stream() {
-  const { id } = useParams();
+  const id = Number(useParams().id);
   return (
     <SStream>
       <Header />

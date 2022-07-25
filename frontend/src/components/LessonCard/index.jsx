@@ -1,6 +1,6 @@
 import propTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
-import ButtonLessonFav from "@components/ButtonLessonFav";
+import ButtonStreamFav from "@components/ButtonStreamFav";
 import { Link } from "react-router-dom";
 import SLessonCard from "./style";
 
@@ -18,7 +18,7 @@ export default function LessonCard({ id, title, duration, musicStyle }) {
             {musicStyle} / {duration}
           </h2>
         </div>
-        <ButtonLessonFav />
+        <ButtonStreamFav id={id} />
       </div>
     </SLessonCard>
   );

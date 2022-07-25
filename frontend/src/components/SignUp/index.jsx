@@ -1,6 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useApi from "@services/useApi";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   TextField,
@@ -34,9 +34,8 @@ export default function SignUp() {
     schoolOption: "",
     schoolName: "",
     schoolClass_id: "",
+    avatar: "",
   });
-  const api = useApi();
-
   // Function to manage steps in accordeon
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -46,31 +45,63 @@ export default function SignUp() {
   };
   // Function to get values from form
   const hChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    const { name, value, type, files } = e.target;
+    let newValue = null;
+    switch (type) {
+      case "file":
+        [newValue] = files;
+        break;
+      default:
+        newValue = value;
+    }
+    setForm({ ...form, [name]: newValue });
   };
   // Function to check fields with regex (just mail for the moment)
   const hCheck = (e, i) => {
-    if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,4}$/i))
+    if (i === "email" && !e.target.value.match(/[\w_-]+@[\w-]+\.[a-z]{2,3}$/i))
       toast.error(`Votre email n'est pas bon`);
   };
-  // Function to send values in database
+  const hCheckPassword = (e, i) => {
+    if (i === "passwordBis" && e.target.value !== form.password)
+      toast.error(`Vos mots de passe sont incorrect`);
+  };
   const navigate = useNavigate();
+  // Function to send values in database
+
+  const api = useApi();
   const hSubmit = (evt) => {
     evt.preventDefault();
+
+    if (form.password !== form.passwordBis) return;
+    delete form.passwordBis;
+    const finalForm = Object.keys(form).reduce((accu, key) => {
+      accu.append(key, form[key]);
+      return accu;
+    }, new FormData());
+
     api
-      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, form)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, finalForm)
       .then(({ data }) => {
         const { token, user } = data;
         api.defaults.headers.authorization = `Bearer ${token}`;
-        dispatch({ type: "USER_LOGIN", payload: user });
-        toast.success(`Félicitations, vous êtes bien inscrit à WIM`);
+        dispatch({ type: "USER_LOGIN", payload: { ...user, token } });
+
+        toast.success(`Félicitations, vous êtes bien inscrit à WIM`, {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .then(() => {
         navigate("/accueil");
       })
+
       .catch((e) => {
-        toast.error(`Veuillez réésayer !${e}`, {
+        toast.error(`${e.response.data}`, {
           position: "bottom-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -146,7 +177,6 @@ export default function SignUp() {
                     }}
                   />
                 )}
-
                 <TextField
                   required
                   label={step.field2.label}
@@ -165,12 +195,34 @@ export default function SignUp() {
                   type={step.field3.type}
                   name={step.field3.name}
                   onChange={hChange}
+                  onBlur={(e) => {
+                    hCheckPassword(e, step.field3.name);
+                  }}
                 />
                 <Box sx={{ mb: 2 }}>
+                  {index === steps.length - 1 ? (
+                    <div className="containerAvatar">
+                      <label htmlFor="file" className="label-file">
+                        Importer un avatar
+                        <input
+                          id="file"
+                          name="avatar"
+                          type="file"
+                          className="input-file"
+                          onChange={hChange}
+                        />
+                      </label>
+                      <p className={form.avatar.name ? "green" : ""}>
+                        {form.avatar.name ? "Avatar importé" : ""}
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <Button
                     size="large"
                     variant="contained"
-                    onClick={nextStep}
+                    onClick={index === steps.length - 1 ? hSubmit : nextStep}
                     sx={{ mt: 1, mr: 1 }}
                   >
                     {index === steps.length - 1 ? "Fin" : "Continuer"}
@@ -191,7 +243,7 @@ export default function SignUp() {
         {activeStep === steps.length && (
           <Paper square elevation={0} sx={{ p: 5 }}>
             <Typography>Bienvenue chez WIM !</Typography>
-            <Button size="large" variant="contained" onClick={hSubmit}>
+            <Button size="large" variant="contained">
               Se connecter
             </Button>
           </Paper>

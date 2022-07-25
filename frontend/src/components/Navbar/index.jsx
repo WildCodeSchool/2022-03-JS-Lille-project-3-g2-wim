@@ -10,7 +10,7 @@ const datas = [
   },
   {
     id: 2,
-    label: "/favoris/2",
+    label: "/favoris",
     class1: "selectedIconHeart",
     class2: "unselectedIconHeart",
   },

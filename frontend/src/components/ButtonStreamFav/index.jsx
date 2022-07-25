@@ -6,31 +6,35 @@ import PropTypes from "prop-types";
 import SButtonStreamFav from "./style";
 
 export default function ButtonStreamFav({ id }) {
-  const [formData] = useState({ user_id: 2, lesson_id: id });
+  const [favData] = useState({ lesson_id: id });
   const [activ, setActive] = useState(false);
   const [IconActive, setIconActiv] = useState(IconFav);
   const api = useApi();
   const addFavorite = () => {
-    api.post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, formData).then();
-    if (activ === false) {
-      setActive(true);
-      setIconActiv(IconFavAdd);
-    } else {
-      setActive(false);
-      setIconActiv(IconFav);
-    }
+    api
+      .post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, favData)
+      .then(() => {
+        if (activ === false) {
+          setActive(true);
+          setIconActiv(IconFavAdd);
+        } else {
+          setActive(false);
+          setIconActiv(IconFav);
+        }
+      });
   };
   const deleteFavorite = () => {
     api
-      .delete(`${import.meta.env.VITE_BACKEND_URL}/favorite/${id}`, formData)
-      .then();
-    if (activ === false) {
-      setActive(true);
-      setIconActiv(IconFavAdd);
-    } else {
-      setActive(false);
-      setIconActiv(IconFav);
-    }
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/favorite/${id}`)
+      .then(() => {
+        if (activ === false) {
+          setActive(true);
+          setIconActiv(IconFavAdd);
+        } else {
+          setActive(false);
+          setIconActiv(IconFav);
+        }
+      });
   };
 
   return (
@@ -44,5 +48,5 @@ export default function ButtonStreamFav({ id }) {
   );
 }
 ButtonStreamFav.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
