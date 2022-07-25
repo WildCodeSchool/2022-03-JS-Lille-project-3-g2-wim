@@ -1,34 +1,79 @@
-## Concept
+# WIM - Work In Music
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+## Table of Contents
 
-## Setup & Use
+1. [General Info](#general-info)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
+4. [Authors](#authors)
 
-### Project Initialization
+## General Info
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm run setup`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
+This WebApp is a music listening platform dedicated to education. It gives access to sung courses by subject (philosophy, chemistry, spanish...) and by level (college and high school) after connection.
+This website includes an administration interface for courses and users on React Admin.
 
-### Available Commands
+### Project status and progress
 
-- `setup` : Initialization of frontend and backend, as well as all toolings
-- `dev` : Starts both servers (frontend + backend) in one terminal
-- `dev-front` : Starts the React frontend server
-- `dev-back` : Starts the Express backend server
-- `lint` : Runs validation tools, and refuses unclean code (will be executed on every _commit_)
-- `fix` : Fixes linter errors (run it if `lint` growls on your code !)
+This project was developed by 6 developers in training at the Wild Code School of Lille (React Javascript) as an end of training project.
+The objective of this application for the client is to give to see and test an application close to what will be the final product, to make concrete the project and to give to see to the networks of sponsors and potential customers of WIM.
 
-## FAQ
+## Technology
 
-### Tools
+### Template
 
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-- _Nodemon_ : Allows to restart the server everytime a .js file is udated
+- Template : Application developed on React, Node Express from a [template](https://github.com/WildCodeSchool/js-template-fullstack) developped by the Wild Code School.
+
+**Tools used in this template:**
+
+- _Concurrently_ : Allows to execute several commands in the same terminal
+- _Husky_ : Allows to execute actions when triggered by _git_ commands
+- _Vite_ : Alternative to _Create-React-App_, with fewer packages for a smoother experience
+- _ESLint_ : "Code quality" tool, ensures that pre-configured rules are respected
+- _Prettier_ : "code quality" tool, also focuses on code style
+- _Standard Airbnb_ : One of the most famous "standards", even if it is not officially linked to ES/JS
+- _Nodemon_ : Tool to restart a server each time one of the files is modified
+
+### Other libraries
+
+- MySQL: A database has been developed on mysql thanks to WorkBench
+- ReactAdmin` : Course and user management has been developed on React Admin
+- Redux: Redux was used to manage user information at the time of connection or registration and throughout the navigation
+- Passport: Passport was used in the backend to manage authentication
+- Other miscellaneous libraries:
+  - Material UI was used to manage the registration form.
+  - Styled Component was used to manage the application's style.
+  - React Router to manage the links between pages.
+  - Swiper to manage the welcome carousel on the application.
+  - React-toastify to manage error messages (if the user did not send an email...).
+  - Prop-types to type the props.
+  - Axios for API calls.
+
+## Installation
+
+### To start a project
+
+    On VSCode, install Prettier - Code formatter and ESLint plugins and configure them
+    Clone this repository, go inside
+    Run the npm run setup command
+    NB: To run the backend, an environment file with the connection data of a valid DB is required. A sample can be found in backend/.env.sample
+
+### List of commands and meaning
+
+    setup : Initialization of the frontend and backend as well as the tools
+    dev : Start the three servers (frontend + backend + admin) in the same terminal
+    dev-front : Start a React server for the frontend
+    dev-back : Start an Express server for the backend
+    dev-admin : Start a React server for the admin
+    lint : Run code validation tools (will be executed automatically at each commit)
+    fix : Fix formatting errors (to be run if lint does not pass)
+
+## Team
+
+A team of developers in training from March to June 2022 at the Wild Code School in Lille
+
+- Amar
+- Faycel
+- Rémi
+- Jérémy
+- Juliane
+- Thomas
