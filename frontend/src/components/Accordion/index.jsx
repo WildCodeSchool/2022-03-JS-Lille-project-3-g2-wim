@@ -4,7 +4,7 @@ import login from "@assets/login.svg";
 import info from "@assets/info-7.svg";
 import logout from "@assets/logout.svg";
 import InfoSchool from "@components/InfoSchool";
-import InfoLogin from "@components/InfoLogin";
+import ChangePassword from "@components/ChangePassword";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ButtonDisconnection from "@components/ButtonDisconnection";
@@ -23,7 +23,7 @@ export default function Accordion({ iduser }) {
       id: 2,
       title: "Modifier le mot de passe",
       img: login,
-      components: <InfoLogin iduser={iduser} />,
+      components: <ChangePassword iduser={iduser} />,
     },
     {
       id: 6,
