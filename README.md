@@ -59,8 +59,8 @@ The objective of this application for the client is to give to see and test an a
 
 ### List of commands and meaning
 
-    `setup` : Initialization of the frontend and backend as well as the tools
-    `dev` : Start the three servers (frontend + backend + admin) in the same terminal
+    setup : Initialization of the frontend and backend as well as the tools
+    dev : Start the three servers (frontend + backend + admin) in the same terminal
     dev-front : Start a React server for the frontend
     dev-back : Start an Express server for the backend
     dev-admin : Start a React server for the admin
