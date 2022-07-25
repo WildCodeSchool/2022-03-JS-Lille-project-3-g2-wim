@@ -41,7 +41,7 @@ export default function InfoSchool({ iduser }) {
       <div className="contenair">
         <form className="registerForm" onSubmit={hSubmit}>
           <label className="containerName" htmlFor="schoolOption">
-            <h3> Série</h3>
+            <h3>Série</h3>
             <input
               className="inputForm"
               type="text"
