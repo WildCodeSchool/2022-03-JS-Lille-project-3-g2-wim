@@ -4,9 +4,11 @@ export default styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   font-family: "Roboto", sans-serif;
   article {
-    border: 1px solid black;
     display: flex;
     justify-content: space-around;
+    background-color: #f3f3f3;
+    border: 1px solid black;
+
     h3 {
       font-size: 0.8em;
       text-align: center;

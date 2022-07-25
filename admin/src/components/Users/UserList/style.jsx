@@ -6,6 +6,8 @@ export default styled.div`
   display: flex;
   article {
     display: flex;
+    background-color: #f3f3f3;
+    border: 1px solid black;
 
     h3 {
       font-size: 0.8em;
