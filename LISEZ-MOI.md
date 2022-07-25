@@ -2,12 +2,12 @@
 
 ## Table of Contents
 
-1. [General Info](#general-info)
+1. [Informations Générales](#informations-generales)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
 4. [Auteurs](#auteurs)
 
-## General Info
+## Informations Générales
 
 Cette WebApp est une plateforme d’écoute musicale dédiée à l’éducation. Elle donne accès à des cours chantés par matière (philosophie, chimie, espagnol...) et par niveaux (collèg et lycée) après connexion.
 Cet site web comporte une interface d'administration des cours et des utilisateurs sur React Admin.
@@ -16,7 +16,7 @@ Cet site web comporte une interface d'administration des cours et des utilisateu
 
 Ce projet a été développé par 6 développeurs en formation à la Wild Code School de Lille (React Javascript) comme projet de fin de formation. L’objectif de cette application pour le client est de donner à voir et à tester une application proche de ce que sera le produit final, pour rendre concret le projet et donner à voir aux réseaux de sponsors et clients potentiels de WIM.
 
-## Technologie
+## Technologies
 
 ### Template
 
