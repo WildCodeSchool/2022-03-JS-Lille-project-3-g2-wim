@@ -3,9 +3,10 @@ import styled from "styled-components";
 export default styled.section`
   h1 {
     font: var(--fontTitleBold);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--colorTextDarkGrey);
+    border-bottom: 2px solid var(--colorBackgroundMediumGrey);
+    width: 80vw;
+    margin: 1.8rem auto 1rem;
+    padding-bottom: 0.6rem;
   }
 
   a {
@@ -15,7 +16,8 @@ export default styled.section`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
   }
 
   .iconImg {
@@ -29,10 +31,15 @@ export default styled.section`
     flex-direction: column;
   }
 
+  .listContainer {
+    width: 80vw;
+    margin: auto;
+  }
+
   .topic {
-    width: 25vw;
-    height: 13vh;
-    margin: 1vw;
+    width: 4.6rem;
+    height: 4.6rem;
+    margin: 0.2rem 0;
     padding: 3vw;
     border-radius: var(--radiusTopic);
     display: flex;
@@ -40,12 +47,14 @@ export default styled.section`
     justify-content: center;
     color: var(--colorTextlight);
     font: var(--fontTitleTopic);
+    font-size: 0.7rem;
     word-wrap: break-word;
     text-align: center;
     img {
-      padding-bottom: 1rem;
-      width: 4rem;
-      height: 4rem;
+      padding-bottom: 0.6rem;
+      padding-top: 0.6rem;
+      width: 3rem;
+      height: 3rem;
       margin: auto;
     }
   }
