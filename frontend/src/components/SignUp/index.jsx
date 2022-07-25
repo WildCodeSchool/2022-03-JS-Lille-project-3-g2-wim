@@ -86,14 +86,14 @@ export default function SignUp() {
         api.defaults.headers.authorization = `Bearer ${token}`;
         dispatch({ type: "USER_LOGIN", payload: { ...user, token } });
 
-        toast.success(`Félicitations, vous êtes bien inscrit à WIM`, {});
+        toast.success(`Félicitations, vous êtes bien inscrit à WIM`);
       })
       .then(() => {
         navigate("/accueil");
       })
 
       .catch((e) => {
-        toast.error(`${e.response.data}`, {});
+        toast.error(`${e.response.data}`);
       });
   };
   // Using API delivering existing schoolClasses to make it connected to database
