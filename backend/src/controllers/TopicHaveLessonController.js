@@ -2,7 +2,7 @@ const models = require("../models");
 
 class TopicHaveLessonController {
   static browse = (req, res) => {
-    models.TopicHaveLesson.findAllTopicHaveLesson()
+    models.TopicHaveLesson.findAllTopicHaveLesson(req.user.id)
       .then(([rows]) => {
         res.send(rows);
       })

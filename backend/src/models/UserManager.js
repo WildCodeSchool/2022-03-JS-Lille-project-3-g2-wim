@@ -17,6 +17,13 @@ class UserManager extends AbstractManager {
     );
   }
 
+  findUser(id) {
+    return this.connection.query(
+      `select user.id, user.email, user.password, user.name, user.firstname, user.age, user.schoolOption, user.schoolName, user.schoolClass_id, user.avatar, sC.label, sC.id from  ${this.table} inner join schoolClass as sC on sC.id = user.schoolClass_id where user.id = ?`,
+      [id]
+    );
+  }
+
   insert(user) {
     return this.connection.query(
       `insert into ${UserManager.table} (email, password, name, firstname, age,schoolOption, schoolName, schoolClass_id, avatar) values (?,?,?,?,?,?,?,?,?)`,

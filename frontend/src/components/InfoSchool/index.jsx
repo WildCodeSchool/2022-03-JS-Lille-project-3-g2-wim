@@ -7,8 +7,9 @@ export default function InfoSchool({ iduser }) {
   const [formData, setFormData] = useState({
     schoolName: "",
     schoolOption: "",
-    phoneNumber: "",
+    schoolClass: "",
   });
+
   const api = useApi();
 
   const hChangeFormData = (evt) => {
@@ -63,13 +64,13 @@ export default function InfoSchool({ iduser }) {
             />
           </label>
           <label className="containerName" htmlFor="Numéro de téléphone">
-            <h3>Numéro de téléphone</h3>
+            <h3>Niveau scolaire</h3>
             <input
               className="inputForm"
-              type="tel"
-              name="phoneNumber"
-              placeholder="Numéro de téléphone"
-              value={formData.phoneNumber}
+              type="text"
+              name="schoolClass"
+              placeholder="Niveau scolaire"
+              value={formData.label}
               onChange={hChangeFormData}
             />
           </label>
