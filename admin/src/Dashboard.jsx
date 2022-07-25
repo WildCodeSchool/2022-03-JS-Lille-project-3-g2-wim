@@ -6,7 +6,9 @@ export default function DashBoard() {
       <CardHeader title="Bienvenue sur l'administration de WIM" />
       <CardContent>
         <Typography>Votre espace administrable vous permet de :</Typography>
+
         <br />
+        <Typography>Consulter la liste des utilisateurs</Typography>
         <Typography>Consulter, Ajouter et Supprimer des leçons</Typography>
       </CardContent>
     </Card>
