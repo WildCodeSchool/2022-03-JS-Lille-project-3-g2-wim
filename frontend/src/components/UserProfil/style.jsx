@@ -7,8 +7,9 @@ export default styled.div`
   .for-h1 {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     margin: 4.5rem 2.4rem;
-    width: 45vw;
+    width: 100%;
     img {
       width: 0.8rem;
       padding: 0 2rem 0 0;
@@ -19,6 +20,7 @@ export default styled.div`
     font: var(--fontTitleBold);
   }
   .contenairname {
+    overflow: hidden;
     display: flex;
     justify-content: flex-start;
     height: 17vh;
@@ -43,7 +45,8 @@ export default styled.div`
     color: var(--colorTextBlue);
   }
   li {
+    overflow: hidden;
     color: var(--colorTextDarkGrey);
-    letter-spacing: 1.2px;
+    letter-spacing: 0.1rem;
   }
 `;
