@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import useApi from "@services/useApi";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 import SInfoSchool from "./style";
 
-export default function InfoSchool({ iduser }) {
+export default function InfoSchool({ iduser, setActive }) {
   const [formData, setFormData] = useState({
     schoolName: "",
     schoolOption: "",
@@ -27,6 +28,11 @@ export default function InfoSchool({ iduser }) {
       })
       .then(({ data }) => {
         setFormData(data);
+        toast.success("Vos informations ont bien été modifiées");
+        setActive(" ");
+      })
+      .catch(() => {
+        toast.error("La modification n'a pas pu être prise en compte");
       });
   };
 
@@ -102,4 +108,9 @@ export default function InfoSchool({ iduser }) {
 }
 InfoSchool.propTypes = {
   iduser: PropTypes.string.isRequired,
+  setActive: PropTypes.func,
+};
+
+InfoSchool.defaultProps = {
+  setActive: () => {},
 };

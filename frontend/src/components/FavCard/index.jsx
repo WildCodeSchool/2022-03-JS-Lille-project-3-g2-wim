@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 import SFavCard from "./style";
 
 export default function FavCard({ id, title, duration, musicStyle }) {
+  const timeInMinutes = (d) => {
+    const min = Math.floor(d / 60);
+    const durationForSec = d % 60;
+    const sec = Math.ceil(durationForSec);
+    return `${min}:${sec}`;
+  };
   return (
     <SFavCard>
       <div className="cardOfFav">
@@ -14,7 +20,7 @@ export default function FavCard({ id, title, duration, musicStyle }) {
         <div className="informations">
           <h1 className="lesson"> {title}</h1>
           <h2>
-            {musicStyle} / {duration}
+            {musicStyle} / {timeInMinutes(duration)}
           </h2>
         </div>
         <ButtonStreamFavList id={id} />

@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 import SLessonCard from "./style";
 
 export default function LessonCard({ id, title, duration, musicStyle, isFav }) {
+  const timeInMinutes = (d) => {
+    const min = Math.floor(d / 60);
+    const durationForSec = d % 60;
+    const sec = Math.ceil(durationForSec);
+    return `${min}:${sec}`;
+  };
   return (
     <SLessonCard>
       <div className="cardOfLesson">
@@ -15,7 +21,7 @@ export default function LessonCard({ id, title, duration, musicStyle, isFav }) {
         <div className="informations">
           <h1 className="lesson"> {title}</h1>
           <h2>
-            {musicStyle} / {duration}
+            {musicStyle} / {timeInMinutes(duration)}
           </h2>
         </div>
         <ButtonStreamFav id={id} isFav={isFav} />
