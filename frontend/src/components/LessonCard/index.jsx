@@ -4,7 +4,7 @@ import ButtonStreamFav from "@components/ButtonStreamFav";
 import { Link } from "react-router-dom";
 import SLessonCard from "./style";
 
-export default function LessonCard({ id, title, duration, musicStyle }) {
+export default function LessonCard({ id, title, duration, musicStyle, isFav }) {
   return (
     <SLessonCard>
       <div className="cardOfLesson">
@@ -18,7 +18,7 @@ export default function LessonCard({ id, title, duration, musicStyle }) {
             {musicStyle} / {duration}
           </h2>
         </div>
-        <ButtonStreamFav id={id} />
+        <ButtonStreamFav id={id} isFav={isFav} />
       </div>
     </SLessonCard>
   );
@@ -29,4 +29,5 @@ LessonCard.propTypes = {
   title: propTypes.string.isRequired,
   duration: propTypes.number.isRequired,
   musicStyle: propTypes.string.isRequired,
+  isFav: propTypes.bool.isRequired,
 };

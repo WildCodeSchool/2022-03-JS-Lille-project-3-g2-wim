@@ -9,5 +9,6 @@ export default styled.div`
     background-size: contain;
     border: white solid 1px;
     margin: 0 1rem;
+    cursor: pointer;
   }
 `;

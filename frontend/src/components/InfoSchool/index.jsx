@@ -10,7 +10,6 @@ export default function InfoSchool({ iduser }) {
     schoolClass_Id: "",
   });
   const [dataSchoolClass, setDataSchoolClass] = useState([]);
-  console.log(formData);
 
   const api = useApi();
 

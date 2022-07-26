@@ -8,6 +8,7 @@ import SLessons from "./style";
 
 function Lessons() {
   const [lessons, setLessons] = useState([]);
+  const [fav, setFav] = useState([]);
   const { id } = useParams();
   const api = useApi();
   useEffect(() => {
@@ -15,6 +16,11 @@ function Lessons() {
       .get(`${import.meta.env.VITE_BACKEND_URL}${"/lessons"}`)
       .then(({ data }) => {
         setLessons(data);
+      });
+    api
+      .get(`${import.meta.env.VITE_BACKEND_URL}${"/favorite"}`)
+      .then(({ data }) => {
+        setFav(data);
       });
   }, []);
   return (
@@ -24,6 +30,13 @@ function Lessons() {
         .filter((lesson) => lesson.schoolTopic_id === parseInt(id, 10))
         .map((lesson) => (
           <LessonCard
+            isFav={fav
+              .filter((f) => {
+                return f.id === lesson.id;
+              })
+              .map(() => {
+                return true;
+              })}
             key={lesson.id}
             id={lesson.id}
             title={lesson.title}
