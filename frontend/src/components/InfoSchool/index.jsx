@@ -7,8 +7,10 @@ export default function InfoSchool({ iduser }) {
   const [formData, setFormData] = useState({
     schoolName: "",
     schoolOption: "",
-    schoolClass: "",
+    schoolClass_Id: "",
   });
+  const [dataSchoolClass, setDataSchoolClass] = useState([]);
+  console.log(formData);
 
   const api = useApi();
 
@@ -35,6 +37,11 @@ export default function InfoSchool({ iduser }) {
       .then(({ data }) => {
         setFormData(data);
       });
+    api
+      .get(`${import.meta.env.VITE_BACKEND_URL}/schoolClass`)
+      .then(({ data }) => {
+        setDataSchoolClass(data);
+      });
   }, []);
 
   return (
@@ -52,7 +59,7 @@ export default function InfoSchool({ iduser }) {
               onChange={hChangeFormData}
             />
           </label>
-          <label className="containerName" htmlFor="schoolOption">
+          <label className="containerName" htmlFor="schoolName">
             <h3>Nom de l'école</h3>
             <input
               className="inputForm"
@@ -63,16 +70,28 @@ export default function InfoSchool({ iduser }) {
               onChange={hChangeFormData}
             />
           </label>
-          <label className="containerName" htmlFor="Numéro de téléphone">
+          <label className="containerName" htmlFor="schoolClass_Id">
             <h3>Niveau scolaire</h3>
-            <input
+            <select
               className="inputForm"
-              type="text"
-              name="schoolClass"
+              type="input"
+              name="schoolClass_Id"
               placeholder="Niveau scolaire"
-              value={formData.label}
               onChange={hChangeFormData}
-            />
+            >
+              <option>{formData.label}</option>
+              {dataSchoolClass.map((dataSC) => {
+                return (
+                  <option
+                    value={dataSC.id}
+                    key={dataSC.id}
+                    onChange={hChangeFormData}
+                  >
+                    {dataSC.label}
+                  </option>
+                );
+              })}
+            </select>
           </label>
           <button type="submit" className="button">
             validez
