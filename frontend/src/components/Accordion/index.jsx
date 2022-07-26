@@ -15,18 +15,25 @@ import SAccordion from "./style";
 
 export default function Accordion({ iduser }) {
   const [active, setActive] = useState(" ");
+  function hChange(d) {
+    if (active === " ") {
+      setActive(d);
+    } else {
+      setActive(" ");
+    }
+  }
   const datas = [
     {
       id: 1,
       title: "Informations scolaires",
       img: student,
-      components: <InfoSchool iduser={iduser} />,
+      components: <InfoSchool iduser={iduser} setActive={setActive} />,
     },
     {
       id: 2,
       title: "Informations connexion",
       img: login,
-      components: <InfoLogin iduser={iduser} />,
+      components: <InfoLogin iduser={iduser} setActive={setActive} />,
     },
     { id: 3, title: "Mon agenda", img: agenda, components: "" },
 
@@ -71,7 +78,9 @@ export default function Accordion({ iduser }) {
                 <button
                   className="containerbutton"
                   type="button"
-                  onClick={() => setActive(data.title)}
+                  onClick={() => {
+                    hChange(data.title);
+                  }}
                 >
                   <div className="logo">
                     <img src={data.img} alt="img" />
@@ -94,6 +103,7 @@ export default function Accordion({ iduser }) {
     </SAccordion>
   );
 }
+
 Accordion.propTypes = {
   iduser: PropTypes.string.isRequired,
 };
