@@ -12,6 +12,7 @@ export default function AudioPlayer({ id }) {
   const [img, setImg] = useState("");
   const [topicLabel, setTopicLabel] = useState("");
   const api = useApi();
+  const [fav, setFav] = useState([]);
   useEffect(() => {
     api
       .get(`${import.meta.env.VITE_BACKEND_URL}/lessonsdata/${id}`)
@@ -29,6 +30,11 @@ export default function AudioPlayer({ id }) {
           )
         );
       });
+    api
+      .get(`${import.meta.env.VITE_BACKEND_URL}${"/favorite"}`)
+      .then(({ data }) => {
+        setFav(data);
+      });
   }, []);
 
   return (
@@ -43,10 +49,17 @@ export default function AudioPlayer({ id }) {
       </div>
       {duration && (
         <AudioPlayerLoading
+          isFav={fav
+            .filter((f) => {
+              return f.id === id;
+            })
+            .map(() => {
+              return true;
+            })}
           durationAudio={duration}
           maxDurationAudio={maxDuration}
           audio={audio}
-          id={id}
+          idLesson={id}
         />
       )}
     </SAudioPlayer>

@@ -2,7 +2,7 @@ import IconFavAdd from "@assets/Images/fav-added.svg";
 import IconFav from "@assets/Images/fav-empty.svg";
 import useApi from "@services/useApi";
 import { useState } from "react";
-import propTypes, { bool } from "prop-types";
+import propTypes from "prop-types";
 import SButtonStreamFav from "./style";
 
 export default function ButtonStreamFav({ id, isFav }) {
@@ -15,31 +15,21 @@ export default function ButtonStreamFav({ id, isFav }) {
     api
       .post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, favData)
       .then(() => {
-        if (activ === false) {
-          setActive(true);
-          setIconActiv(IconFav);
-        } else {
-          setActive(false);
-          setIconActiv(IconFavAdd);
-        }
+        setActive(true);
+        setIconActiv(IconFav);
       });
   };
   const deleteFavorite = () => {
     api
       .delete(`${import.meta.env.VITE_BACKEND_URL}/favorite/${id}`)
       .then(() => {
-        if (activ === false) {
-          setActive(true);
-          setIconActiv(IconFav);
-        } else {
-          setActive(false);
-          setIconActiv(IconFavAdd);
-        }
+        setActive(false);
+        setIconActiv(IconFav);
       });
   };
 
   return (
-    <SButtonStreamFav imgFav={!activ ? iconActiv : IconFavAdd}>
+    <SButtonStreamFav imgFav={activ ? IconFavAdd : iconActiv}>
       <button
         alt="favorites"
         type="button"
@@ -50,8 +40,5 @@ export default function ButtonStreamFav({ id, isFav }) {
 }
 ButtonStreamFav.propTypes = {
   id: propTypes.number.isRequired,
-  isFav: propTypes.bool,
-};
-ButtonStreamFav.defaultProps = {
-  isFav: bool,
+  isFav: propTypes.bool.isRequired,
 };
