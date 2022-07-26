@@ -5,12 +5,13 @@ export default styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35vh;
-    border: 1px solid red;
+    height: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
     .circle {
-      width: 13rem;
-      height: 13rem;
+      width: 12rem;
+      height: 12rem;
       border-radius: 50%;
       border: 1px var(--colorBlueMain) solid;
       box-shadow: 0px 0px 40px 10px #77777737;
@@ -23,26 +24,25 @@ export default styled.section`
   }
   .lessonTopic {
     text-align: center;
-    border: 1px solid red;
     .lesson {
       color: #2999ff;
-      font-size: 2rem;
+      font-size: 1.3rem;
+      margin-top: 1rem;
       font-weight: bold;
-      border: 1px solid orange;
     }
     .topic {
-      font-size: 1.8rem;
-      border: 1px solid blue;
+      font-size: 1.2rem;
+      margin-top: 0.4rem;
     }
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 760px) {
     .containStream {
       .circle {
-        width: 14rem;
-        height: 14rem;
+        width: 12rem;
+        height: 12rem;
       }
       img {
-        width: 11rem;
+        width: 10rem;
       }
     }
     .lessonTopic {
@@ -50,11 +50,10 @@ export default styled.section`
       .lesson {
         color: #2999ff;
         font-size: 1.2rem;
-        margin-top: 2rem;
       }
       .topic {
         font-size: 1.2rem;
-        margin-top: 0.8rem;
+        margin-top: 0.3rem;
       }
     }
   }

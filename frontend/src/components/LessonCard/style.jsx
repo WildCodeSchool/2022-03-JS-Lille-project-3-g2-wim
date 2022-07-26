@@ -26,7 +26,7 @@ export default styled.section`
   h1 {
     font: var(--fontTitleTopic);
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default styled.section`
+  margin-bottom: 12vh;
   h1 {
     font: var(--fontTitleBold);
     border-bottom: 2px solid var(--colorBackgroundMediumGrey);

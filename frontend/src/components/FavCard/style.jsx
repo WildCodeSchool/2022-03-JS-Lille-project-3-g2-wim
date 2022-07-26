@@ -17,17 +17,17 @@ export default styled.section`
     margin-right: 0.8rem;
   }
   .informations {
-    width: 62vw;
+    width: 57vw;
   }
   .play {
     height: 3vh;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     cursor: pointer;
   }
   h1 {
     font: var(--fontTitleTopic);
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
