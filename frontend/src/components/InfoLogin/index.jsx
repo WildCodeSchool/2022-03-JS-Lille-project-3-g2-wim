@@ -27,6 +27,9 @@ export default function InfoLogin({ iduser, setActive }) {
         setFormData(data);
         toast.success("Vos informations ont bien été modifiées");
         setActive(" ");
+      })
+      .catch(() => {
+        toast.error("La modification n'a pas pu être prise en compte");
       });
   };
 
