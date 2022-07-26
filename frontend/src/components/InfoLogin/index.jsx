@@ -40,7 +40,7 @@ export default function InfoLogin({ iduser }) {
       <div className="contenair">
         <form className="registerForm" onSubmit={hSubmit}>
           <label className="containerName" htmlFor="Adresse mail">
-            <h3>Adresse mail</h3>
+            Adresse mail
             <input
               className="inputForm"
               type="text"
@@ -51,7 +51,7 @@ export default function InfoLogin({ iduser }) {
             />
           </label>
           <label className="containerName" htmlFor="Mot de passe">
-            <h3>Mot de passe</h3>
+            Mot de passe
             <input
               className="inputForm"
               type="password"

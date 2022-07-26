@@ -58,7 +58,7 @@ export default function ChangePassword({ iduser }) {
       <div className="contenair">
         <form className="registerForm" onSubmit={hSubmit}>
           <label className="containerName" htmlFor="Adresse mail">
-            <h3>Adresse mail</h3>
+            Adresse mail
             <input
               className="inputForm"
               type="text"
@@ -68,8 +68,8 @@ export default function ChangePassword({ iduser }) {
               onChange={hChangeFormData}
             />
           </label>
-          <label className="containerName" htmlFor="Mot de passe">
-            <h3>Nouveau mot de passe</h3>
+          <label className="containerName" htmlFor="Nouveau mot de passe">
+            Nouveau mot de passe
             <input
               className="inputForm"
               type="password"
@@ -79,8 +79,11 @@ export default function ChangePassword({ iduser }) {
               onChange={hChangeFormData}
             />
           </label>
-          <label className="containerName" htmlFor="Mot de passe">
-            <h3>Confirmez le nouveau mot de passe</h3>
+          <label
+            className="containerName"
+            htmlFor="Confirmez le nouveau mot de passe"
+          >
+            Confirmez le nouveau mot de passe
             <input
               className="inputForm"
               type="password"
