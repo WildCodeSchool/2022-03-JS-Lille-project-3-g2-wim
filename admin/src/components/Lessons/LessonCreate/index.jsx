@@ -13,10 +13,10 @@ export default function LessonCreate() {
             label="Identifiant de la Matière"
             source="schoolTopic_id"
           />
-          <TextInput label="Titre" source="title" />
+          <TextInput label="Titre de la leçon" source="title" />
           <TextInput label="Genre" source="musicStyle" />
-          <TextInput source="fileLocation" />
-          <NumberInput min="0" label="Durée" source="duration" />
+          <TextInput label="Fichier leçon mp3" source="fileLocation" />
+          <NumberInput min="0" label="Durée en secondes" source="duration" />
           <NumberInput
             min="1"
             max="8"
