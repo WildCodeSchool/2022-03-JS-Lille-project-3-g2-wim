@@ -71,9 +71,9 @@ The objective of this application for the client is to give to see and test an a
 
 A team of developers in training from March to June 2022 at the Wild Code School in Lille
 
-- Amar
-- Faycel
-- Rémi
-- Jérémy
-- Juliane
-- Thomas
+- [Amar](https://github.com/Dash293)
+- [Faycel](https://github.com/n-faycel)
+- [Rémi](https://github.com/remi59800)
+- [Jérémy](https://github.com/jeremyjorand)
+- [Juliane](https://github.com/ilalande)
+- [Thomas](https://github.com/ThomasDCW)

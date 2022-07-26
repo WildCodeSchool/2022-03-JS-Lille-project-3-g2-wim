@@ -70,9 +70,9 @@ Ce projet a été développé par 6 développeurs en formation à la Wild Code S
 
 Une équipe de développeurs en formation de mars à juin 2022 à la Wild Code School de Lille
 
-- Amar
-- Faycel
-- Rémi
-- Jérémy
-- Juliane
-- Thomas
+- [Amar](https://github.com/Dash293)
+- [Faycel](https://github.com/n-faycel)
+- [Rémi](https://github.com/remi59800)
+- [Jérémy](https://github.com/jeremyjorand)
+- [Juliane](https://github.com/ilalande)
+- [Thomas](https://github.com/ThomasDCW)
