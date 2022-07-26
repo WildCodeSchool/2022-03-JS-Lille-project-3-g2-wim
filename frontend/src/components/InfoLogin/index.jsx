@@ -4,7 +4,7 @@ import useApi from "@services/useApi";
 import { toast } from "react-toastify";
 import SInfoLogin from "./style";
 
-export default function InfoLogin({ iduser }) {
+export default function InfoLogin({ iduser, setActive }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -26,6 +26,7 @@ export default function InfoLogin({ iduser }) {
       .then(({ data }) => {
         setFormData(data);
         toast.success("Vos informations ont bien été modifiées");
+        setActive(" ");
       })
       .catch(() => {
         toast.error("La modification n'a pas pu être prise en compte");
@@ -76,4 +77,9 @@ export default function InfoLogin({ iduser }) {
 }
 InfoLogin.propTypes = {
   iduser: PropTypes.string.isRequired,
+  setActive: PropTypes.func,
+};
+
+InfoLogin.defaultProps = {
+  setActive: () => {},
 };
