@@ -74,7 +74,7 @@ export default function InfoSchool({ iduser }) {
             />
           </label>
           <button type="submit" className="button">
-            validez
+            Validez
           </button>
         </form>
       </div>

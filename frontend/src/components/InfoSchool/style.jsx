@@ -14,7 +14,9 @@ export default styled.div`
     width: 70vw;
   }
   .button {
-    width: 15vw;
+    width: 20vw;
+    height: 3vh;
+    font-size: 1rem;
     margin: auto;
     background-color: var(--colorBlueMain);
     border: none;
@@ -28,5 +30,14 @@ export default styled.div`
     margin: auto;
     font: var(--fontMain);
     color: var(--colorTextDarkGrey);
+  }
+
+  @media screen and (min-width: 760px) {
+    .button {
+      width: 8vw;
+    }
+    .containerName {
+      font-size: 1rem;
+    }
   }
 `;

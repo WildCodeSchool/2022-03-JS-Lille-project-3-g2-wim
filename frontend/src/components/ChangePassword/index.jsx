@@ -94,7 +94,7 @@ export default function ChangePassword({ iduser }) {
             />
           </label>
           <button type="submit" className="button">
-            validez
+            Validez
           </button>
         </form>
       </div>
