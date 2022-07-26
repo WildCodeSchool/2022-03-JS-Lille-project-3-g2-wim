@@ -8,6 +8,7 @@ export default styled.div`
     background-size: contain;
     border: none;
     margin: 1.4em;
+    cursor: pointer;
     //Here we use props with  styledComponent, coming from the component <SAudioPlayerControll img={playOrPauseImg}>
   }
 `;

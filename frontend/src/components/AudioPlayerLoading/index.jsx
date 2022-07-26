@@ -1,4 +1,4 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import useInterval from "@services/useInterval";
 import playImg from "@assets/play-solid.svg";
@@ -111,9 +111,9 @@ export default function AudioPlayerLoading({
   );
 }
 AudioPlayerLoading.propTypes = {
-  durationAudio: propTypes.number.isRequired,
-  maxDurationAudio: propTypes.number.isRequired,
-  audio: propTypes.instanceOf(Audio).isRequired,
-  idLesson: propTypes.number.isRequired,
-  isFav: propTypes.bool.isRequired,
+  durationAudio: PropTypes.number.isRequired,
+  maxDurationAudio: PropTypes.number.isRequired,
+  audio: PropTypes.instanceOf(Audio).isRequired,
+  idLesson: PropTypes.number.isRequired,
+  isFav: PropTypes.instanceOf(Array).isRequired,
 };

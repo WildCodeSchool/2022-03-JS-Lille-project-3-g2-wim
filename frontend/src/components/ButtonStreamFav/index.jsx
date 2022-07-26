@@ -2,7 +2,7 @@ import IconFavAdd from "@assets/Images/fav-added.svg";
 import IconFav from "@assets/Images/fav-empty.svg";
 import useApi from "@services/useApi";
 import { useState } from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import SButtonStreamFav from "./style";
 
 export default function ButtonStreamFav({ id, isFav }) {
@@ -39,6 +39,6 @@ export default function ButtonStreamFav({ id, isFav }) {
   );
 }
 ButtonStreamFav.propTypes = {
-  id: propTypes.number.isRequired,
-  isFav: propTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  isFav: PropTypes.instanceOf(Array).isRequired,
 };

@@ -114,12 +114,16 @@ export default function SignUp() {
               <StepLabel
                 optional={
                   index === 2 ? (
-                    <Typography variant="caption">Dernière étape</Typography>
+                    <Typography component="span" variant="caption">
+                      Dernière étape
+                    </Typography>
                   ) : null
                 }
               >
                 {/* Case step 2, field 1 : field with options to manage the schoolClasses */}
-                <Typography>{step.label}</Typography>
+                <Typography component="span" variant="body2">
+                  {step.label}
+                </Typography>
               </StepLabel>
               <StepContent>
                 {step.field1.typeOption ? (
@@ -226,7 +230,9 @@ export default function SignUp() {
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} sx={{ p: 5 }}>
-            <Typography>Bienvenue chez WIM !</Typography>
+            <Typography component="span" variant="body2">
+              Bienvenue chez WIM !
+            </Typography>
             <Button size="large" variant="contained">
               Se connecter
             </Button>

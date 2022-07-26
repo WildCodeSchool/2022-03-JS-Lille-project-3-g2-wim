@@ -1,4 +1,4 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
 import ButtonStreamFav from "@components/ButtonStreamFav";
 import { Link } from "react-router-dom";
@@ -31,9 +31,9 @@ export default function LessonCard({ id, title, duration, musicStyle, isFav }) {
 }
 
 LessonCard.propTypes = {
-  id: propTypes.number.isRequired,
-  title: propTypes.string.isRequired,
-  duration: propTypes.number.isRequired,
-  musicStyle: propTypes.string.isRequired,
-  isFav: propTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  musicStyle: PropTypes.string.isRequired,
+  isFav: PropTypes.instanceOf(Array).isRequired,
 };
