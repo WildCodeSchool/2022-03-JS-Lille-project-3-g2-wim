@@ -60,10 +60,10 @@ export default function LessonList() {
             label="Identifiant de la Matière"
             source="schoolTopic_id"
           />
-          <TextField label="Titre" source="title" />
+          <TextField label="Titre de la leçon" source="title" />
           <TextField label="Genre" source="musicStyle" />
-          <TextField label="Emplacement" source="fileLocation" />
-          <NumberField label="Durée" source="duration" />
+          <TextField label="Fichier leçon mp3" source="fileLocation" />
+          <NumberField label="Durée en secondes" source="duration" />
           <TextField label="Identifiant de la classe" source="schoolClass_id" />
           <EditButton label="Editer" />
           <DeleteButton label="Supprimer" />
