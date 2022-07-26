@@ -22,7 +22,7 @@ export default function ChangePassword({ iduser }) {
     evt.preventDefault();
 
     if (formData.password !== formData.password2) {
-      toast.error(`Vos mots de passe sont incorrect`);
+      toast.error(`Vos mots de passe ne correspondent pas`);
       delete formData.password2;
     } else {
       delete formData.password2;
