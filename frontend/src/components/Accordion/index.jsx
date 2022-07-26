@@ -12,6 +12,13 @@ import SAccordion from "./style";
 
 export default function Accordion({ iduser }) {
   const [active, setActive] = useState(" ");
+  function hChange(d) {
+    if (active === " ") {
+      setActive(d);
+    } else {
+      setActive(" ");
+    }
+  }
   const datas = [
     {
       id: 1,
@@ -23,7 +30,7 @@ export default function Accordion({ iduser }) {
       id: 2,
       title: "Modifier le mot de passe",
       img: login,
-      components: <ChangePassword iduser={iduser} />,
+      components: <ChangePassword iduser={iduser} setActive={setActive} />,
     },
     {
       id: 6,
@@ -53,7 +60,9 @@ export default function Accordion({ iduser }) {
                 <button
                   className="containerbutton"
                   type="button"
-                  onClick={() => setActive(data.title)}
+                  onClick={() => {
+                    hChange(data.title);
+                  }}
                 >
                   <div className="logo">
                     <img src={data.img} alt="img" />
@@ -76,6 +85,7 @@ export default function Accordion({ iduser }) {
     </SAccordion>
   );
 }
+
 Accordion.propTypes = {
   iduser: PropTypes.string.isRequired,
 };

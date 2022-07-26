@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import useApi from "@services/useApi";
 import SChangePassword from "./style";
 
-export default function ChangePassword({ iduser }) {
+export default function ChangePassword({ iduser, setActive }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -32,6 +32,7 @@ export default function ChangePassword({ iduser }) {
         })
         .then(({ data }) => {
           setFormData(data);
+          setActive(" ");
           toast.success(`Votre mot de passe a été modifié`, {
             position: "bottom-center",
             autoClose: 5000,
@@ -103,4 +104,9 @@ export default function ChangePassword({ iduser }) {
 }
 ChangePassword.propTypes = {
   iduser: PropTypes.string.isRequired,
+  setActive: PropTypes.func,
+};
+
+ChangePassword.defaultProps = {
+  setActive: () => {},
 };
