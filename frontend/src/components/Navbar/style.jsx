@@ -54,4 +54,15 @@ export default styled.ul`
     background-repeat: no-repeat;
     background-size: contain;
   }
+  @media screen and (min-width: 760px) {
+    height: 10vh;
+  }
+  .selectedIconHome {
+    height: 50px;
+    width: 50px;
+  }
+  .selectedIconHeart {
+    height: 50px;
+    width: 50px;
+  }
 `;

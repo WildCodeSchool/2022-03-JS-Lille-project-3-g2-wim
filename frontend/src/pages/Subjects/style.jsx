@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export default styled.section`
+  margin-bottom: 12vh;
   h1 {
     font: var(--fontTitleBold);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--colorTextDarkGrey);
+    border-bottom: 2px solid var(--colorBackgroundMediumGrey);
+    width: 80vw;
+    margin: 1.8rem auto 1rem;
+    padding-bottom: 0.6rem;
   }
 
   a {
@@ -15,7 +17,11 @@ export default styled.section`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+    width: 80vw;
+    margin: auto;
+    gap: 0.3rem;
   }
 
   .iconImg {
@@ -30,9 +36,9 @@ export default styled.section`
   }
 
   .topic {
-    width: 25vw;
-    height: 13vh;
-    margin: 1vw;
+    width: 4.6rem;
+    height: 4.6rem;
+    margin: 0.2rem 0;
     padding: 3vw;
     border-radius: var(--radiusTopic);
     display: flex;
@@ -40,12 +46,14 @@ export default styled.section`
     justify-content: center;
     color: var(--colorTextlight);
     font: var(--fontTitleTopic);
+    font-size: 0.7rem;
     word-wrap: break-word;
     text-align: center;
     img {
-      padding-bottom: 1rem;
-      width: 4rem;
-      height: 4rem;
+      padding-bottom: 0.6rem;
+      padding-top: 0.6rem;
+      width: 3rem;
+      height: 3rem;
       margin: auto;
     }
   }
@@ -59,14 +67,34 @@ export default styled.section`
     background-color: var(--colorTopicBlueGreen);
   }
   @media screen and (min-width: 760px) {
+    margin-bottom: 17vh;
+    h1 {
+      width: 60vw;
+    }
+    .listContainer {
+      width: 60vw;
+      gap: 0.8rem;
+    }
     .topic {
-      width: 10vw;
-      padding: 2vw;
+      width: 13vw;
+      padding: 3vw;
+      margin: 0.5rem 0;
+      height: 20vh;
     }
     .iconImg {
       padding-bottom: 2rem;
-      width: 6rem;
-      height: 6rem;
+      width: 9rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 0.3rem 0;
+    }
+    .topic {
+      font-size: 1rem;
+      img {
+        width: 4.6rem;
+        height: 4.6rem;
+      }
     }
   }
 `;
