@@ -51,7 +51,7 @@ export default function SignIn() {
           required
           id="Mot de passe"
           name="password"
-          label="Confirmer le mot de passe"
+          label="Mot de passe"
           fullWidth
           variant="standard"
           value={formData.password}
