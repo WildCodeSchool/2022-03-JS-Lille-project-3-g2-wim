@@ -28,7 +28,7 @@ export default function Accordion({ iduser }) {
     },
     {
       id: 2,
-      title: "Modifier le mot de passe",
+      title: "Modifier le mail",
       img: login,
       components: <ChangePassword iduser={iduser} setActive={setActive} />,
     },

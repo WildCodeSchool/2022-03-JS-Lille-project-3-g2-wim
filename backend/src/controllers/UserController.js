@@ -1,4 +1,3 @@
-const bcrypt = require("bcrypt");
 const models = require("../models");
 
 class UserController {
@@ -38,11 +37,6 @@ class UserController {
 
   static edit = (req, res) => {
     const user = req.body;
-    user.password = bcrypt.hashSync(
-      user.password,
-      parseInt(process.env.CRYPT_ROUNDS, 10)
-    );
-    // TODO validations (length, format...)
 
     user.id = parseInt(req.params.id, 10);
 
