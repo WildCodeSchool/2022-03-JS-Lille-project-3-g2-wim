@@ -14,14 +14,16 @@ export default function FavCard({ id, title, duration, musicStyle }) {
   return (
     <SFavCard>
       <div className="cardOfFav">
-        <Link to={`/ecoute/${id}`}>
-          <img className="play" src={Play} alt="play button" />
-        </Link>
-        <div className="informations">
-          <h1 className="lesson"> {title}</h1>
-          <h2>
-            {musicStyle} / {timeInMinutes(duration)}
-          </h2>
+        <div className="play-and-infos-container">
+          <Link to={`/ecoute/${id}`}>
+            <img className="play" src={Play} alt="play button" />
+          </Link>
+          <div className="informations">
+            <h1 className="lesson"> {title}</h1>
+            <h2>
+              {musicStyle} / {timeInMinutes(duration)}
+            </h2>
+          </div>
         </div>
         <ButtonStreamFavList id={id} />
       </div>

@@ -5,12 +5,13 @@ export default styled.header`
   height: 8vh;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
 
   .avatar {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
-    margin: 0 1.6rem;
   }
   a {
     text-decoration: none;
@@ -20,6 +21,8 @@ export default styled.header`
     }
   }
   @media screen and (min-width: 760px) {
+    height: 11vh;
+    padding: 0 3rem;
     .avatar {
       width: 4rem;
       height: 4rem;

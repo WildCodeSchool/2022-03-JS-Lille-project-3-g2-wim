@@ -14,15 +14,16 @@ export default function LessonCard({ id, title, duration, musicStyle, isFav }) {
   return (
     <SLessonCard>
       <div className="cardOfLesson">
-        <Link to={`/ecoute/${id}`}>
-          <img className="play" src={Play} alt="play button" />
-        </Link>
-
-        <div className="informations">
-          <h1 className="lesson"> {title}</h1>
-          <h2>
-            {musicStyle} / {timeInMinutes(duration)}
-          </h2>
+        <div className="play-and-infos-container">
+          <Link to={`/ecoute/${id}`}>
+            <img className="play" src={Play} alt="play button" />
+          </Link>
+          <div className="informations">
+            <h1 className="lesson"> {title}</h1>
+            <h2>
+              {musicStyle} / {timeInMinutes(duration)}
+            </h2>
+          </div>
         </div>
         <ButtonStreamFav id={id} isFav={isFav} />
       </div>

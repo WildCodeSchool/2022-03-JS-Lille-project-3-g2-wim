@@ -106,6 +106,7 @@ export default function InfoSchool({ iduser, setActive }) {
     </SInfoSchool>
   );
 }
+
 InfoSchool.propTypes = {
   iduser: PropTypes.string.isRequired,
   setActive: PropTypes.func,

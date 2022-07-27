@@ -13,10 +13,10 @@ export default function LessonEdit() {
             label="Identifiant de l de la Matière"
             source="schoolTopic_id"
           />
-          <TextInput label="Titre" source="title" />
+          <TextInput label="Titre de la leçon" source="title" />
           <TextInput label="Genre" source="musicStyle" />
-          <TextInput label="Emplacement" source="fileLocation" />
-          <NumberInput label="Durée" source="duration" />
+          <TextInput label="Fichier leçon mp3" source="fileLocation" />
+          <NumberInput label="Durée en secondes" source="duration" />
           <NumberInput
             min="1"
             max="8"
