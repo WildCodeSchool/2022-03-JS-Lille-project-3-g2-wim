@@ -5,7 +5,7 @@ class TopicHaveLessonManager extends AbstractManager {
 
   findAllTopicHaveLesson(userId) {
     return this.connection.query(
-      `select sT.label, sT.icon , l.schoolTopic_id
+      `select distinct sT.label, sT.icon , l.schoolTopic_id
       from schoolTopic as sT
       INNER JOIN lesson as l ON sT.id = l.schoolTopic_id 
       INNER JOIN schoolClass as sC on l.schoolClass_id = sC.id
