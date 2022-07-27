@@ -46,8 +46,8 @@ export default function InfoSchool({ iduser, setActive }) {
     <SInfoSchool>
       <div className="contenair">
         <form className="registerForm" onSubmit={hSubmit}>
-          <label className="containerName" htmlFor="schoolOption">
-            <h3> Série</h3>
+          <label className="containerName" htmlFor="Série">
+            Série
             <input
               className="inputForm"
               type="text"
@@ -57,8 +57,8 @@ export default function InfoSchool({ iduser, setActive }) {
               onChange={hChangeFormData}
             />
           </label>
-          <label className="containerName" htmlFor="schoolOption">
-            <h3>Nom de l'école</h3>
+          <label className="containerName" htmlFor="Nom de l'école">
+            Nom de l'école
             <input
               className="inputForm"
               type="text"
@@ -69,7 +69,7 @@ export default function InfoSchool({ iduser, setActive }) {
             />
           </label>
           <label className="containerName" htmlFor="Numéro de téléphone">
-            <h3>Numéro de téléphone</h3>
+            Numéro de téléphone
             <input
               className="inputForm"
               type="tel"
@@ -80,7 +80,7 @@ export default function InfoSchool({ iduser, setActive }) {
             />
           </label>
           <button type="submit" className="button">
-            validez
+            Validez
           </button>
         </form>
       </div>

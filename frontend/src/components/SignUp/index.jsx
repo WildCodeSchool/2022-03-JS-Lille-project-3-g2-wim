@@ -124,7 +124,7 @@ export default function SignUp() {
               <StepContent>
                 {step.field1.typeOption ? (
                   <TextField
-                    required
+                    required={step.field1.isRequired}
                     label={step.field1.label}
                     fullWidth
                     variant="standard"
@@ -149,7 +149,7 @@ export default function SignUp() {
                   </TextField>
                 ) : (
                   <TextField
-                    required
+                    required={step.field1.isRequired}
                     label={step.field1.label}
                     fullWidth
                     variant="standard"
@@ -162,7 +162,7 @@ export default function SignUp() {
                   />
                 )}
                 <TextField
-                  required
+                  required={step.field2.isRequired}
                   label={step.field2.label}
                   fullWidth
                   variant="standard"
@@ -172,7 +172,7 @@ export default function SignUp() {
                 />
 
                 <TextField
-                  required
+                  required={step.field3.isRequired}
                   label={step.field3.label}
                   fullWidth
                   variant="standard"

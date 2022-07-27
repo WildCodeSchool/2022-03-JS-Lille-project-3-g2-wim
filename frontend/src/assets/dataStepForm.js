@@ -9,6 +9,7 @@ export default [
       label: "Nom",
       typeOption: false,
       type: "default",
+      isRequired: "required",
     },
     field2: {
       key: "firstname",
@@ -16,6 +17,7 @@ export default [
       label: "Prénom",
       typeOption: false,
       type: "default",
+      isRequired: "required",
     },
     field3: {
       key: "age",
@@ -23,6 +25,7 @@ export default [
       label: "Age",
       typeOption: false,
       type: "default",
+      isRequired: "required",
     },
   },
   {
@@ -35,6 +38,7 @@ export default [
       label: "Classe",
       typeOption: true,
       type: "default",
+      isRequired: "required",
     },
     field2: {
       key: "schoolOption",
@@ -42,6 +46,7 @@ export default [
       label: "Série",
       typeOption: false,
       type: "default",
+      isRequired: null,
     },
     field3: {
       key: "schoolName",
@@ -49,6 +54,7 @@ export default [
       label: "Nom de l'école",
       typeOption: false,
       type: "default",
+      isRequired: "required",
     },
   },
   {
@@ -61,6 +67,7 @@ export default [
       label: "Adresse mail",
       typeOption: false,
       type: "email",
+      isRequired: "required",
     },
     field2: {
       key: "password",
@@ -68,6 +75,7 @@ export default [
       label: "Mot de passe",
       typeOption: false,
       type: "password",
+      isRequired: "required",
     },
     field3: {
       key: "passwordBis",
@@ -75,6 +83,7 @@ export default [
       label: "Confirmer le mot de passe",
       typeOption: false,
       type: "password",
+      isRequired: "required",
     },
   },
 ];
