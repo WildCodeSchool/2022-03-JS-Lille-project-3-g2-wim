@@ -4,7 +4,7 @@ import { Reset } from "styled-reset";
 import { Provider } from "react-redux";
 import store from "@services/reducers";
 import { BrowserRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 
@@ -15,7 +15,15 @@ root.render(
     <Reset />
     <BrowserRouter>
       <Provider store={store}>
-        <ToastContainer />
+        <ToastContainer
+          position={toast.POSITION.BOTTOM_CENTER}
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+        />
         <App />
       </Provider>
     </BrowserRouter>
