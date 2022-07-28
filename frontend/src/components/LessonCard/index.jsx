@@ -1,10 +1,10 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
 import ButtonStreamFav from "@components/ButtonStreamFav";
 import { Link } from "react-router-dom";
 import SLessonCard from "./style";
 
-export default function LessonCard({ id, title, duration, musicStyle }) {
+export default function LessonCard({ id, title, duration, musicStyle, isFav }) {
   const timeInMinutes = (d) => {
     const min = Math.floor(d / 60);
     const durationForSec = d % 60;
@@ -25,15 +25,16 @@ export default function LessonCard({ id, title, duration, musicStyle }) {
             </h2>
           </div>
         </div>
-        <ButtonStreamFav id={id} />
+        <ButtonStreamFav id={id} isFav={isFav} />
       </div>
     </SLessonCard>
   );
 }
 
 LessonCard.propTypes = {
-  id: propTypes.number.isRequired,
-  title: propTypes.string.isRequired,
-  duration: propTypes.number.isRequired,
-  musicStyle: propTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  musicStyle: PropTypes.string.isRequired,
+  isFav: PropTypes.instanceOf(Array).isRequired,
 };

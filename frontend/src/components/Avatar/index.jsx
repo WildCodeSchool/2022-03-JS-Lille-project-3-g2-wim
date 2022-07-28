@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import SAvatar from "./style";
 
 export default function Avatar() {
-  const { name, avatar } = useSelector((store) => store.user);
+  const { firstname, avatar } = useSelector((store) => store.user);
   return (
     <SAvatar>
       <img
@@ -12,7 +12,7 @@ export default function Avatar() {
         }
         alt="User avatar"
       />
-      <p>{name || "Stranger"}</p>
+      <p>{firstname || "Stranger"}</p>
     </SAvatar>
   );
 }

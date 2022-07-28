@@ -1,5 +1,5 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
+import { useState } from "react";
 import useInterval from "@services/useInterval";
 import playImg from "@assets/play-solid.svg";
 import pauseImg from "@assets/pause-icon.svg";
@@ -16,7 +16,8 @@ export default function AudioPlayerLoading({
   durationAudio,
   maxDurationAudio,
   audio,
-  id,
+  idLesson,
+  isFav,
 }) {
   const [duration, setDuration] = useState(durationAudio);
   const [maxDuration] = useState(maxDurationAudio);
@@ -73,7 +74,7 @@ export default function AudioPlayerLoading({
   return (
     <SAudioPlayerLoading>
       <div className="favDownloadContainer">
-        <ButtonStreamFav id={id} />
+        <ButtonStreamFav id={idLesson} isFav={isFav} />
         <ButtonStreamDown audioUrl={audio.src} />
       </div>
       <section className="contain">
@@ -113,5 +114,6 @@ AudioPlayerLoading.propTypes = {
   durationAudio: PropTypes.number.isRequired,
   maxDurationAudio: PropTypes.number.isRequired,
   audio: PropTypes.instanceOf(Audio).isRequired,
-  id: PropTypes.number.isRequired,
+  idLesson: PropTypes.number.isRequired,
+  isFav: PropTypes.instanceOf(Array).isRequired,
 };

@@ -8,8 +8,10 @@ export default function InfoSchool({ iduser, setActive }) {
   const [formData, setFormData] = useState({
     schoolName: "",
     schoolOption: "",
-    phoneNumber: "",
+    schoolClass_Id: "",
   });
+  const [dataSchoolClass, setDataSchoolClass] = useState([]);
+
   const api = useApi();
 
   const hChangeFormData = (evt) => {
@@ -40,6 +42,11 @@ export default function InfoSchool({ iduser, setActive }) {
       .then(({ data }) => {
         setFormData(data);
       });
+    api
+      .get(`${import.meta.env.VITE_BACKEND_URL}/schoolClass`)
+      .then(({ data }) => {
+        setDataSchoolClass(data);
+      });
   }, []);
 
   return (
@@ -68,16 +75,28 @@ export default function InfoSchool({ iduser, setActive }) {
               onChange={hChangeFormData}
             />
           </label>
-          <label className="containerName" htmlFor="Numéro de téléphone">
-            Numéro de téléphone
-            <input
+          <label className="containerName" htmlFor="schoolClass_Id">
+            Niveau scolaire
+            <select
               className="inputForm"
-              type="tel"
-              name="phoneNumber"
-              placeholder="Numéro de téléphone"
-              value={formData.phoneNumber}
+              type="input"
+              name="schoolClass_Id"
+              placeholder="Niveau scolaire"
               onChange={hChangeFormData}
-            />
+            >
+              <option>{formData.label}</option>
+              {dataSchoolClass.map((dataSC) => {
+                return (
+                  <option
+                    value={dataSC.id}
+                    key={dataSC.id}
+                    onChange={hChangeFormData}
+                  >
+                    {dataSC.label}
+                  </option>
+                );
+              })}
+            </select>
           </label>
           <button type="submit" className="button">
             Validez

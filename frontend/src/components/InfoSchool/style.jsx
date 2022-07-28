@@ -23,6 +23,7 @@ export default styled.div`
     border-radius: 8px;
     margin-bottom: 1rem;
     color: var(--colorTextlight);
+    cursor: pointer;
   }
   .containerName {
     display: flex;

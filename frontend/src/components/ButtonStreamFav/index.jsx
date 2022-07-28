@@ -5,40 +5,31 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import SButtonStreamFav from "./style";
 
-export default function ButtonStreamFav({ id }) {
+export default function ButtonStreamFav({ id, isFav }) {
   const [favData] = useState({ lesson_id: id });
-  const [activ, setActive] = useState(false);
-  const [IconActive, setIconActiv] = useState(IconFav);
+  const [activ, setActive] = useState(isFav[0]);
+  const [iconActiv, setIconActiv] = useState(IconFav);
   const api = useApi();
+
   const addFavorite = () => {
     api
       .post(`${import.meta.env.VITE_BACKEND_URL}/favorite`, favData)
       .then(() => {
-        if (activ === false) {
-          setActive(true);
-          setIconActiv(IconFavAdd);
-        } else {
-          setActive(false);
-          setIconActiv(IconFav);
-        }
+        setActive(true);
+        setIconActiv(IconFav);
       });
   };
   const deleteFavorite = () => {
     api
       .delete(`${import.meta.env.VITE_BACKEND_URL}/favorite/${id}`)
       .then(() => {
-        if (activ === false) {
-          setActive(true);
-          setIconActiv(IconFavAdd);
-        } else {
-          setActive(false);
-          setIconActiv(IconFav);
-        }
+        setActive(false);
+        setIconActiv(IconFav);
       });
   };
 
   return (
-    <SButtonStreamFav imgFav={IconActive}>
+    <SButtonStreamFav imgFav={activ ? IconFavAdd : iconActiv}>
       <button
         alt="favorites"
         type="button"
@@ -49,4 +40,5 @@ export default function ButtonStreamFav({ id }) {
 }
 ButtonStreamFav.propTypes = {
   id: PropTypes.number.isRequired,
+  isFav: PropTypes.instanceOf(Array).isRequired,
 };

@@ -1,6 +1,7 @@
 import propTypes from "prop-types";
 import Play from "@assets/Images/play-solid-3.svg";
 import ButtonStreamFavList from "@components/ButtonStreamFavList";
+import { Link } from "react-router-dom";
 import SFavCard from "./style";
 
 export default function FavCard({ id, title, duration, musicStyle }) {
@@ -14,7 +15,9 @@ export default function FavCard({ id, title, duration, musicStyle }) {
     <SFavCard>
       <div className="cardOfFav">
         <div className="play-and-infos-container">
-          <img className="play" src={Play} alt="play button" />
+          <Link to={`/ecoute/${id}`}>
+            <img className="play" src={Play} alt="play button" />
+          </Link>
           <div className="informations">
             <h1 className="lesson"> {title}</h1>
             <h2>

@@ -9,7 +9,6 @@ export default styled.div`
     align-items: center;
     justify-content: flex-start;
     margin: 4.5rem 2.4rem;
-    width: 100%;
     img {
       width: 0.8rem;
       padding: 0 2rem 0 0;

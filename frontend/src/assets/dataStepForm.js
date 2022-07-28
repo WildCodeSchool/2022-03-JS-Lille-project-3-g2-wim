@@ -43,7 +43,7 @@ export default [
     field2: {
       key: "schoolOption",
       name: "schoolOption",
-      label: "Série",
+      label: "Option",
       typeOption: false,
       type: "default",
       isRequired: null,
