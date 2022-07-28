@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import useApi from "@services/useApi";
-import SChangePassword from "./style";
+import SChangeMail from "./style";
 
-export default function ChangePassword({ iduser, setActive }) {
+export default function ChangeMail({ iduser, setActive }) {
   const [formData, setFormData] = useState({
     email: "",
-    password: "",
-    password2: "",
   });
   const api = useApi();
 
@@ -20,30 +18,15 @@ export default function ChangePassword({ iduser, setActive }) {
 
   const hSubmit = (evt) => {
     evt.preventDefault();
-
-    if (formData.password !== formData.password2) {
-      toast.error(`Vos mots de passe ne correspondent pas`);
-      delete formData.password2;
-    } else {
-      delete formData.password2;
-      api
-        .put(`${import.meta.env.VITE_BACKEND_URL}/users/${iduser}`, {
-          ...formData,
-        })
-        .then(({ data }) => {
-          setFormData(data);
-          setActive(" ");
-          toast.success(`Votre mot de passe a été modifié`, {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        });
-    }
+    api
+      .put(`${import.meta.env.VITE_BACKEND_URL}/users/${iduser}`, {
+        ...formData,
+      })
+      .then(({ data }) => {
+        setFormData(data);
+        setActive(" ");
+        toast.success(`Vos modifications ont bien été enregistrées`);
+      });
   };
 
   useEffect(() => {
@@ -55,7 +38,7 @@ export default function ChangePassword({ iduser, setActive }) {
   }, []);
 
   return (
-    <SChangePassword>
+    <SChangeMail>
       <div className="contenair">
         <form className="registerForm" onSubmit={hSubmit}>
           <label className="containerName" htmlFor="Adresse mail">
@@ -69,44 +52,20 @@ export default function ChangePassword({ iduser, setActive }) {
               onChange={hChangeFormData}
             />
           </label>
-          <label className="containerName" htmlFor="Nouveau mot de passe">
-            Nouveau mot de passe
-            <input
-              className="inputForm"
-              type="password"
-              id="pass"
-              name="password"
-              placeholder="Mot de passe"
-              onChange={hChangeFormData}
-            />
-          </label>
-          <label
-            className="containerName"
-            htmlFor="Confirmez le nouveau mot de passe"
-          >
-            Confirmez le nouveau mot de passe
-            <input
-              className="inputForm"
-              type="password"
-              id="pass2"
-              name="password2"
-              placeholder="Nouveau mot de passe"
-              onChange={hChangeFormData}
-            />
-          </label>
+
           <button type="submit" className="button">
             Validez
           </button>
         </form>
       </div>
-    </SChangePassword>
+    </SChangeMail>
   );
 }
-ChangePassword.propTypes = {
+ChangeMail.propTypes = {
   iduser: PropTypes.string.isRequired,
   setActive: PropTypes.func,
 };
 
-ChangePassword.defaultProps = {
+ChangeMail.defaultProps = {
   setActive: () => {},
 };
